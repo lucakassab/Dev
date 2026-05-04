@@ -1,0 +1,191 @@
+.card {
+  width: min(100%, 480px);
+  min-width: 0;
+  padding: 38px;
+  border-radius: var(--radius-lg);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateY(calc(-1px * var(--card-lift) * var(--card-motion-effects-enabled)));
+
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--card-fill-hue-shift)) calc(84% * var(--card-fill-saturation)) 70% / calc(0.14 * var(--card-fill-alpha) * var(--card-fill-effects-enabled))), hsl(calc(293 + var(--card-fill-hue-shift)) calc(48% * var(--card-fill-saturation)) 92% / calc(0.035 * var(--card-fill-alpha) * var(--card-fill-effects-enabled))) 42%, hsl(calc(262 + var(--card-fill-hue-shift)) calc(83% * var(--card-fill-saturation)) 66% / calc(0.075 * var(--card-fill-alpha) * var(--card-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(292 + var(--card-fill-hue-shift)) calc(84% * var(--card-fill-saturation)) 73% / calc(0.16 * var(--card-fill-alpha) * var(--card-fill-effects-enabled))), transparent 32%);
+
+  border: 1px solid hsl(calc(293 + var(--card-border-hue-shift)) calc(84% * var(--card-border-saturation)) min(100%, calc(61% * var(--card-border-brightness))) / calc(0.24 * var(--card-border-line-strength) * var(--card-border-alpha)));
+
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--card-border-hue-shift)) calc(86% * var(--card-border-saturation)) min(100%, calc(73% * var(--card-border-brightness))) / calc(0.24 * var(--card-border-line-strength) * var(--card-border-alpha))),
+    inset 0 -26px 56px rgba(25, 10, 50, 0.26),
+    inset 0 0 calc(28px * var(--card-border-glow-inner-blur) * var(--card-border-spread)) hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-inner-glow-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-inner-glow-saturation)) min(100%, calc(61% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.08 * var(--card-border-strength) * var(--card-inner-glow-alpha))),
+    0 0 0 var(--card-border-outline-width) hsl(calc(293 + var(--card-border-hue-shift)) calc(84% * var(--card-border-saturation)) min(100%, calc(61% * var(--card-border-brightness))) / calc(0.16 * var(--card-border-line-strength) * var(--card-border-alpha))),
+    0 0 calc(28px * var(--card-border-glow-outer-blur) * var(--card-border-spread) / var(--card-outer-glow-sharpness)) hsl(calc(262 + var(--card-border-hue-shift)) calc(91% * var(--card-border-saturation)) min(100%, calc(65% * var(--card-border-brightness))) / calc(0.20 * var(--card-border-strength) * var(--card-outer-glow-alpha))),
+    0 0 calc(94px * var(--card-border-glow-outer-blur) * var(--card-border-spread) / var(--card-outer-glow-sharpness)) hsl(calc(293 + var(--card-border-hue-shift)) calc(84% * var(--card-border-saturation)) min(100%, calc(61% * var(--card-border-brightness))) / calc(0.10 * var(--card-border-strength) * var(--card-outer-glow-alpha))),
+    0 26px 90px rgba(0, 0, 0, 0.54);
+
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+
+  text-align: center;
+  overflow-wrap: anywhere;
+  transition:
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    background 0.22s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--card-border-line-width);
+
+  background:
+    linear-gradient(
+      135deg,
+      hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(73% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.82 * var(--card-border-line-strength) * var(--card-border-alpha))) 0%,
+      hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(56% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.80 * var(--card-border-line-strength) * var(--card-border-alpha))) 16%,
+      hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(74% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(47% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.48 * var(--card-border-line-strength) * var(--card-border-alpha))) 36%,
+      hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(61% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.28 * var(--card-border-line-strength) * var(--card-border-alpha))) 58%,
+      hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(66% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.70 * var(--card-border-line-strength) * var(--card-border-alpha))) 80%,
+      hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(56% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.62 * var(--card-border-line-strength) * var(--card-border-alpha))) 100%
+    );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+  filter:
+    saturate(calc(1 + var(--card-border-multiplier) * 0.18))
+    brightness(calc(1 + var(--card-border-multiplier) * 0.035));
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--radius-lg) - 1px);
+
+  background:
+    linear-gradient(120deg, hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(56% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.14 * var(--card-border-strength) * var(--card-fill-alpha) * var(--card-fill-effects-enabled) * var(--card-border-fill-alpha) * var(--card-border-fill-diagonal-alpha))), transparent 24%, transparent 64%, hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(66% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.09 * var(--card-border-strength) * var(--card-fill-alpha) * var(--card-fill-effects-enabled) * var(--card-border-fill-alpha) * var(--card-border-fill-diagonal-alpha)))),
+    radial-gradient(circle at 20% 0%, hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(73% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.13 * var(--card-border-strength) * var(--card-fill-alpha) * var(--card-fill-effects-enabled) * var(--card-border-fill-alpha) * var(--card-border-fill-spot-alpha))), transparent 24%),
+    radial-gradient(circle at 78% 100%, hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-border-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-border-saturation)) min(100%, calc(66% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.12 * var(--card-border-strength) * var(--card-fill-alpha) * var(--card-fill-effects-enabled) * var(--card-border-fill-alpha) * var(--card-border-fill-spot-alpha))), transparent 32%);
+
+  pointer-events: none;
+  z-index: -1;
+  filter: var(--card-border-filter);
+}
+
+.card.is-selected {
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--card-border-hue-shift)) calc(86% * var(--card-border-saturation)) min(100%, calc(73% * var(--card-border-brightness))) / calc(0.30 * var(--card-border-line-strength) * var(--card-border-alpha))),
+    inset 0 -28px 64px rgba(25, 10, 50, 0.34),
+    inset 0 0 calc(34px * var(--card-border-glow-inner-blur) * var(--card-border-spread)) hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-inner-glow-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-inner-glow-saturation)) min(100%, calc(61% * var(--card-neon-vibrance) * var(--card-border-brightness))) / calc(0.12 * var(--card-border-strength) * var(--card-inner-glow-alpha))),
+    0 0 0 var(--card-border-outline-width) hsl(calc(293 + var(--card-border-hue-shift)) calc(84% * var(--card-border-saturation)) min(100%, calc(61% * var(--card-border-brightness))) / calc(0.28 * var(--card-border-line-strength) * var(--card-border-alpha))),
+    0 0 calc(34px * var(--card-border-glow-outer-blur) * var(--card-border-spread) / var(--card-outer-glow-sharpness)) hsl(calc(262 + var(--card-border-hue-shift)) calc(91% * var(--card-border-saturation)) min(100%, calc(65% * var(--card-border-brightness))) / calc(0.36 * var(--card-border-strength) * var(--card-outer-glow-alpha))),
+    0 0 calc(82px * var(--card-border-glow-outer-blur) * var(--card-border-spread) / var(--card-outer-glow-sharpness)) hsl(calc(262 + var(--card-border-hue-shift)) calc(91% * var(--card-border-saturation)) min(100%, calc(65% * var(--card-border-brightness))) / calc(0.27 * var(--card-border-strength) * var(--card-outer-glow-alpha))),
+    0 0 calc(150px * var(--card-border-glow-outer-blur) * var(--card-border-spread) / var(--card-outer-glow-sharpness)) hsl(calc(293 + var(--card-border-hue-shift)) calc(84% * var(--card-border-saturation)) min(100%, calc(61% * var(--card-border-brightness))) / calc(0.16 * var(--card-border-strength) * var(--card-outer-glow-alpha))),
+    0 32px 110px rgba(0, 0, 0, 0.62);
+}
+
+.eyebrow {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 14px;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+
+  color: hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(58% * var(--card-neon-vibrance) * var(--card-text-brightness) + 18% * var(--card-text-highlight-alpha))) / var(--card-text-fill-alpha));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--card-text-stroke-width) * 1px) rgb(35 7 61 / var(--card-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--card-text-separation-blur) * 1px) rgb(0 0 0 / var(--card-text-separation-alpha)),
+    0 0 0 hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(76% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.32 * var(--card-text-crisp-alpha) * var(--card-text-effects-enabled))),
+    0 0 1px hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(73% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.78 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 2px hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(73% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.28 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 calc(7px * var(--card-text-glow-blur)) hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(56% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.40 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled))),
+    0 0 calc(14px * var(--card-text-glow-blur)) hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(66% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.24 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled)));
+
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default;
+}
+
+.card h1 {
+  font-size: clamp(2.15rem, 5vw, 3.15rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  margin-bottom: 16px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+
+  color: hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(86% * var(--card-neon-saturation) * var(--card-text-saturation)) min(98%, calc(60% * var(--card-neon-vibrance) * var(--card-text-brightness) + 20% * var(--card-text-highlight-alpha))) / var(--card-text-fill-alpha));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--card-text-stroke-width) * 1px) rgb(35 7 61 / var(--card-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--card-text-separation-blur) * 1px) rgb(0 0 0 / var(--card-text-separation-alpha)),
+    0 0 0 hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(98%, calc(78% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.38 * var(--card-text-crisp-alpha) * var(--card-text-effects-enabled))),
+    0 0 1px hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(73% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.84 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 2px hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(73% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.36 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 calc(8px * var(--card-text-glow-blur)) hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(56% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.46 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled))),
+    0 0 calc(17px * var(--card-text-glow-blur)) hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(66% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.30 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled))),
+    0 0 calc(29px * var(--card-text-glow-blur)) hsl(calc(258 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(61% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.20 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled)));
+
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+
+  color: hsl(calc(288 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(78% * var(--card-neon-saturation) * var(--card-text-saturation)) min(94%, calc(58% * var(--card-neon-vibrance) * var(--card-text-brightness) + 14% * var(--card-text-highlight-alpha))) / calc(0.96 * var(--card-text-fill-alpha)));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--card-text-stroke-width) * 1px) rgb(35 7 61 / var(--card-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--card-text-separation-blur) * 1px) rgb(0 0 0 / var(--card-text-separation-alpha)),
+    0 0 0 hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(74% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.28 * var(--card-text-crisp-alpha) * var(--card-text-effects-enabled))),
+    0 0 1px hsl(calc(292 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(96%, calc(73% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.58 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 2px hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(56% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.22 * var(--card-text-glow-intensity) * var(--card-text-effects-enabled))),
+    0 0 calc(8px * var(--card-text-glow-blur)) hsl(calc(293 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(84% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(56% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.22 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled))),
+    0 0 calc(14px * var(--card-text-glow-blur)) hsl(calc(262 + var(--card-neon-hue-shift) + var(--card-text-hue-shift)) calc(83% * var(--card-neon-saturation) * var(--card-text-saturation)) min(92%, calc(66% * var(--card-neon-vibrance) * var(--card-text-brightness))) / calc(0.14 * var(--card-text-glow-alpha) * var(--card-text-effects-enabled)));
+
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default;
+}

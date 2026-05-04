@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio 3D — LuKassab</title>
+  <meta name="description" content="Galeria de cenas 3D, archviz, estudos em Unreal Engine e experiências interativas da LuKassab." />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="LuKassab Home">
+      <span class="brand-mark">LK</span>
+      <span>LuKassab</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html">Home</a>
+      <a class="is-active" href="portfolio.html">Portfólio</a>
+      <a href="orcamento.html">Orçamento</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero portfolio-hero">
+      <p class="eyebrow">Portfólio 3D</p>
+      <h1>Cenas, atmosferas e experiências visuais preparadas para receber renders reais.</h1>
+      <p>
+        A galeria começa com espaços visuais nomeados para organizar archviz, estudos em Unreal Engine,
+        tours 360° e protótipos interativos.
+      </p>
+    </section>
+
+    <section class="portfolio-tabs" role="tablist" aria-label="Painéis do portfólio" data-portfolio-tabs>
+      <button class="select-chip is-selected" id="tab-images" type="button" role="tab" aria-selected="true" aria-controls="portfolio-images" data-portfolio-tab="portfolio-images">Imagens 3D</button>
+      <button class="select-chip" id="tab-apps" type="button" role="tab" aria-selected="false" aria-controls="portfolio-apps" data-portfolio-tab="portfolio-apps">Apps</button>
+      <button class="select-chip" id="tab-tours" type="button" role="tab" aria-selected="false" aria-controls="portfolio-tours" data-portfolio-tab="portfolio-tours">Tours virtuais</button>
+    </section>
+
+    <section class="portfolio-gallery portfolio-panel" id="portfolio-images" role="tabpanel" aria-labelledby="tab-images" aria-label="Galeria de imagens 3D" data-portfolio-panel>
+      <article class="portfolio-tile portfolio-tile-large">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Sala_Vista_Cozinha_1.png" alt="Render 3D de sala integrada com vista para cozinha" loading="eager" />
+        </div>
+        <div class="tile-content">
+          <h2>Ambiente Integrado Contemporâneo</h2>
+          <p>Archviz · Interior</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Archviz</span>
+            <span class="mini-chip">Interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Sala_Vista_Janela_1.png" alt="Render 3D de sala com vista para janela durante o dia" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Living com Iluminação Natural</h2>
+          <p>Archviz · Iluminação natural</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Archviz</span>
+            <span class="mini-chip">Interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Sala_Vista_Janela_Noite_3.png" alt="Render 3D de sala com vista para janela em iluminação noturna" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Living Noturno Cinematográfico</h2>
+          <p>Archviz · Iluminação noturna</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Archviz</span>
+            <span class="mini-chip">Interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/img_quarto_1.png" alt="Render 3D de quarto residencial" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Suíte Residencial Minimalista</h2>
+          <p>Archviz · Interior</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Archviz</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/qrrto_3.png" alt="Render 3D de estudo visual para quarto" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Estudo de Composição para Dormitório</h2>
+          <p>Archviz · Estudo de cena</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Archviz</span>
+            <span class="mini-chip">Interior</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Cidade_Post_Human_1.png" alt="Render 3D conceitual de cidade pós-humana" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Paisagem Urbana Pós-Humana</h2>
+          <p>3D · Cena conceitual</p>
+          <div class="chip-row">
+            <span class="mini-chip">3D</span>
+            <span class="mini-chip">Concept</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="portfolio-gallery portfolio-panel" id="portfolio-apps" role="tabpanel" aria-labelledby="tab-apps" aria-label="Portfólio de aplicativos" data-portfolio-panel hidden>
+      <article class="portfolio-tile portfolio-tile-large visual-pwa">
+        <div class="tile-visual" aria-hidden="true"></div>
+        <div class="tile-content">
+          <h2>Configurador de Tour Virtual</h2>
+          <p>Web app para estimativa de escopo, mídias, plataformas e valor de projeto.</p>
+          <div class="chip-row">
+            <span class="mini-chip">Web</span>
+            <span class="mini-chip">JavaScript</span>
+            <span class="mini-chip">UI</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile visual-circuit">
+        <div class="tile-visual" aria-hidden="true"></div>
+        <div class="tile-content">
+          <h2>Controle TCP</h2>
+          <p>Interface para comunicação entre tablet e experiência em Unreal Engine.</p>
+          <div class="chip-row">
+            <span class="mini-chip">TCP</span>
+            <span class="mini-chip">Tablet</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile visual-gallery">
+        <div class="tile-visual" aria-hidden="true"></div>
+        <div class="tile-content">
+          <h2>Painel de Mídias</h2>
+          <p>Aplicativo de organização e acionamento de imagens, áudios e estados interativos.</p>
+          <div class="chip-row">
+            <span class="mini-chip">Python</span>
+            <span class="mini-chip">Ferramenta</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="portfolio-gallery portfolio-panel" id="portfolio-tours" role="tabpanel" aria-labelledby="tab-tours" aria-label="Portfólio de tours virtuais" data-portfolio-panel hidden>
+      <article class="portfolio-tile portfolio-tile-large">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Sala_Vista_Janela_1.png" alt="Cena de sala preparada para tour virtual 360 graus" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Experiência Residencial Imersiva</h2>
+          <p>Fluxo de visita virtual para ambientes internos com navegação entre pontos de vista.</p>
+          <div class="chip-row">
+            <span class="mini-chip">360°</span>
+            <span class="mini-chip">Archviz</span>
+            <span class="mini-chip">Web</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile">
+        <div class="tile-visual">
+          <img src="Portfolio_3D/Sala_Vista_Janela_Noite_3.png" alt="Cena noturna usada como variação de iluminação para tour virtual" loading="lazy" />
+        </div>
+        <div class="tile-content">
+          <h2>Experiência com Cenários de Iluminação</h2>
+          <p>Experiência com alternância de estados visuais para comparar atmosfera diurna e noturna.</p>
+          <div class="chip-row">
+            <span class="mini-chip">Interativo</span>
+            <span class="mini-chip">Lighting</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="portfolio-tile visual-orbit">
+        <div class="tile-visual" aria-hidden="true"></div>
+        <div class="tile-content">
+          <h2>Tour VR Meta Quest</h2>
+          <p>Estrutura de experiência imersiva para headset, com navegação simples ou hotspots.</p>
+          <div class="chip-row">
+            <span class="mini-chip">VR</span>
+            <span class="mini-chip">Meta Quest</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LuKassab</span>
+    <span>3D · VR · Web · Unreal Engine</span>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

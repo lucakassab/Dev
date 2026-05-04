@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etapas Guiadas — LuKassab</title>
+  <meta name="description" content="Configure um projeto de tour virtual por etapas, escolhendo navegação, plataformas, comunicação, mídias e opções extras com prévia em tempo real." />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="LuKassab Home">
+      <span class="brand-mark">LK</span>
+      <span>LuKassab</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a class="is-active" href="orcamento.html">Orçamento</a>
+    </nav>
+  </header>
+
+  <main class="page-shell budget-page guided-page">
+    <section class="page-hero">
+      <p class="eyebrow">Layout experimental C</p>
+      <h1>Orçamento guiado para definir escopo sem confusão.</h1>
+    </section>
+
+    <nav class="budget-variant-switch" aria-label="Alternar layout de orçamento">
+      <a href="orcamento.html">Atual</a>
+      <a href="orcamento-dashboard.html">Painel</a>
+      <a href="orcamento-etapas.html">Etapas</a>
+      <a class="is-active" href="etapas-guiadas.html">Guiado</a>
+      <a href="orcamento-assistido.html">Assistido</a>
+    </nav>
+
+    <section class="guided-flow-summary" aria-label="Resumo das etapas guiadas">
+      <div>
+        <strong>1. Projeto</strong>
+        <span>Nome e contato.</span>
+      </div>
+      <div>
+        <strong>2. Mídias</strong>
+        <span>Imagens e áudios.</span>
+      </div>
+      <div>
+        <strong>3. Plataformas</strong>
+        <span>Onde o tour roda.</span>
+      </div>
+      <div>
+        <strong>4. Recursos</strong>
+        <span>Navegação, PWA e conexão.</span>
+      </div>
+      <div>
+        <strong>5. Detalhes</strong>
+        <span>Observações finais.</span>
+      </div>
+    </section>
+
+    <section class="guided-budget-layout" id="guided-budget">
+      <form class="guided-form" aria-label="Formulário guiado de orçamento">
+        <section class="guided-step">
+          <button class="guided-help" type="button" data-help-tooltip="Informe um nome curto para identificar o orçamento e um e-mail para associar a configuração ao cliente.">?</button>
+          <span class="guided-step-index">01</span>
+          <div>
+            <h2>Projeto</h2>
+            <p>Identifique o orçamento antes de configurar as escolhas técnicas.</p>
+          </div>
+          <label class="guided-field">
+            <span>Nome do projeto</span>
+            <input type="text" placeholder="Ex.: Tour Apartamento Decorado" data-guided-project-name />
+          </label>
+          <label class="guided-field">
+            <span>E-mail para identificação</span>
+            <input type="email" inputmode="email" autocomplete="email" placeholder="cliente@email.com" data-guided-email />
+          </label>
+        </section>
+
+        <section class="guided-step">
+          <button class="guided-help" type="button" data-help-tooltip="Informe quantas imagens 360° e áudios entram no projeto. Esses itens entram no cálculo por unidade e não dependem da plataforma escolhida.">?</button>
+          <span class="guided-step-index">02</span>
+          <div>
+            <h2>Número de mídias</h2>
+            <p>Defina primeiro o volume de imagens e áudios do projeto.</p>
+          </div>
+          <div class="guided-media-grid">
+            <div class="quantity-control">
+              <span>Imagens 360° – R$ 200 por mídia</span>
+              <div class="quantity-input-row">
+                <div class="site-spinbox">
+                  <button type="button" data-guided-step-for="images" data-step="-1" aria-label="Diminuir imagens">-</button>
+                  <input type="text" inputmode="numeric" min="0" max="999" maxlength="3" value="10" data-guided-qty="images" readonly aria-readonly="true" />
+                  <button type="button" data-guided-step-for="images" data-step="1" aria-label="Aumentar imagens">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="quantity-control">
+              <span>Áudios – R$ 200 por áudio</span>
+              <div class="quantity-input-row">
+                <div class="site-spinbox">
+                  <button type="button" data-guided-step-for="audios" data-step="-1" aria-label="Diminuir áudios">-</button>
+                  <input type="text" inputmode="numeric" min="0" max="999" maxlength="3" value="3" data-guided-qty="audios" readonly aria-readonly="true" />
+                  <button type="button" data-guided-step-for="audios" data-step="1" aria-label="Aumentar áudios">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="guided-inline-note">As mídias entram no cálculo em tempo real: cada imagem 360° e cada áudio adiciona R$ 200 ao orçamento.</p>
+        </section>
+
+        <section class="guided-step" data-guided-platform-step>
+          <button class="guided-help" type="button" data-help-tooltip="Selecione apenas os destinos em que o projeto deve rodar. PWA, navegação e comunicação ficam no card de recursos.">?</button>
+          <span class="guided-step-index">03</span>
+          <div>
+            <h2>Plataformas de entrega</h2>
+            <p>Marque todos os dispositivos e sistemas onde o projeto precisa funcionar.</p>
+          </div>
+          <div class="guided-chip-grid" aria-label="Plataformas do projeto">
+            <button class="guided-choice is-selected" type="button" data-guided-platform="meta" aria-pressed="true">Meta Quest</button>
+            <button class="guided-choice" type="button" data-guided-platform="tablet" aria-pressed="false">Tablet</button>
+            <button class="guided-choice" type="button" data-guided-platform="web" aria-pressed="false">Web</button>
+            <button class="guided-choice" type="button" data-guided-platform="android" aria-pressed="false">Android</button>
+            <button class="guided-choice" type="button" data-guided-platform="ios" aria-pressed="false">iOS</button>
+            <button class="guided-choice" type="button" data-guided-platform="windows" aria-pressed="false">Windows</button>
+          </div>
+          <p class="guided-warning" data-guided-platform-warning hidden>Selecione pelo menos uma plataforma para continuar.</p>
+          <p class="guided-inline-note">PWA deixou de ser plataforma. Caso seja necessário, marque esse recurso no próximo card.</p>
+        </section>
+
+        <section class="guided-step">
+          <button class="guided-help" type="button" data-help-tooltip="Selecione os recursos que mudam a complexidade do projeto, como navegação, PWA, comunicação entre dispositivos, hotspots e painéis.">?</button>
+          <span class="guided-step-index">04</span>
+          <div>
+            <h2>Recursos</h2>
+            <p>Escolha comportamentos e capacidades adicionais da experiência.</p>
+          </div>
+          <div class="guided-resource-stack">
+            <div class="guided-resource-group">
+              <span class="guided-control-label">Modo de navegação</span>
+              <label class="guided-nav-switch">
+                <span>Navegação simples</span>
+                <input type="checkbox" data-guided-nav-switch aria-label="Alternar para navegação complexa" />
+                <i aria-hidden="true"></i>
+                <span>Navegação complexa</span>
+              </label>
+              <p class="guided-price-hint">Simples cobre o mínimo necessário por R$ 2.500. Complexa inclui hotspots ou interface mais sofisticada por R$ 5.000.</p>
+            </div>
+
+            <div class="guided-resource-group">
+              <span class="guided-control-label">Comunicação entre dispositivos</span>
+              <div class="guided-communication-grid" role="radiogroup" aria-label="Comunicação entre dispositivos">
+                <button class="guided-radio is-selected" type="button" data-guided-communication="none" aria-pressed="true">
+                  <strong>Sem comunicação</strong>
+                  <span>Plataformas independentes.</span>
+                </button>
+                <button class="guided-radio" type="button" data-guided-communication="tcp" aria-pressed="false">
+                  <strong>Comunicação TCP</strong>
+                  <span>Tablet controla recursos da experiência VR.</span>
+                </button>
+                <button class="guided-radio" type="button" data-guided-communication="bluetooth" aria-pressed="false">
+                  <strong>Sincronização Bluetooth</strong>
+                  <span>Sincronização entre dispositivos compatíveis.</span>
+                </button>
+                <button class="guided-radio" type="button" data-guided-communication="webrtc" aria-pressed="false">
+                  <strong>Comunicação WebRTC</strong>
+                  <span>Comunicação web em tempo real.</span>
+                </button>
+              </div>
+              <p class="guided-inline-note">TCP pressupõe Meta Quest + Tablet. Bluetooth e WebRTC direcionam a prévia para uma solução web.</p>
+            </div>
+
+            <div class="guided-resource-group">
+              <span class="guided-control-label">Recursos adicionais</span>
+              <div class="guided-chip-grid guided-extra-grid" aria-label="Recursos adicionais do projeto">
+                <button class="guided-choice" type="button" data-guided-extra="pwa-install" aria-pressed="false">PWA instalável</button>
+                <button class="guided-choice" type="button" data-guided-extra="hotspots" aria-pressed="false">Hotspots informativos</button>
+                <button class="guided-choice" type="button" data-guided-extra="control-panel" aria-pressed="false">Painel de controle</button>
+                <button class="guided-choice" type="button" data-guided-extra="lighting-states" aria-pressed="false">Estados de iluminação</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="guided-step">
+          <button class="guided-help" type="button" data-help-tooltip="Descreva objetivos, referências, ambientes e necessidades importantes para refinar o escopo comercial.">?</button>
+          <span class="guided-step-index">05</span>
+          <div>
+            <h2>Detalhes do projeto</h2>
+            <p>Finalize com observações importantes para alinhar o escopo.</p>
+          </div>
+
+          <label class="guided-field">
+            <span>Detalhes do projeto</span>
+            <textarea rows="4" placeholder="Descreva objetivos, ambientes, referências, plataformas desejadas ou observações importantes." data-guided-project-details></textarea>
+          </label>
+        </section>
+      </form>
+
+      <aside class="guided-preview" aria-label="Prévia do orçamento">
+        <button class="guided-help" type="button" data-help-tooltip="Esta prévia atualiza automaticamente a opção estimada, os itens selecionados e o valor conforme as escolhas do formulário.">?</button>
+        <p class="eyebrow">Prévia em tempo real</p>
+        <h2 data-guided-preview-title>Projeto sem nome</h2>
+        <p data-guided-preview-option>Meta Quest com navegação simples</p>
+        <div class="chip-row summary-chips" data-guided-preview-chips aria-label="Escolhas selecionadas"></div>
+
+        <div class="guided-preview-list">
+          <div>
+            <span>Solução base</span>
+            <strong data-guided-base>R$ 2.500</strong>
+          </div>
+          <div>
+            <span>Imagens 360°</span>
+            <strong data-guided-images>R$ 2.000</strong>
+          </div>
+          <div>
+            <span>Áudios</span>
+            <strong data-guided-audios>R$ 600</strong>
+          </div>
+        </div>
+
+        <div class="guided-preview-total">
+          <span>Valor estimado</span>
+          <strong data-guided-total>R$ 5.100</strong>
+        </div>
+
+        <div class="guided-preview-note" data-guided-note>
+          A seleção atual usa a opção base mais próxima do orçamento tradicional.
+        </div>
+
+        <button class="glass-button glass-button-primary full-button" type="button" data-guided-send>Enviar orçamento</button>
+        <p class="copy-status" data-guided-status aria-live="polite"></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LuKassab</span>
+    <span>3D · VR · Web · Unreal Engine</span>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

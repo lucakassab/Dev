@@ -1,0 +1,174 @@
+:root {
+  --input-text-effects-enabled: 1;
+  --input-border-effects-enabled: 1;
+  --input-fill-effects-enabled: 1;
+  --input-motion-effects-enabled: 1;
+  --input-text-glow-intensity: 0.6;
+  --input-text-glow-alpha: 0.18;
+  --input-text-glow-blur: 0.6;
+  --input-text-hue-shift: 0;
+  --input-text-saturation: 1;
+  --input-text-brightness: 1.15;
+  --input-text-fill-alpha: 1;
+  --input-placeholder-alpha: 0.62;
+  --input-border-glow-intensity: 1.2;
+  --input-border-multiplier: 1;
+  --input-border-strength: calc(var(--input-border-glow-intensity) * var(--input-border-effects-enabled));
+  --input-border-line-strength: calc(var(--input-border-glow-intensity) * var(--input-border-multiplier) * var(--input-border-effects-enabled));
+  --input-border-line-width: calc(1px + var(--input-border-multiplier) * 0.22px);
+  --input-border-vibrance: 1.15;
+  --input-border-saturation: 1;
+  --input-border-brightness: 1;
+  --input-border-hue-shift: 0;
+  --input-border-glow-inner-blur: 0.65;
+  --input-border-glow-outer-blur: 0.45;
+  --input-outer-glow-sharpness: 3.5;
+  --input-inner-glow-alpha: 0.45;
+  --input-inner-glow-hue-shift: 0;
+  --input-inner-glow-saturation: 1;
+  --input-outer-glow-alpha: 0.32;
+  --input-border-saturation-final: calc(var(--input-border-saturation) * var(--input-border-vibrance));
+  --input-border-brightness-final: calc(var(--input-border-brightness) * var(--input-border-vibrance));
+  --input-fill-alpha: 0.72;
+  --input-fill-hue-shift: 0;
+  --input-fill-saturation: 1;
+  --input-border-alpha: 1;
+  --input-neon-vibrance: 1;
+  --input-neon-saturation: 1;
+  --input-neon-hue-shift: 0;
+  --input-radius: 14;
+  --input-height: 44;
+  --input-padding-x: 14;
+  --input-lift: 0;
+}
+
+.form-elements-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.field-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.field-control {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.field-control-wide {
+  grid-column: 1 / -1;
+}
+
+.field-label,
+.spinbox-label {
+  color: hsl(calc(292 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) min(94%, calc(58% * var(--input-neon-vibrance) * var(--input-text-brightness) + 14%)) / calc(0.88 * var(--input-text-fill-alpha)));
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) 74% / calc(0.36 * var(--input-text-glow-intensity) * var(--input-text-effects-enabled)));
+}
+
+.field-shell {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+
+.glass-input {
+  width: 100%;
+  min-width: 0;
+  min-height: calc(var(--input-height) * 1px);
+  border: var(--input-border-line-width) solid hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) min(100%, calc(60% * var(--input-border-brightness-final))) / calc(0.48 * var(--input-border-line-strength) * var(--input-border-alpha)));
+  border-radius: calc(var(--input-radius) * 1px);
+  padding: 0 calc(var(--input-padding-x) * 1px);
+  color: hsl(calc(292 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) min(96%, calc(58% * var(--input-neon-vibrance) * var(--input-text-brightness) + 16%)) / var(--input-text-fill-alpha));
+  background:
+    radial-gradient(circle at 22% 0%, hsl(calc(292 + var(--input-fill-hue-shift)) calc(84% * var(--input-fill-saturation)) 72% / calc(0.10 * var(--input-fill-alpha) * var(--input-fill-effects-enabled))), transparent 44%),
+    linear-gradient(145deg, hsl(calc(293 + var(--input-fill-hue-shift)) calc(84% * var(--input-fill-saturation)) 56% / calc(0.10 * var(--input-fill-alpha) * var(--input-fill-effects-enabled))), hsl(calc(258 + var(--input-fill-hue-shift)) calc(83% * var(--input-fill-saturation)) 18% / calc(0.18 * var(--input-fill-alpha) * var(--input-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.46);
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--input-border-hue-shift)) calc(86% * var(--input-border-saturation-final)) min(100%, calc(73% * var(--input-border-brightness-final))) / calc(0.30 * var(--input-border-line-strength) * var(--input-border-alpha))),
+    inset 0 0 calc(20px * var(--input-border-glow-inner-blur)) hsl(calc(293 + var(--input-neon-hue-shift) + var(--input-inner-glow-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-inner-glow-saturation)) min(100%, calc(61% * var(--input-neon-vibrance) * var(--input-border-brightness-final))) / calc(0.18 * var(--input-border-strength) * var(--input-inner-glow-alpha))),
+    0 0 0 calc(var(--input-border-line-width) * 0.75) hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) min(100%, calc(61% * var(--input-border-brightness-final))) / calc(0.20 * var(--input-border-line-strength) * var(--input-border-alpha))),
+    0 0 calc(24px * var(--input-border-glow-outer-blur) / var(--input-outer-glow-sharpness)) hsl(calc(262 + var(--input-border-hue-shift)) calc(91% * var(--input-border-saturation-final)) min(100%, calc(65% * var(--input-border-brightness-final))) / calc(0.38 * var(--input-border-strength) * var(--input-outer-glow-alpha))),
+    0 0 calc(72px * var(--input-border-glow-outer-blur) / var(--input-outer-glow-sharpness)) hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) min(100%, calc(61% * var(--input-border-brightness-final))) / calc(0.22 * var(--input-border-strength) * var(--input-outer-glow-alpha)));
+  font-size: 0.86rem;
+  font-weight: 760;
+  line-height: 1.2;
+  outline: none;
+  transform: translateY(calc(-1px * var(--input-lift) * var(--input-motion-effects-enabled)));
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) 73% / calc(0.62 * var(--input-text-glow-intensity) * var(--input-text-effects-enabled))),
+    0 0 calc(7px * var(--input-text-glow-blur)) hsl(calc(293 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) 56% / calc(0.28 * var(--input-text-glow-alpha) * var(--input-text-effects-enabled)));
+}
+
+.glass-input::placeholder {
+  color: hsl(calc(292 + var(--input-text-hue-shift)) calc(74% * var(--input-text-saturation)) 82% / var(--input-placeholder-alpha));
+}
+
+.glass-input:focus {
+  border-color: hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) min(100%, calc(66% * var(--input-border-brightness-final))) / calc(0.58 * var(--input-border-line-strength) * var(--input-border-alpha)));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--input-border-hue-shift)) calc(86% * var(--input-border-saturation-final)) min(100%, calc(76% * var(--input-border-brightness-final))) / calc(0.34 * var(--input-border-line-strength) * var(--input-border-alpha))),
+    inset 0 0 calc(22px * var(--input-border-glow-inner-blur)) hsl(calc(293 + var(--input-neon-hue-shift) + var(--input-inner-glow-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-inner-glow-saturation)) min(100%, calc(61% * var(--input-neon-vibrance) * var(--input-border-brightness-final))) / calc(0.24 * var(--input-border-strength) * var(--input-inner-glow-alpha))),
+    0 0 0 var(--input-border-line-width) hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) 64% / calc(0.34 * var(--input-border-line-strength) * var(--input-border-alpha))),
+    0 0 calc(32px * var(--input-border-glow-outer-blur) / var(--input-outer-glow-sharpness)) hsl(calc(262 + var(--input-border-hue-shift)) calc(91% * var(--input-border-saturation-final)) min(100%, calc(65% * var(--input-border-brightness-final))) / calc(0.48 * var(--input-border-strength) * var(--input-outer-glow-alpha))),
+    0 0 calc(96px * var(--input-border-glow-outer-blur) / var(--input-outer-glow-sharpness)) hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) min(100%, calc(61% * var(--input-border-brightness-final))) / calc(0.26 * var(--input-border-strength) * var(--input-outer-glow-alpha)));
+}
+
+.glass-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  -webkit-text-fill-color: currentColor;
+}
+
+.field-control:has(.glass-input:disabled) {
+  cursor: not-allowed;
+}
+
+.glass-textarea {
+  min-height: 86px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  resize: vertical;
+}
+
+.field-inline-action {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  min-width: 34px;
+  height: 28px;
+  border: 1px solid hsl(calc(293 + var(--input-border-hue-shift)) calc(84% * var(--input-border-saturation-final)) 61% / calc(0.22 * var(--input-border-alpha)));
+  border-radius: max(6px, calc(var(--input-radius) * 0.58px));
+  color: hsl(calc(292 + var(--input-neon-hue-shift) + var(--input-text-hue-shift)) calc(84% * var(--input-neon-saturation) * var(--input-text-saturation)) min(96%, calc(58% * var(--input-neon-vibrance) * var(--input-text-brightness) + 16%)) / var(--input-text-fill-alpha));
+  background: rgb(6 6 17 / 0.42);
+  font-size: 0.68rem;
+  font-weight: 850;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.field-shell .glass-input {
+  padding-right: calc(var(--input-padding-x) * 1px + 44px);
+}
+
+.glass-input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .field-preview {
+    grid-template-columns: 1fr;
+  }
+}

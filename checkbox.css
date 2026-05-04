@@ -1,0 +1,146 @@
+﻿.inputs-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.checkbox-preview,
+.toggle-preview {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.checkbox-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+  transform: translateY(calc(-1px * var(--checkbox-lift) * var(--checkbox-motion-effects-enabled)));
+  cursor: pointer;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+}
+
+.checkbox-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-box {
+  position: relative;
+  flex: 0 0 auto;
+  width: calc(var(--checkbox-size) * 1px);
+  height: calc(var(--checkbox-size) * 1px);
+  border: 1px solid hsl(calc(293 + var(--checkbox-border-hue-shift)) calc(84% * var(--checkbox-border-saturation)) min(100%, calc(61% * var(--checkbox-border-brightness))) / calc(0.46 * var(--checkbox-border-line-strength) * var(--checkbox-border-alpha)));
+  border-radius: calc(var(--checkbox-radius) * 1px);
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--checkbox-fill-hue-shift)) calc(84% * var(--checkbox-fill-saturation)) 56% / calc(0.10 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled))), hsl(calc(258 + var(--checkbox-fill-hue-shift)) calc(83% * var(--checkbox-fill-saturation)) 61% / calc(0.08 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(292 + var(--checkbox-fill-hue-shift)) calc(84% * var(--checkbox-fill-saturation)) 73% / calc(0.14 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled))), transparent 55%),
+    rgb(6 6 17 / 0.42);
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--checkbox-border-hue-shift)) calc(86% * var(--checkbox-border-saturation)) min(100%, calc(73% * var(--checkbox-border-brightness))) / calc(0.30 * var(--checkbox-border-line-strength) * var(--checkbox-border-alpha))),
+    inset 0 0 calc(14px * var(--checkbox-border-glow-inner-blur) * var(--checkbox-border-spread)) hsl(calc(293 + var(--checkbox-neon-hue-shift) + var(--checkbox-inner-glow-hue-shift)) calc(84% * var(--checkbox-neon-saturation) * var(--checkbox-inner-glow-saturation)) min(100%, calc(61% * var(--checkbox-neon-vibrance) * var(--checkbox-border-brightness))) / calc(0.16 * var(--checkbox-border-strength) * var(--checkbox-inner-glow-alpha))),
+    0 0 0 var(--checkbox-border-outline-width) hsl(calc(293 + var(--checkbox-border-hue-shift)) calc(84% * var(--checkbox-border-saturation)) min(100%, calc(61% * var(--checkbox-border-brightness))) / calc(0.30 * var(--checkbox-border-line-strength) * var(--checkbox-border-alpha))),
+    0 0 calc(22px * var(--checkbox-border-glow-outer-blur) * var(--checkbox-border-spread) / var(--checkbox-outer-glow-sharpness)) hsl(calc(262 + var(--checkbox-border-hue-shift)) calc(91% * var(--checkbox-border-saturation)) min(100%, calc(65% * var(--checkbox-border-brightness))) / calc(0.34 * var(--checkbox-border-strength) * var(--checkbox-outer-glow-alpha))),
+    0 0 calc(56px * var(--checkbox-border-glow-outer-blur) * var(--checkbox-border-spread) / var(--checkbox-outer-glow-sharpness)) hsl(calc(293 + var(--checkbox-border-hue-shift)) calc(84% * var(--checkbox-border-saturation)) min(100%, calc(61% * var(--checkbox-border-brightness))) / calc(0.20 * var(--checkbox-border-strength) * var(--checkbox-outer-glow-alpha)));
+  filter: var(--checkbox-border-filter);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.checkbox-box::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: max(2px, calc(var(--checkbox-radius) * 0.62px));
+  background: hsl(calc(292 + var(--checkbox-neon-hue-shift)) calc(84% * var(--checkbox-neon-saturation)) min(100%, calc(58% * var(--checkbox-neon-vibrance))) / calc(0.18 * var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled)));
+  opacity: 0;
+  transform: scale(0.65);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.checkbox-box::after {
+  content: "";
+  position: absolute;
+  left: 28%;
+  top: 16%;
+  width: 34%;
+  height: 56%;
+  border-right: max(2px, calc(var(--checkbox-size) * 0.11px)) solid hsl(calc(292 + var(--checkbox-neon-hue-shift)) calc(84% * var(--checkbox-neon-saturation)) min(100%, calc(78% * var(--checkbox-neon-vibrance))) / calc(0.95 * var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled)));
+  border-bottom: max(2px, calc(var(--checkbox-size) * 0.11px)) solid hsl(calc(292 + var(--checkbox-neon-hue-shift)) calc(84% * var(--checkbox-neon-saturation)) min(100%, calc(78% * var(--checkbox-neon-vibrance))) / calc(0.95 * var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled)));
+  filter: drop-shadow(0 0 calc(5px * var(--checkbox-text-glow-blur)) hsl(calc(292 + var(--checkbox-neon-hue-shift)) calc(84% * var(--checkbox-neon-saturation)) 70% / calc(0.44 * var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled))));
+  opacity: 0;
+  transform: rotate(42deg) scale(0.5);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.checkbox-input:checked + .checkbox-box {
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--checkbox-fill-hue-shift)) calc(84% * var(--checkbox-fill-saturation)) 56% / calc(0.20 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled))), hsl(calc(258 + var(--checkbox-fill-hue-shift)) calc(83% * var(--checkbox-fill-saturation)) 61% / calc(0.18 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(292 + var(--checkbox-fill-hue-shift)) calc(84% * var(--checkbox-fill-saturation)) 73% / calc(0.26 * var(--checkbox-fill-alpha) * var(--checkbox-fill-effects-enabled))), transparent 56%),
+    rgb(6 6 17 / 0.46);
+}
+
+.checkbox-input:checked + .checkbox-box::before {
+  opacity: calc(0.92 * var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled));
+  transform: scale(1);
+}
+
+.checkbox-input:checked + .checkbox-box::after {
+  opacity: calc(var(--checkbox-mark-alpha) * var(--checkbox-mark-effects-enabled));
+  transform: rotate(42deg) scale(1);
+}
+
+.checkbox-input:focus-visible + .checkbox-box {
+  outline: 2px solid hsl(calc(292 + var(--checkbox-neon-hue-shift)) calc(84% * var(--checkbox-neon-saturation)) 70% / 0.8);
+  outline-offset: 3px;
+}
+
+.checkbox-label {
+  min-width: 0;
+  color: hsl(calc(292 + var(--checkbox-neon-hue-shift) + var(--checkbox-text-hue-shift)) calc(84% * var(--checkbox-neon-saturation) * var(--checkbox-text-saturation)) min(96%, calc(58% * var(--checkbox-neon-vibrance) * var(--checkbox-text-brightness))) / var(--checkbox-text-fill-alpha));
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left;
+  overflow-wrap: anywhere;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--checkbox-neon-hue-shift) + var(--checkbox-text-hue-shift)) calc(84% * var(--checkbox-neon-saturation) * var(--checkbox-text-saturation)) 73% / calc(0.60 * var(--checkbox-text-glow-intensity) * var(--checkbox-text-effects-enabled))),
+    0 0 calc(7px * var(--checkbox-text-glow-blur)) hsl(calc(293 + var(--checkbox-neon-hue-shift) + var(--checkbox-text-hue-shift)) calc(84% * var(--checkbox-neon-saturation) * var(--checkbox-text-saturation)) 56% / calc(0.28 * var(--checkbox-text-glow-alpha) * var(--checkbox-text-effects-enabled)));
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+.has-fine-pointer .checkbox-control:hover .checkbox-box {
+  transform: translateY(-1px);
+}
+
+.checkbox-control.is-disabled,
+.checkbox-input:disabled ~ .checkbox-label,
+.checkbox-input:disabled + .checkbox-box {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+@media (max-width: 520px) {
+  .inputs-preview {
+    grid-template-columns: 1fr;
+  }
+}
+

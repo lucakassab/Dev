@@ -1,0 +1,402 @@
+﻿.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  min-width: min(144px, 100%);
+  max-width: 100%;
+  border: 1px solid hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.26 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha)));
+  border-radius: var(--radius-md);
+  padding: 14px 22px;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--button-selected-fill-hue-shift)) calc(84% * var(--button-selected-fill-saturation)) 56% / 0.12), hsl(calc(262 + var(--button-selected-fill-hue-shift)) calc(83% * var(--button-selected-fill-saturation)) 66% / 0.06) 42%, hsl(calc(258 + var(--button-selected-fill-hue-shift)) calc(83% * var(--button-selected-fill-saturation)) 61% / 0.10)),
+    radial-gradient(circle at 50% 0%, hsl(calc(270 + var(--button-selected-fill-hue-shift)) calc(95% * var(--button-selected-fill-saturation)) 75% / 0.18), transparent 44%);
+  background-color: rgb(20 9 34 / 0.34);
+  background-clip: padding-box;
+
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--button-selected-border-hue-shift)) calc(86% * var(--button-selected-border-saturation)) min(100%, calc(73% * var(--button-selected-border-brightness))) / calc(0.24 * var(--button-selected-border-line-strength))),
+    inset 0 -14px 28px rgba(31, 14, 62, 0.30),
+    inset 0 0 calc(16px * var(--button-selected-border-glow-inner-blur) * var(--button-selected-border-spread)) hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-inner-glow-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-inner-glow-saturation)) min(100%, calc(61% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.06 * var(--button-selected-border-strength) * var(--button-selected-inner-glow-alpha))),
+    0 0 0 var(--button-selected-border-outline-width) hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.12 * var(--button-selected-border-line-strength))),
+    0 0 calc(14px * var(--button-selected-border-glow-outer-blur) * var(--button-selected-border-spread) / var(--button-selected-outer-glow-sharpness)) hsl(calc(262 + var(--button-selected-border-hue-shift)) calc(91% * var(--button-selected-border-saturation)) min(100%, calc(65% * var(--button-selected-border-brightness))) / calc(0.12 * var(--button-selected-border-strength) * var(--button-selected-outer-glow-alpha))),
+    0 0 calc(48px * var(--button-selected-border-glow-outer-blur) * var(--button-selected-border-spread) / var(--button-selected-outer-glow-sharpness)) hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.08 * var(--button-selected-border-strength) * var(--button-selected-outer-glow-alpha)));
+
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    opacity 0.22s ease;
+
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+}
+
+.btn span {
+  position: relative;
+  z-index: 3;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  color: hsl(calc(292 + var(--button-selected-neon-hue-shift) + var(--button-selected-text-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-text-saturation)) min(96%, calc(58% * var(--button-selected-neon-vibrance) * var(--button-selected-text-brightness) + 18% * var(--button-selected-text-highlight-alpha))) / var(--button-selected-text-fill-alpha));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--button-selected-text-stroke-width) * 1px) rgb(35 7 61 / var(--button-selected-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--button-selected-text-separation-blur) * 1px) rgb(0 0 0 / var(--button-selected-text-separation-alpha)),
+    0 0 1px hsl(calc(292 + var(--button-selected-neon-hue-shift) + var(--button-selected-text-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-text-saturation)) min(96%, calc(73% * var(--button-selected-neon-vibrance) * var(--button-selected-text-brightness))) / calc(0.74 * var(--button-selected-text-glow-intensity) * var(--button-selected-text-effects-enabled))),
+    0 0 2px hsl(calc(292 + var(--button-selected-neon-hue-shift) + var(--button-selected-text-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-text-saturation)) min(96%, calc(73% * var(--button-selected-neon-vibrance) * var(--button-selected-text-brightness))) / calc(0.28 * var(--button-selected-text-glow-intensity) * var(--button-selected-text-effects-enabled))),
+    0 0 calc(7px * var(--button-selected-text-glow-blur)) hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-text-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-text-saturation)) min(92%, calc(56% * var(--button-selected-neon-vibrance) * var(--button-selected-text-brightness))) / calc(0.34 * var(--button-selected-text-glow-alpha) * var(--button-selected-text-effects-enabled))),
+    0 0 calc(14px * var(--button-selected-text-glow-blur)) hsl(calc(262 + var(--button-selected-neon-hue-shift) + var(--button-selected-text-hue-shift)) calc(83% * var(--button-selected-neon-saturation) * var(--button-selected-text-saturation)) min(92%, calc(66% * var(--button-selected-neon-vibrance) * var(--button-selected-text-brightness))) / calc(0.20 * var(--button-selected-text-glow-alpha) * var(--button-selected-text-effects-enabled)));
+}
+
+.btn span::after {
+  content: none;
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  color: hsl(292 84% min(80%, calc(48% + 24% * var(--button-selected-text-highlight-alpha))));
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 0;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.18);
+
+  opacity: var(--button-selected-text-crisp-alpha);
+  pointer-events: none;
+  filter: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.btn-primary span::after {
+  content: "BotÃ£o ativo";
+}
+
+.btn-hover span::after {
+  content: "BotÃ£o hover";
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--button-selected-border-line-width);
+
+  background:
+    linear-gradient(
+      135deg,
+      hsl(calc(292 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(73% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.62 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))),
+      hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(56% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.58 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))) 18%,
+      hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(74% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(47% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.34 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))) 42%,
+      hsl(calc(262 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(83% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.22 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))) 58%,
+      hsl(calc(262 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(83% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(66% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.52 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))) 82%,
+      hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(56% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.44 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha)))
+    );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: 2;
+  filter:
+    saturate(calc(1 + var(--button-selected-border-multiplier) * 0.18))
+    brightness(calc(1 + var(--button-selected-border-multiplier) * 0.035));
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--radius-md) - 1px);
+
+  background:
+    linear-gradient(120deg, hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(56% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.14 * var(--button-selected-border-strength) * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled) * var(--button-selected-border-fill-alpha) * var(--button-selected-border-fill-diagonal-alpha))), transparent 28%, transparent 62%, hsl(calc(262 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(83% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(66% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.10 * var(--button-selected-border-strength) * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled) * var(--button-selected-border-fill-alpha) * var(--button-selected-border-fill-diagonal-alpha)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-border-saturation)) min(100%, calc(56% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.12 * var(--button-selected-border-strength) * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled) * var(--button-selected-border-fill-alpha) * var(--button-selected-border-fill-spot-alpha))), transparent 36%);
+
+  opacity: 0.78;
+  pointer-events: none;
+  z-index: 1;
+  filter: var(--button-selected-border-filter);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.btn-primary {
+  transform: translateY(calc(-1px * var(--button-selected-lift) * var(--button-selected-motion-effects-enabled)));
+  border-color: hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.48 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha)));
+
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--button-selected-fill-hue-shift)) calc(84% * var(--button-selected-fill-saturation)) 56% / calc(0.16 * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled))), hsl(calc(262 + var(--button-selected-fill-hue-shift)) calc(83% * var(--button-selected-fill-saturation)) 66% / calc(0.24 * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled))) 38%, hsl(calc(258 + var(--button-selected-fill-hue-shift)) calc(83% * var(--button-selected-fill-saturation)) 22% / calc(0.22 * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-selected-fill-hue-shift)) calc(84% * var(--button-selected-fill-saturation)) 56% / calc(0.20 * var(--button-selected-fill-alpha) * var(--button-selected-fill-effects-enabled))), transparent 42%);
+
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--button-selected-border-hue-shift)) calc(86% * var(--button-selected-border-saturation)) min(100%, calc(73% * var(--button-selected-border-brightness))) / calc(0.30 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))),
+    inset 0 -16px 32px rgba(50, 14, 94, 0.36),
+    inset 0 0 calc(20px * var(--button-selected-border-glow-inner-blur) * var(--button-selected-border-spread)) hsl(calc(293 + var(--button-selected-neon-hue-shift) + var(--button-selected-inner-glow-hue-shift)) calc(84% * var(--button-selected-neon-saturation) * var(--button-selected-inner-glow-saturation)) min(100%, calc(61% * var(--button-selected-neon-vibrance) * var(--button-selected-border-brightness))) / calc(0.12 * var(--button-selected-border-strength) * var(--button-selected-inner-glow-alpha))),
+    0 0 0 var(--button-selected-border-outline-width) hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.22 * var(--button-selected-border-line-strength) * var(--button-selected-border-alpha))),
+    0 0 calc(20px * var(--button-selected-border-glow-outer-blur) * var(--button-selected-border-spread) / var(--button-selected-outer-glow-sharpness)) hsl(calc(262 + var(--button-selected-border-hue-shift)) calc(91% * var(--button-selected-border-saturation)) min(100%, calc(65% * var(--button-selected-border-brightness))) / calc(0.34 * var(--button-selected-border-strength) * var(--button-selected-outer-glow-alpha))),
+    0 0 calc(52px * var(--button-selected-border-glow-outer-blur) * var(--button-selected-border-spread) / var(--button-selected-outer-glow-sharpness)) hsl(calc(262 + var(--button-selected-border-hue-shift)) calc(91% * var(--button-selected-border-saturation)) min(100%, calc(65% * var(--button-selected-border-brightness))) / calc(0.24 * var(--button-selected-border-strength) * var(--button-selected-outer-glow-alpha))),
+    0 0 calc(96px * var(--button-selected-border-glow-outer-blur) * var(--button-selected-border-spread) / var(--button-selected-outer-glow-sharpness)) hsl(calc(293 + var(--button-selected-border-hue-shift)) calc(84% * var(--button-selected-border-saturation)) min(100%, calc(61% * var(--button-selected-border-brightness))) / calc(0.14 * var(--button-selected-border-strength) * var(--button-selected-outer-glow-alpha)));
+}
+
+.has-fine-pointer .btn-primary:hover,
+.btn-hover {
+  transform: translateY(calc(-1px * var(--button-hover-lift) * var(--button-hover-motion-effects-enabled)));
+  border-color: hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / calc(0.48 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha)));
+
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--button-hover-fill-hue-shift)) calc(84% * var(--button-hover-fill-saturation)) 56% / calc(0.16 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled))), hsl(calc(262 + var(--button-hover-fill-hue-shift)) calc(83% * var(--button-hover-fill-saturation)) 66% / calc(0.24 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled))) 38%, hsl(calc(258 + var(--button-hover-fill-hue-shift)) calc(83% * var(--button-hover-fill-saturation)) 22% / calc(0.22 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-hover-fill-hue-shift)) calc(84% * var(--button-hover-fill-saturation)) 56% / calc(0.20 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled))), transparent 42%);
+
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--button-hover-border-hue-shift)) calc(86% * var(--button-hover-border-saturation)) min(100%, calc(73% * var(--button-hover-border-brightness))) / calc(0.30 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))),
+    inset 0 -16px 32px rgba(50, 14, 94, 0.36),
+    inset 0 0 calc(20px * var(--button-hover-border-glow-inner-blur) * var(--button-hover-border-spread)) hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-inner-glow-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-inner-glow-saturation)) min(100%, calc(61% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.12 * var(--button-hover-border-strength) * var(--button-hover-inner-glow-alpha))),
+    0 0 0 var(--button-hover-border-outline-width) hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / calc(0.22 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))),
+    0 0 calc(20px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(262 + var(--button-hover-border-hue-shift)) calc(91% * var(--button-hover-border-saturation)) min(100%, calc(65% * var(--button-hover-border-brightness))) / calc(0.34 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha))),
+    0 0 calc(52px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(262 + var(--button-hover-border-hue-shift)) calc(91% * var(--button-hover-border-saturation)) min(100%, calc(65% * var(--button-hover-border-brightness))) / calc(0.24 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha))),
+    0 0 calc(96px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / calc(0.14 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha)));
+}
+
+.has-fine-pointer .btn-primary:hover::before,
+.btn-hover::before {
+  padding: var(--button-hover-border-line-width);
+  background:
+    linear-gradient(
+      135deg,
+      hsl(calc(292 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(73% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.62 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))),
+      hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.58 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))) 18%,
+      hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(74% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(47% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.34 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))) 42%,
+      hsl(calc(262 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(83% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.22 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))) 58%,
+      hsl(calc(262 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(83% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(66% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.52 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha))) 82%,
+      hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.44 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha)))
+    );
+  filter:
+    saturate(calc(1 + var(--button-hover-border-multiplier) * 0.18))
+    brightness(calc(1 + var(--button-hover-border-multiplier) * 0.035));
+}
+
+.has-fine-pointer .btn-primary:hover::after,
+.btn-hover::after {
+  background:
+    linear-gradient(120deg, hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.14 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-diagonal-alpha))), transparent 28%, transparent 62%, hsl(calc(262 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(83% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(66% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.10 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-diagonal-alpha)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / calc(0.12 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-spot-alpha))), transparent 36%);
+
+  opacity: 0.78;
+  filter: var(--button-hover-border-filter);
+}
+
+.has-fine-pointer .btn-primary:hover span,
+.btn-hover span {
+  color: hsl(calc(292 + var(--button-hover-neon-hue-shift) + var(--button-hover-text-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-text-saturation)) min(96%, calc(58% * var(--button-hover-neon-vibrance) * var(--button-hover-text-brightness) + 18% * var(--button-hover-text-highlight-alpha))) / var(--button-hover-text-fill-alpha));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--button-hover-text-stroke-width) * 1px) rgb(35 7 61 / var(--button-hover-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--button-hover-text-separation-blur) * 1px) rgb(0 0 0 / var(--button-hover-text-separation-alpha)),
+    0 0 1px hsl(calc(292 + var(--button-hover-neon-hue-shift) + var(--button-hover-text-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-text-saturation)) min(96%, calc(73% * var(--button-hover-neon-vibrance) * var(--button-hover-text-brightness))) / calc(0.74 * var(--button-hover-text-glow-intensity) * var(--button-hover-text-effects-enabled))),
+    0 0 2px hsl(calc(292 + var(--button-hover-neon-hue-shift) + var(--button-hover-text-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-text-saturation)) min(96%, calc(73% * var(--button-hover-neon-vibrance) * var(--button-hover-text-brightness))) / calc(0.28 * var(--button-hover-text-glow-intensity) * var(--button-hover-text-effects-enabled))),
+    0 0 calc(7px * var(--button-hover-text-glow-blur)) hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-text-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-text-saturation)) min(92%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-text-brightness))) / calc(0.34 * var(--button-hover-text-glow-alpha) * var(--button-hover-text-effects-enabled))),
+    0 0 calc(14px * var(--button-hover-text-glow-blur)) hsl(calc(262 + var(--button-hover-neon-hue-shift) + var(--button-hover-text-hue-shift)) calc(83% * var(--button-hover-neon-saturation) * var(--button-hover-text-saturation)) min(92%, calc(66% * var(--button-hover-neon-vibrance) * var(--button-hover-text-brightness))) / calc(0.20 * var(--button-hover-text-glow-alpha) * var(--button-hover-text-effects-enabled)));
+}
+
+.has-fine-pointer .btn-primary:hover span::after,
+.btn-hover span::after {
+  color: hsl(292 84% min(80%, calc(48% + 24% * var(--button-hover-text-highlight-alpha))));
+  opacity: var(--button-hover-text-crisp-alpha);
+}
+
+.btn-hover {
+  -webkit-transform: translate3d(0, calc(-1px * var(--button-hover-lift) * var(--button-hover-motion-effects-enabled)), 0);
+  transform: translate3d(0, calc(-1px * var(--button-hover-lift) * var(--button-hover-motion-effects-enabled)), 0);
+  background-color: hsl(calc(270 + var(--button-hover-fill-hue-shift)) calc(44% * var(--button-hover-fill-saturation)) 12% / calc(0.46 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+  will-change: transform;
+}
+
+.btn-hover::before,
+.btn-hover::after,
+.btn-hover span {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.btn-hover {
+  --btn-hover-border-main-alpha: min(1, calc(0.52 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha)));
+  --btn-hover-border-ring-alpha: min(1, calc(0.34 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha)));
+  --btn-hover-border-soft-alpha: min(1, calc(0.16 * var(--button-hover-border-line-strength) * var(--button-hover-border-alpha)));
+  --btn-hover-inner-alpha: min(1, calc(0.12 * var(--button-hover-border-strength) * var(--button-hover-inner-glow-alpha)));
+  --btn-hover-outer-alpha-strong: min(0.82, calc(0.34 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha)));
+  --btn-hover-outer-alpha-medium: min(0.56, calc(0.24 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha)));
+  --btn-hover-outer-alpha-soft: min(0.34, calc(0.14 * var(--button-hover-border-strength) * var(--button-hover-outer-glow-alpha)));
+  --btn-hover-fill-main-alpha: min(1, calc(0.16 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+  --btn-hover-fill-mid-alpha: min(1, calc(0.24 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+  --btn-hover-fill-deep-alpha: min(1, calc(0.22 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+  --btn-hover-fill-glow-alpha: min(1, calc(0.20 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+
+  border-color: hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / var(--btn-hover-border-main-alpha));
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--button-hover-fill-hue-shift)) calc(84% * var(--button-hover-fill-saturation)) 56% / var(--btn-hover-fill-main-alpha)), hsl(calc(262 + var(--button-hover-fill-hue-shift)) calc(83% * var(--button-hover-fill-saturation)) 66% / var(--btn-hover-fill-mid-alpha)) 38%, hsl(calc(258 + var(--button-hover-fill-hue-shift)) calc(83% * var(--button-hover-fill-saturation)) 22% / var(--btn-hover-fill-deep-alpha))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-hover-fill-hue-shift)) calc(84% * var(--button-hover-fill-saturation)) 56% / var(--btn-hover-fill-glow-alpha)), transparent 42%),
+    hsl(calc(270 + var(--button-hover-fill-hue-shift)) calc(44% * var(--button-hover-fill-saturation)) 12% / calc(0.46 * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled)));
+  box-shadow:
+    inset 0 0 0 var(--button-hover-border-line-width) hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / var(--btn-hover-border-ring-alpha)),
+    inset 0 1px 0 hsl(calc(292 + var(--button-hover-border-hue-shift)) calc(86% * var(--button-hover-border-saturation)) min(100%, calc(73% * var(--button-hover-border-brightness))) / var(--btn-hover-border-ring-alpha)),
+    inset 0 -16px 32px rgb(50 14 94 / 0.36),
+    inset 0 0 calc(20px * var(--button-hover-border-glow-inner-blur) * var(--button-hover-border-spread)) hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-inner-glow-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-inner-glow-saturation)) min(100%, calc(61% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / var(--btn-hover-inner-alpha)),
+    0 0 calc(20px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(262 + var(--button-hover-border-hue-shift)) calc(91% * var(--button-hover-border-saturation)) min(100%, calc(65% * var(--button-hover-border-brightness))) / var(--btn-hover-outer-alpha-strong)),
+    0 0 calc(52px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(262 + var(--button-hover-border-hue-shift)) calc(91% * var(--button-hover-border-saturation)) min(100%, calc(65% * var(--button-hover-border-brightness))) / var(--btn-hover-outer-alpha-medium)),
+    0 0 calc(96px * var(--button-hover-border-glow-outer-blur) * var(--button-hover-border-spread) / var(--button-hover-outer-glow-sharpness)) hsl(calc(293 + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-border-saturation)) min(100%, calc(61% * var(--button-hover-border-brightness))) / var(--btn-hover-outer-alpha-soft));
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.btn-hover::before {
+  inset: 0;
+  padding: 0;
+  background: none;
+  box-shadow:
+    inset 0 0 0 var(--button-hover-border-line-width) hsl(calc(292 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(73% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / var(--btn-hover-border-ring-alpha)),
+    inset 0 0 0 calc(var(--button-hover-border-line-width) + 1px) hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / var(--btn-hover-border-soft-alpha));
+  -webkit-mask: none;
+  mask: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  filter: none;
+  opacity: 1;
+}
+
+.btn-hover::after {
+  background:
+    linear-gradient(120deg, hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / min(1, calc(0.12 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-diagonal-alpha)))), transparent 36%, transparent 64%, hsl(calc(262 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(83% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(66% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / min(1, calc(0.08 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-diagonal-alpha))))),
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) calc(84% * var(--button-hover-neon-saturation) * var(--button-hover-border-saturation)) min(100%, calc(56% * var(--button-hover-neon-vibrance) * var(--button-hover-border-brightness))) / min(1, calc(0.10 * var(--button-hover-border-strength) * var(--button-hover-fill-alpha) * var(--button-hover-fill-effects-enabled) * var(--button-hover-border-fill-alpha) * var(--button-hover-border-fill-spot-alpha)))), transparent 42%);
+  filter: none;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-disabled {
+  transform: translateY(calc(-1px * var(--button-deselected-lift) * var(--button-deselected-motion-effects-enabled)));
+  color: rgba(221, 214, 254, 0.48);
+  border-color: hsl(calc(262 + var(--button-deselected-border-hue-shift)) calc(91% * var(--button-deselected-border-saturation)) min(100%, calc(65% * var(--button-deselected-border-brightness))) / calc(0.16 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha)));
+  background:
+    linear-gradient(145deg, hsl(calc(262 + var(--button-deselected-fill-hue-shift)) calc(83% * var(--button-deselected-fill-saturation)) 66% / calc(0.06 * var(--button-deselected-fill-alpha) * var(--button-deselected-fill-effects-enabled))), hsl(calc(258 + var(--button-deselected-fill-hue-shift)) calc(83% * var(--button-deselected-fill-saturation)) 61% / calc(0.025 * var(--button-deselected-fill-alpha) * var(--button-deselected-fill-effects-enabled)))),
+    radial-gradient(circle at 50% 0%, hsl(calc(270 + var(--button-deselected-fill-hue-shift)) calc(95% * var(--button-deselected-fill-saturation)) 75% / calc(0.08 * var(--button-deselected-fill-alpha) * var(--button-deselected-fill-effects-enabled))), transparent 38%);
+
+  box-shadow:
+    inset 0 1px 0 hsl(calc(270 + var(--button-deselected-border-hue-shift)) calc(95% * var(--button-deselected-border-saturation)) min(100%, calc(75% * var(--button-deselected-border-brightness))) / calc(0.12 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha))),
+    inset 0 -12px 24px rgba(20, 10, 38, 0.30),
+    inset 0 0 calc(12px * var(--button-deselected-border-glow-inner-blur) * var(--button-deselected-border-spread)) hsl(calc(293 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-inner-glow-hue-shift)) calc(84% * var(--button-deselected-neon-saturation) * var(--button-deselected-inner-glow-saturation)) min(100%, calc(61% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.08 * var(--button-deselected-border-strength) * var(--button-deselected-inner-glow-alpha))),
+    0 0 0 var(--button-deselected-border-outline-width) hsl(calc(262 + var(--button-deselected-border-hue-shift)) calc(91% * var(--button-deselected-border-saturation)) min(100%, calc(65% * var(--button-deselected-border-brightness))) / calc(0.08 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha))),
+    0 0 calc(12px * var(--button-deselected-border-glow-outer-blur) * var(--button-deselected-border-spread) / var(--button-deselected-outer-glow-sharpness)) hsl(calc(262 + var(--button-deselected-border-hue-shift)) calc(91% * var(--button-deselected-border-saturation)) min(100%, calc(65% * var(--button-deselected-border-brightness))) / calc(0.06 * var(--button-deselected-border-strength) * var(--button-deselected-outer-glow-alpha))),
+    0 0 calc(42px * var(--button-deselected-border-glow-outer-blur) * var(--button-deselected-border-spread) / var(--button-deselected-outer-glow-sharpness)) hsl(calc(262 + var(--button-deselected-border-hue-shift)) calc(91% * var(--button-deselected-border-saturation)) min(100%, calc(65% * var(--button-deselected-border-brightness))) / calc(0.05 * var(--button-deselected-border-strength) * var(--button-deselected-outer-glow-alpha)));
+
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.btn-disabled::before {
+  padding: var(--button-deselected-border-line-width);
+  background:
+    linear-gradient(
+      135deg,
+      hsl(calc(270 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) calc(95% * var(--button-deselected-neon-saturation) * var(--button-deselected-border-saturation)) min(100%, calc(75% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.36 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha))),
+      hsl(calc(262 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) calc(83% * var(--button-deselected-neon-saturation) * var(--button-deselected-border-saturation)) min(100%, calc(66% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.30 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha))) 42%,
+      hsl(calc(258 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) calc(83% * var(--button-deselected-neon-saturation) * var(--button-deselected-border-saturation)) min(100%, calc(61% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.18 * var(--button-deselected-border-line-strength) * var(--button-deselected-border-alpha))) 100%
+    );
+  filter:
+    saturate(calc(1 + var(--button-deselected-border-multiplier) * 0.18))
+    brightness(calc(1 + var(--button-deselected-border-multiplier) * 0.035));
+  opacity: 0.42;
+}
+
+.btn-disabled::after {
+  background:
+    linear-gradient(120deg, hsl(calc(262 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) calc(83% * var(--button-deselected-neon-saturation) * var(--button-deselected-border-saturation)) min(100%, calc(66% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.08 * var(--button-deselected-border-strength) * var(--button-deselected-fill-alpha) * var(--button-deselected-fill-effects-enabled) * var(--button-deselected-border-fill-alpha) * var(--button-deselected-border-fill-diagonal-alpha))), transparent 64%),
+    radial-gradient(circle at 50% 0%, hsl(calc(258 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) calc(83% * var(--button-deselected-neon-saturation) * var(--button-deselected-border-saturation)) min(100%, calc(61% * var(--button-deselected-neon-vibrance) * var(--button-deselected-border-brightness))) / calc(0.08 * var(--button-deselected-border-strength) * var(--button-deselected-fill-alpha) * var(--button-deselected-fill-effects-enabled) * var(--button-deselected-border-fill-alpha) * var(--button-deselected-border-fill-spot-alpha))), transparent 38%);
+  filter: var(--button-deselected-border-filter);
+  opacity: 0.42;
+}
+
+.btn-disabled span {
+  color: hsl(calc(270 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-text-hue-shift)) calc(80% * var(--button-deselected-neon-saturation) * var(--button-deselected-text-saturation)) min(92%, calc(58% * var(--button-deselected-neon-vibrance) * var(--button-deselected-text-brightness) + 12% * var(--button-deselected-text-highlight-alpha))) / calc(0.78 * var(--button-deselected-text-fill-alpha)));
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: calc(var(--button-deselected-text-stroke-width) * 1px) rgb(35 7 61 / var(--button-deselected-text-stroke-alpha));
+
+  text-shadow:
+    0 1px calc(var(--button-deselected-text-separation-blur) * 1px) rgb(0 0 0 / var(--button-deselected-text-separation-alpha)),
+    0 0 1px hsl(calc(270 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-text-hue-shift)) calc(80% * var(--button-deselected-neon-saturation) * var(--button-deselected-text-saturation)) min(92%, calc(66% * var(--button-deselected-neon-vibrance) * var(--button-deselected-text-brightness))) / calc(0.26 * var(--button-deselected-text-glow-intensity) * var(--button-deselected-text-effects-enabled))),
+    0 0 calc(4px * var(--button-deselected-text-glow-blur)) hsl(calc(270 + var(--button-deselected-neon-hue-shift) + var(--button-deselected-text-hue-shift)) calc(80% * var(--button-deselected-neon-saturation) * var(--button-deselected-text-saturation)) min(92%, calc(66% * var(--button-deselected-neon-vibrance) * var(--button-deselected-text-brightness))) / calc(0.12 * var(--button-deselected-text-glow-alpha) * var(--button-deselected-text-effects-enabled)));
+}
+
+.btn-disabled span::after {
+  content: "BotÃ£o desativado";
+  color: hsl(270 91% min(76%, calc(48% + 24% * var(--button-deselected-text-highlight-alpha))));
+  opacity: var(--button-deselected-text-crisp-alpha);
+}
+

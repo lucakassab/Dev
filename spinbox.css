@@ -1,0 +1,140 @@
+:root {
+  --spinbox-text-effects-enabled: 1;
+  --spinbox-border-effects-enabled: 1;
+  --spinbox-fill-effects-enabled: 1;
+  --spinbox-motion-effects-enabled: 1;
+  --spinbox-text-glow-intensity: 0.7;
+  --spinbox-text-glow-alpha: 0.18;
+  --spinbox-text-glow-blur: 0.55;
+  --spinbox-text-hue-shift: 0;
+  --spinbox-text-saturation: 1;
+  --spinbox-text-brightness: 1.2;
+  --spinbox-text-fill-alpha: 1;
+  --spinbox-border-glow-intensity: 1.25;
+  --spinbox-border-multiplier: 1;
+  --spinbox-border-strength: calc(var(--spinbox-border-glow-intensity) * var(--spinbox-border-effects-enabled));
+  --spinbox-border-line-strength: calc(var(--spinbox-border-glow-intensity) * var(--spinbox-border-multiplier) * var(--spinbox-border-effects-enabled));
+  --spinbox-border-line-width: calc(1px + var(--spinbox-border-multiplier) * 0.22px);
+  --spinbox-border-vibrance: 1.2;
+  --spinbox-border-saturation: 1;
+  --spinbox-border-brightness: 1;
+  --spinbox-border-hue-shift: 0;
+  --spinbox-border-glow-inner-blur: 0.65;
+  --spinbox-border-glow-outer-blur: 0.5;
+  --spinbox-outer-glow-sharpness: 3;
+  --spinbox-inner-glow-alpha: 0.48;
+  --spinbox-inner-glow-hue-shift: 0;
+  --spinbox-inner-glow-saturation: 1;
+  --spinbox-outer-glow-alpha: 0.34;
+  --spinbox-border-saturation-final: calc(var(--spinbox-border-saturation) * var(--spinbox-border-vibrance));
+  --spinbox-border-brightness-final: calc(var(--spinbox-border-brightness) * var(--spinbox-border-vibrance));
+  --spinbox-fill-alpha: 0.82;
+  --spinbox-fill-hue-shift: 0;
+  --spinbox-fill-saturation: 1;
+  --spinbox-border-alpha: 1;
+  --spinbox-button-alpha: 1;
+  --spinbox-neon-vibrance: 1;
+  --spinbox-neon-saturation: 1;
+  --spinbox-neon-hue-shift: 0;
+  --spinbox-radius: 14;
+  --spinbox-height: 44;
+  --spinbox-lift: 0;
+}
+
+.spinbox-preview {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.spinbox-label {
+  color: hsl(calc(292 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) min(94%, calc(58% * var(--spinbox-neon-vibrance) * var(--spinbox-text-brightness) + 14%)) / var(--spinbox-text-fill-alpha));
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) 73% / calc(0.60 * var(--spinbox-text-glow-intensity) * var(--spinbox-text-effects-enabled))),
+    0 0 calc(7px * var(--spinbox-text-glow-blur)) hsl(calc(293 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) 56% / calc(0.28 * var(--spinbox-text-glow-alpha) * var(--spinbox-text-effects-enabled)));
+}
+
+.spinbox-control {
+  display: grid;
+  grid-template-columns: calc(var(--spinbox-height) * 1px) minmax(64px, 1fr) calc(var(--spinbox-height) * 1px);
+  align-items: stretch;
+  min-width: 0;
+  max-width: 220px;
+  min-height: calc(var(--spinbox-height) * 1px);
+  border: var(--spinbox-border-line-width) solid hsl(calc(293 + var(--spinbox-border-hue-shift)) calc(84% * var(--spinbox-border-saturation-final)) min(100%, calc(60% * var(--spinbox-border-brightness-final))) / calc(0.48 * var(--spinbox-border-line-strength) * var(--spinbox-border-alpha)));
+  border-radius: calc(var(--spinbox-radius) * 1px);
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, hsl(calc(293 + var(--spinbox-fill-hue-shift)) calc(84% * var(--spinbox-fill-saturation)) 56% / calc(0.10 * var(--spinbox-fill-alpha) * var(--spinbox-fill-effects-enabled))), hsl(calc(258 + var(--spinbox-fill-hue-shift)) calc(83% * var(--spinbox-fill-saturation)) 18% / calc(0.20 * var(--spinbox-fill-alpha) * var(--spinbox-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.48);
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--spinbox-border-hue-shift)) calc(86% * var(--spinbox-border-saturation-final)) min(100%, calc(73% * var(--spinbox-border-brightness-final))) / calc(0.30 * var(--spinbox-border-line-strength) * var(--spinbox-border-alpha))),
+    inset 0 0 calc(20px * var(--spinbox-border-glow-inner-blur)) hsl(calc(293 + var(--spinbox-neon-hue-shift) + var(--spinbox-inner-glow-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-inner-glow-saturation)) min(100%, calc(61% * var(--spinbox-neon-vibrance) * var(--spinbox-border-brightness-final))) / calc(0.18 * var(--spinbox-border-strength) * var(--spinbox-inner-glow-alpha))),
+    0 0 0 calc(var(--spinbox-border-line-width) * 0.75) hsl(calc(293 + var(--spinbox-border-hue-shift)) calc(84% * var(--spinbox-border-saturation-final)) min(100%, calc(61% * var(--spinbox-border-brightness-final))) / calc(0.20 * var(--spinbox-border-line-strength) * var(--spinbox-border-alpha))),
+    0 0 calc(26px * var(--spinbox-border-glow-outer-blur) / var(--spinbox-outer-glow-sharpness)) hsl(calc(262 + var(--spinbox-border-hue-shift)) calc(91% * var(--spinbox-border-saturation-final)) min(100%, calc(65% * var(--spinbox-border-brightness-final))) / calc(0.40 * var(--spinbox-border-strength) * var(--spinbox-outer-glow-alpha))),
+    0 0 calc(76px * var(--spinbox-border-glow-outer-blur) / var(--spinbox-outer-glow-sharpness)) hsl(calc(293 + var(--spinbox-border-hue-shift)) calc(84% * var(--spinbox-border-saturation-final)) min(100%, calc(61% * var(--spinbox-border-brightness-final))) / calc(0.24 * var(--spinbox-border-strength) * var(--spinbox-outer-glow-alpha)));
+  transform: translateY(calc(-1px * var(--spinbox-lift) * var(--spinbox-motion-effects-enabled)));
+}
+
+.spinbox-input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  border-inline: 1px solid hsl(calc(293 + var(--spinbox-border-hue-shift)) calc(84% * var(--spinbox-border-saturation-final)) 60% / calc(0.18 * var(--spinbox-border-alpha)));
+  color: hsl(calc(292 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) min(96%, calc(58% * var(--spinbox-neon-vibrance) * var(--spinbox-text-brightness) + 16%)) / var(--spinbox-text-fill-alpha));
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
+  outline: none;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) 73% / calc(0.62 * var(--spinbox-text-glow-intensity) * var(--spinbox-text-effects-enabled))),
+    0 0 calc(7px * var(--spinbox-text-glow-blur)) hsl(calc(293 + var(--spinbox-neon-hue-shift) + var(--spinbox-text-hue-shift)) calc(84% * var(--spinbox-neon-saturation) * var(--spinbox-text-saturation)) 56% / calc(0.28 * var(--spinbox-text-glow-alpha) * var(--spinbox-text-effects-enabled)));
+}
+
+.spinbox-input::-webkit-outer-spin-button,
+.spinbox-input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.spinbox-input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.spinbox-button {
+  border: 0;
+  color: hsl(calc(292 + var(--spinbox-neon-hue-shift)) calc(84% * var(--spinbox-neon-saturation)) min(94%, calc(64% * var(--spinbox-neon-vibrance))) / calc(0.95 * var(--spinbox-button-alpha)));
+  background:
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--spinbox-fill-hue-shift)) calc(84% * var(--spinbox-fill-saturation)) 56% / calc(0.24 * var(--spinbox-button-alpha) * var(--spinbox-fill-effects-enabled))), transparent 54%),
+    rgb(217 70 239 / calc(0.10 * var(--spinbox-button-alpha)));
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.spinbox-control.is-disabled,
+.spinbox-control:has(.spinbox-input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.spinbox-control.is-disabled .spinbox-button,
+.spinbox-control:has(.spinbox-input:disabled) .spinbox-button,
+.spinbox-button:disabled {
+  cursor: not-allowed;
+}
+
+.has-fine-pointer .spinbox-button:hover,
+.spinbox-button:focus-visible {
+  background:
+    radial-gradient(circle at 50% 0%, hsl(calc(293 + var(--spinbox-fill-hue-shift)) calc(84% * var(--spinbox-fill-saturation)) 60% / calc(0.38 * var(--spinbox-button-alpha) * var(--spinbox-fill-effects-enabled))), transparent 58%),
+    rgb(217 70 239 / calc(0.18 * var(--spinbox-button-alpha)));
+}

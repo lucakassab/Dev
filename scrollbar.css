@@ -1,0 +1,197 @@
+:root {
+  --scrollbar-text-effects-enabled: 1;
+  --scrollbar-border-effects-enabled: 1;
+  --scrollbar-fill-effects-enabled: 1;
+  --scrollbar-thumb-effects-enabled: 1;
+  --scrollbar-text-glow-intensity: 0.55;
+  --scrollbar-text-hue-shift: 0;
+  --scrollbar-text-saturation: 1;
+  --scrollbar-text-brightness: 1;
+  --scrollbar-border-glow-intensity: 1;
+  --scrollbar-border-strength: calc(var(--scrollbar-border-glow-intensity) * var(--scrollbar-border-effects-enabled));
+  --scrollbar-border-hue-shift: 0;
+  --scrollbar-border-saturation: 1;
+  --scrollbar-border-brightness: 1;
+  --scrollbar-inner-glow-alpha: 0.36;
+  --scrollbar-inner-glow-hue-shift: 0;
+  --scrollbar-inner-glow-saturation: 1;
+  --scrollbar-outer-glow-alpha: 0.24;
+  --scrollbar-track-alpha: 0.28;
+  --scrollbar-thumb-alpha: 0.62;
+  --scrollbar-thumb-glow-alpha: 0.65;
+  --scrollbar-thumb-hue-shift: 0;
+  --scrollbar-thumb-saturation: 1;
+  --scrollbar-fill-alpha: 0.58;
+  --scrollbar-fill-hue-shift: 0;
+  --scrollbar-fill-saturation: 1;
+  --scrollbar-border-alpha: 1;
+  --scrollbar-neon-vibrance: 1;
+  --scrollbar-neon-saturation: 1;
+  --scrollbar-neon-hue-shift: 0;
+  --scrollbar-width: 10;
+  --scrollbar-radius: 12;
+  --scrollbar-panel-height: 132;
+}
+
+html {
+  scrollbar-color:
+    hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(96%, calc(62% * var(--scrollbar-neon-vibrance))) / calc(var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled)))
+    hsl(calc(262 + var(--scrollbar-fill-hue-shift)) calc(70% * var(--scrollbar-fill-saturation)) 12% / calc(var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled)));
+  scrollbar-width: auto;
+}
+
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: calc(var(--scrollbar-width) * 1px);
+  height: calc(var(--scrollbar-width) * 1px);
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  background:
+    radial-gradient(circle at 50% 0%, hsl(calc(292 + var(--scrollbar-fill-hue-shift)) calc(84% * var(--scrollbar-fill-saturation)) 68% / calc(0.12 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))), transparent 58%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-fill-hue-shift)) calc(70% * var(--scrollbar-fill-saturation)) 24% / calc(0.20 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))), hsl(calc(258 + var(--scrollbar-fill-hue-shift)) calc(72% * var(--scrollbar-fill-saturation)) 10% / calc(0.68 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.58);
+}
+
+html::-webkit-scrollbar-thumb {
+  border: 2px solid rgb(6 6 17 / 0.72);
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  background:
+    radial-gradient(circle at 34% 18%, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 84% / calc(0.36 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), transparent 54%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(98%, calc(64% * var(--scrollbar-neon-vibrance))) / calc(0.86 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), hsl(calc(262 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(90% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(94%, calc(46% * var(--scrollbar-neon-vibrance))) / calc(0.72 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 92% / calc(0.34 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))),
+    0 0 12px hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 68% / calc(0.38 * var(--scrollbar-thumb-glow-alpha) * var(--scrollbar-thumb-effects-enabled)));
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background:
+    radial-gradient(circle at 34% 18%, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 88% / calc(0.48 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), transparent 58%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(100%, calc(70% * var(--scrollbar-neon-vibrance))) / calc(0.98 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), hsl(calc(262 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(90% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(96%, calc(52% * var(--scrollbar-neon-vibrance))) / calc(0.84 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 94% / calc(0.40 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))),
+    0 0 18px hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 70% / calc(0.54 * var(--scrollbar-thumb-glow-alpha) * var(--scrollbar-thumb-effects-enabled)));
+}
+
+html::-webkit-scrollbar-corner {
+  background: rgb(6 6 17 / 0.72);
+}
+
+.scroll-preview {
+  display: grid;
+  min-width: 0;
+}
+
+.custom-scroll-panel {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(var(--scrollbar-panel-height) * 1px);
+  overflow: hidden;
+  border: 1px solid hsl(calc(293 + var(--scrollbar-border-hue-shift)) calc(84% * var(--scrollbar-border-saturation)) min(100%, calc(60% * var(--scrollbar-border-brightness))) / calc(0.50 * var(--scrollbar-border-strength) * var(--scrollbar-border-alpha)));
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  padding: 12px calc(16px + var(--scrollbar-width) * 1px) 12px 14px;
+  color: hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-text-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-text-saturation)) min(96%, calc(58% * var(--scrollbar-neon-vibrance) * var(--scrollbar-text-brightness) + 12%)) / 0.9);
+  background:
+    radial-gradient(circle at 14% 0%, hsl(calc(292 + var(--scrollbar-fill-hue-shift)) calc(84% * var(--scrollbar-fill-saturation)) 68% / calc(0.11 * var(--scrollbar-fill-alpha) * var(--scrollbar-fill-effects-enabled))), transparent 48%),
+    linear-gradient(145deg, hsl(calc(293 + var(--scrollbar-fill-hue-shift)) calc(84% * var(--scrollbar-fill-saturation)) 50% / calc(0.08 * var(--scrollbar-fill-alpha) * var(--scrollbar-fill-effects-enabled))), hsl(calc(258 + var(--scrollbar-fill-hue-shift)) calc(83% * var(--scrollbar-fill-saturation)) 18% / calc(0.18 * var(--scrollbar-fill-alpha) * var(--scrollbar-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.48);
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--scrollbar-border-hue-shift)) calc(86% * var(--scrollbar-border-saturation)) min(100%, calc(73% * var(--scrollbar-border-brightness))) / calc(0.30 * var(--scrollbar-border-strength) * var(--scrollbar-border-alpha))),
+    inset 0 0 22px hsl(calc(293 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-inner-glow-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-inner-glow-saturation)) min(100%, calc(61% * var(--scrollbar-neon-vibrance) * var(--scrollbar-border-brightness))) / calc(0.18 * var(--scrollbar-border-strength) * var(--scrollbar-inner-glow-alpha))),
+    0 0 0 1px hsl(calc(293 + var(--scrollbar-border-hue-shift)) calc(84% * var(--scrollbar-border-saturation)) min(100%, calc(61% * var(--scrollbar-border-brightness))) / calc(0.26 * var(--scrollbar-border-strength) * var(--scrollbar-border-alpha))),
+    0 0 28px hsl(calc(262 + var(--scrollbar-border-hue-shift)) calc(91% * var(--scrollbar-border-saturation)) min(100%, calc(65% * var(--scrollbar-border-brightness))) / calc(0.38 * var(--scrollbar-border-strength) * var(--scrollbar-outer-glow-alpha))),
+    0 0 76px hsl(calc(293 + var(--scrollbar-border-hue-shift)) calc(84% * var(--scrollbar-border-saturation)) min(100%, calc(61% * var(--scrollbar-border-brightness))) / calc(0.22 * var(--scrollbar-border-strength) * var(--scrollbar-outer-glow-alpha)));
+  scrollbar-width: none;
+}
+
+.custom-scroll-panel:focus-visible {
+  outline: 2px solid hsl(calc(292 + var(--scrollbar-neon-hue-shift)) calc(84% * var(--scrollbar-neon-saturation)) 70% / 0.78);
+  outline-offset: 3px;
+}
+
+.custom-scroll-panel::before,
+.custom-scroll-panel::after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 7px;
+  width: calc(var(--scrollbar-width) * 1px);
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  pointer-events: none;
+}
+
+html[data-active-tab="scrollbars"] .custom-scroll-panel::before,
+html[data-active-tab="scrollbars"] .custom-scroll-panel::after {
+  display: block;
+}
+
+.custom-scroll-panel::before {
+  bottom: 10px;
+  background:
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-fill-hue-shift)) calc(70% * var(--scrollbar-fill-saturation)) 24% / calc(0.18 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))), hsl(calc(258 + var(--scrollbar-fill-hue-shift)) calc(72% * var(--scrollbar-fill-saturation)) 12% / calc(0.55 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))));
+}
+
+.custom-scroll-panel::after {
+  height: 42%;
+  background:
+    radial-gradient(circle at 35% 18%, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 82% / calc(0.34 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), transparent 52%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(96%, calc(62% * var(--scrollbar-neon-vibrance))) / calc(0.82 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), hsl(calc(262 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(90% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(92%, calc(45% * var(--scrollbar-neon-vibrance))) / calc(0.68 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 90% / calc(0.32 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))),
+    0 0 14px hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 68% / calc(0.40 * var(--scrollbar-thumb-glow-alpha) * var(--scrollbar-thumb-effects-enabled)));
+}
+
+.custom-scroll-panel::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.custom-scroll-panel::-webkit-scrollbar-track {
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  background:
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-fill-hue-shift)) calc(70% * var(--scrollbar-fill-saturation)) 24% / calc(0.18 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))), hsl(calc(258 + var(--scrollbar-fill-hue-shift)) calc(72% * var(--scrollbar-fill-saturation)) 12% / calc(0.55 * var(--scrollbar-track-alpha) * var(--scrollbar-fill-effects-enabled))));
+}
+
+.custom-scroll-panel::-webkit-scrollbar-thumb {
+  border: 2px solid rgb(6 6 17 / 0.76);
+  border-radius: calc(var(--scrollbar-radius) * 1px);
+  background:
+    radial-gradient(circle at 35% 18%, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 82% / calc(0.34 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), transparent 52%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(96%, calc(62% * var(--scrollbar-neon-vibrance))) / calc(0.82 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), hsl(calc(262 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(90% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(92%, calc(45% * var(--scrollbar-neon-vibrance))) / calc(0.68 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 90% / calc(0.32 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))),
+    0 0 14px hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 68% / calc(0.40 * var(--scrollbar-thumb-glow-alpha) * var(--scrollbar-thumb-effects-enabled)));
+}
+
+.custom-scroll-panel::-webkit-scrollbar-thumb:hover {
+  background:
+    radial-gradient(circle at 35% 18%, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) 86% / calc(0.44 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), transparent 56%),
+    linear-gradient(180deg, hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(98%, calc(68% * var(--scrollbar-neon-vibrance))) / calc(0.92 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))), hsl(calc(262 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-thumb-hue-shift)) calc(90% * var(--scrollbar-neon-saturation) * var(--scrollbar-thumb-saturation)) min(94%, calc(50% * var(--scrollbar-neon-vibrance))) / calc(0.78 * var(--scrollbar-thumb-alpha) * var(--scrollbar-thumb-effects-enabled))));
+}
+
+.custom-scroll-panel p {
+  margin: 0 0 9px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+  font-weight: 720;
+  line-height: 1.35;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-text-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-text-saturation)) 73% / calc(0.55 * var(--scrollbar-text-glow-intensity) * var(--scrollbar-text-effects-enabled))),
+    0 0 7px hsl(calc(293 + var(--scrollbar-neon-hue-shift) + var(--scrollbar-text-hue-shift)) calc(84% * var(--scrollbar-neon-saturation) * var(--scrollbar-text-saturation)) 56% / calc(0.18 * var(--scrollbar-text-glow-intensity) * var(--scrollbar-text-effects-enabled)));
+}
+
+.custom-scroll-panel p:last-child {
+  margin-bottom: 0;
+}

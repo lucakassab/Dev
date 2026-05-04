@@ -1,0 +1,1278 @@
+:root {
+  --bg: #060611;
+
+  --text: #f8f5ff;
+  --muted: #b9aecf;
+
+  --glass: rgba(255, 255, 255, 0.075);
+  --glass-strong: rgba(255, 255, 255, 0.135);
+  --glass-shadow: rgba(0, 0, 0, 0.48);
+
+  --purple-1: #6d28d9;
+  --purple-2: #8b5cf6;
+  --purple-3: #c084fc;
+  --purple-4: #f0abfc;
+
+  --neon-soft: rgba(168, 85, 247, 0.34);
+  --neon-medium: rgba(168, 85, 247, 0.68);
+  --neon-strong: rgba(240, 171, 252, 0.96);
+
+  --text-glow-intensity: 1;
+  --text-glow-blur: 1;
+  --border-glow-intensity: 1;
+  --border-glow-inner-blur: 1;
+  --border-glow-outer-blur: 1;
+  --neon-vibrance: 1;
+  --neon-saturation: 1;
+  --neon-hue-shift: 0;
+  --neon-filter:
+    saturate(var(--neon-saturation))
+    brightness(var(--neon-vibrance))
+    hue-rotate(calc(var(--neon-hue-shift) * 1deg));
+
+  --background-primary-hue: 262;
+  --background-secondary-hue: 292;
+  --background-tertiary-hue: 239;
+  --background-saturation: 1;
+  --background-brightness: 1;
+  --background-glow-alpha: 1;
+  --background-glow-blur: 36;
+  --background-grid-alpha: 1;
+  --background-grid-size: 48;
+  --background-grid-thickness: 1;
+  --background-dot-alpha: 1;
+  --background-dot-size: 6;
+  --background-dot-radius: 1;
+  --background-dot-color: #8c8c8c;
+  --background-dot-saturation-boost: 1;
+  --background-dot-vibrance: 1;
+  --background-dot-hue: 292;
+  --background-dot-saturation: 0;
+  --background-vignette-alpha: 1;
+  --background-motion: 1;
+  --background-ambient-enabled: 1;
+  --background-grid-enabled: 1;
+  --background-dot-enabled: 1;
+  --background-vignette-enabled: 1;
+  --background-motion-enabled: 1;
+  --background-cursor-enabled: 1;
+  --background-cursor-glow-enabled: 1;
+  --background-cursor-grid-enabled: 1;
+  --background-cursor-dot-enabled: 1;
+  --background-click-pulse-enabled: 1;
+  --background-click-wave-enabled: 1;
+  --background-cursor-x: 50%;
+  --background-cursor-y: 50%;
+  --background-cursor-active: 0;
+  --background-cursor-glow-alpha: 1;
+  --background-cursor-radius: 180;
+  --background-cursor-blur: 18;
+  --background-cursor-hue: 292;
+  --background-cursor-saturation: 1;
+  --background-cursor-grid-alpha: 1;
+  --background-cursor-dot-alpha: 1;
+  --background-cursor-particle-color: #d946ef;
+  --background-cursor-particle-saturation-boost: 1;
+  --background-cursor-particle-vibrance: 1;
+  --background-cursor-particle-hue: 292;
+  --background-cursor-particle-saturation: 1;
+  --background-click-pulse-alpha: 1;
+  --background-click-pulse-color: #d946ef;
+  --background-click-pulse-saturation-boost: 1;
+  --background-click-pulse-vibrance: 1;
+  --background-click-pulse-hue: 292;
+  --background-click-pulse-saturation: 1;
+  --background-click-pulse-speed: 1;
+  --background-click-pulse-width: 1;
+  --background-click-pulse-accel: 1;
+  --background-click-pulse-fade: 1;
+  --background-click-pulse-softness: 1;
+  --background-click-pulse-wave: 1;
+  --card-text-glow-intensity: 1;
+  --card-text-effects-enabled: 1;
+  --card-border-effects-enabled: 1;
+  --card-fill-effects-enabled: 1;
+  --card-motion-effects-enabled: 1;
+  --card-text-glow-blur: 1;
+  --card-border-glow-intensity: 1;
+  --card-border-multiplier: 1;
+  --card-border-strength: calc(var(--card-border-glow-intensity) * var(--card-border-effects-enabled));
+  --card-border-line-strength: calc(var(--card-border-glow-intensity) * var(--card-border-multiplier) * var(--card-border-effects-enabled));
+  --card-border-line-width: calc(1px + var(--card-border-multiplier) * 0.24px);
+  --card-border-outline-width: calc(1px + var(--card-border-multiplier) * 0.08px);
+  --card-border-glow-inner-blur: 1;
+  --card-border-glow-outer-blur: 1;
+  --card-border-spread: calc(0.95 + var(--card-border-strength) * 0.08);
+  --card-border-vibrance: 1;
+  --card-border-saturation: 1;
+  --card-border-brightness: 1;
+  --card-border-hue-shift: 0;
+  --card-neon-vibrance: 1;
+  --card-neon-saturation: 1;
+  --card-neon-hue-shift: 0;
+  --card-neon-filter:
+    saturate(var(--card-neon-saturation))
+    brightness(var(--card-neon-vibrance))
+    hue-rotate(calc(var(--card-neon-hue-shift) * 1deg));
+  --card-border-filter:
+    saturate(var(--card-neon-saturation))
+    saturate(var(--card-border-vibrance))
+    saturate(var(--card-border-saturation))
+    brightness(var(--card-neon-vibrance))
+    brightness(var(--card-border-vibrance))
+    brightness(var(--card-border-brightness))
+    hue-rotate(calc((var(--card-neon-hue-shift) + var(--card-border-hue-shift)) * 1deg));
+  --card-fill-alpha: 1;
+  --card-fill-hue-shift: 0;
+  --card-fill-saturation: 1;
+  --card-border-alpha: 1;
+  --card-border-fill-alpha: 1;
+  --card-border-fill-diagonal-alpha: 1;
+  --card-border-fill-spot-alpha: 1;
+  --card-inner-glow-alpha: 1;
+  --card-inner-glow-hue-shift: 0;
+  --card-inner-glow-saturation: 1;
+  --card-outer-glow-alpha: 1;
+  --card-outer-glow-sharpness: 1;
+  --card-text-glow-alpha: 1;
+  --card-text-hue-shift: 0;
+  --card-text-saturation: 1;
+  --card-text-brightness: 1;
+  --card-text-highlight-alpha: 1;
+  --card-text-fill-alpha: 1;
+  --card-text-stroke-width: 0;
+  --card-text-stroke-alpha: 0;
+  --card-text-separation-alpha: 0;
+  --card-text-separation-blur: 2;
+  --card-text-crisp-alpha: 0.35;
+  --card-lift: 0;
+
+  --button-text-glow-intensity: 1;
+  --button-text-glow-blur: 1;
+  --button-border-glow-intensity: 1;
+  --button-border-glow-inner-blur: 1;
+  --button-border-glow-outer-blur: 1;
+  --button-neon-vibrance: 1;
+  --button-neon-saturation: 1;
+  --button-neon-hue-shift: 0;
+  --button-neon-filter:
+    saturate(var(--button-neon-saturation))
+    brightness(var(--button-neon-vibrance))
+    hue-rotate(calc(var(--button-neon-hue-shift) * 1deg));
+
+  --button-selected-text-glow-intensity: 1;
+  --button-selected-text-effects-enabled: 1;
+  --button-selected-border-effects-enabled: 1;
+  --button-selected-fill-effects-enabled: 1;
+  --button-selected-motion-effects-enabled: 1;
+  --button-selected-text-glow-blur: 1;
+  --button-selected-border-glow-intensity: 1;
+  --button-selected-border-multiplier: 1;
+  --button-selected-border-strength: calc(var(--button-selected-border-glow-intensity) * var(--button-selected-border-effects-enabled));
+  --button-selected-border-line-strength: calc(var(--button-selected-border-glow-intensity) * var(--button-selected-border-multiplier) * var(--button-selected-border-effects-enabled));
+  --button-selected-border-line-width: calc(1px + var(--button-selected-border-multiplier) * 0.22px);
+  --button-selected-border-outline-width: calc(1px + var(--button-selected-border-multiplier) * 0.075px);
+  --button-selected-border-glow-inner-blur: 1;
+  --button-selected-border-glow-outer-blur: 1;
+  --button-selected-border-spread: calc(0.95 + var(--button-selected-border-strength) * 0.08);
+  --button-selected-border-vibrance: 1;
+  --button-selected-border-saturation: 1;
+  --button-selected-border-brightness: 1;
+  --button-selected-border-hue-shift: 0;
+  --button-selected-neon-vibrance: 1;
+  --button-selected-neon-saturation: 1;
+  --button-selected-neon-hue-shift: 0;
+  --button-selected-neon-filter:
+    saturate(var(--button-selected-neon-saturation))
+    brightness(var(--button-selected-neon-vibrance))
+    hue-rotate(calc(var(--button-selected-neon-hue-shift) * 1deg));
+  --button-selected-border-filter:
+    saturate(var(--button-selected-neon-saturation))
+    saturate(var(--button-selected-border-vibrance))
+    saturate(var(--button-selected-border-saturation))
+    brightness(var(--button-selected-neon-vibrance))
+    brightness(var(--button-selected-border-vibrance))
+    brightness(var(--button-selected-border-brightness))
+    hue-rotate(calc((var(--button-selected-neon-hue-shift) + var(--button-selected-border-hue-shift)) * 1deg));
+  --button-selected-fill-alpha: 1;
+  --button-selected-fill-hue-shift: 0;
+  --button-selected-fill-saturation: 1;
+  --button-selected-border-alpha: 1;
+  --button-selected-border-fill-alpha: 1;
+  --button-selected-border-fill-diagonal-alpha: 1;
+  --button-selected-border-fill-spot-alpha: 1;
+  --button-selected-inner-glow-alpha: 1;
+  --button-selected-inner-glow-hue-shift: 0;
+  --button-selected-inner-glow-saturation: 1;
+  --button-selected-outer-glow-alpha: 1;
+  --button-selected-outer-glow-sharpness: 1;
+  --button-selected-text-glow-alpha: 1;
+  --button-selected-text-hue-shift: 0;
+  --button-selected-text-saturation: 1;
+  --button-selected-text-brightness: 1;
+  --button-selected-text-highlight-alpha: 1;
+  --button-selected-text-fill-alpha: 1;
+  --button-selected-text-stroke-width: 0;
+  --button-selected-text-stroke-alpha: 0;
+  --button-selected-text-separation-alpha: 0;
+  --button-selected-text-separation-blur: 2;
+  --button-selected-text-crisp-alpha: 0.45;
+  --button-selected-lift: 0;
+
+  --button-hover-text-glow-intensity: 1;
+  --button-hover-text-effects-enabled: 1;
+  --button-hover-border-effects-enabled: 1;
+  --button-hover-fill-effects-enabled: 1;
+  --button-hover-motion-effects-enabled: 1;
+  --button-hover-text-glow-blur: 1;
+  --button-hover-border-glow-intensity: 1;
+  --button-hover-border-multiplier: 1;
+  --button-hover-border-strength: calc(var(--button-hover-border-glow-intensity) * var(--button-hover-border-effects-enabled));
+  --button-hover-border-line-strength: calc(var(--button-hover-border-glow-intensity) * var(--button-hover-border-multiplier) * var(--button-hover-border-effects-enabled));
+  --button-hover-border-line-width: calc(1px + var(--button-hover-border-multiplier) * 0.22px);
+  --button-hover-border-outline-width: calc(1px + var(--button-hover-border-multiplier) * 0.075px);
+  --button-hover-border-glow-inner-blur: 1;
+  --button-hover-border-glow-outer-blur: 1;
+  --button-hover-border-spread: calc(0.95 + var(--button-hover-border-strength) * 0.08);
+  --button-hover-border-vibrance: 1;
+  --button-hover-border-saturation: 1;
+  --button-hover-border-brightness: 1;
+  --button-hover-border-hue-shift: 0;
+  --button-hover-neon-vibrance: 1;
+  --button-hover-neon-saturation: 1;
+  --button-hover-neon-hue-shift: 0;
+  --button-hover-neon-filter:
+    saturate(var(--button-hover-neon-saturation))
+    brightness(var(--button-hover-neon-vibrance))
+    hue-rotate(calc(var(--button-hover-neon-hue-shift) * 1deg));
+  --button-hover-border-filter:
+    saturate(var(--button-hover-neon-saturation))
+    saturate(var(--button-hover-border-vibrance))
+    saturate(var(--button-hover-border-saturation))
+    brightness(var(--button-hover-neon-vibrance))
+    brightness(var(--button-hover-border-vibrance))
+    brightness(var(--button-hover-border-brightness))
+    hue-rotate(calc((var(--button-hover-neon-hue-shift) + var(--button-hover-border-hue-shift)) * 1deg));
+  --button-hover-fill-alpha: 1.25;
+  --button-hover-fill-hue-shift: 0;
+  --button-hover-fill-saturation: 1;
+  --button-hover-border-alpha: 1.6;
+  --button-hover-border-fill-alpha: 1;
+  --button-hover-border-fill-diagonal-alpha: 1;
+  --button-hover-border-fill-spot-alpha: 1;
+  --button-hover-inner-glow-alpha: 1.75;
+  --button-hover-inner-glow-hue-shift: 0;
+  --button-hover-inner-glow-saturation: 1;
+  --button-hover-outer-glow-alpha: 1.55;
+  --button-hover-outer-glow-sharpness: 1;
+  --button-hover-text-glow-alpha: 1.45;
+  --button-hover-text-hue-shift: 0;
+  --button-hover-text-saturation: 1;
+  --button-hover-text-brightness: 1;
+  --button-hover-text-highlight-alpha: 1;
+  --button-hover-text-fill-alpha: 1;
+  --button-hover-text-stroke-width: 0;
+  --button-hover-text-stroke-alpha: 0;
+  --button-hover-text-separation-alpha: 0;
+  --button-hover-text-separation-blur: 2;
+  --button-hover-text-crisp-alpha: 0.45;
+  --button-hover-lift: 2;
+
+  --button-deselected-text-glow-intensity: 1;
+  --button-deselected-text-effects-enabled: 1;
+  --button-deselected-border-effects-enabled: 1;
+  --button-deselected-fill-effects-enabled: 1;
+  --button-deselected-motion-effects-enabled: 1;
+  --button-deselected-text-glow-blur: 1;
+  --button-deselected-border-glow-intensity: 1;
+  --button-deselected-border-multiplier: 1;
+  --button-deselected-border-strength: calc(var(--button-deselected-border-glow-intensity) * var(--button-deselected-border-effects-enabled));
+  --button-deselected-border-line-strength: calc(var(--button-deselected-border-glow-intensity) * var(--button-deselected-border-multiplier) * var(--button-deselected-border-effects-enabled));
+  --button-deselected-border-line-width: calc(1px + var(--button-deselected-border-multiplier) * 0.22px);
+  --button-deselected-border-outline-width: calc(1px + var(--button-deselected-border-multiplier) * 0.075px);
+  --button-deselected-border-glow-inner-blur: 1;
+  --button-deselected-border-glow-outer-blur: 1;
+  --button-deselected-border-spread: calc(0.95 + var(--button-deselected-border-strength) * 0.08);
+  --button-deselected-border-vibrance: 1;
+  --button-deselected-border-saturation: 1;
+  --button-deselected-border-brightness: 1;
+  --button-deselected-border-hue-shift: 0;
+  --button-deselected-neon-vibrance: 1;
+  --button-deselected-neon-saturation: 1;
+  --button-deselected-neon-hue-shift: 0;
+  --button-deselected-neon-filter:
+    saturate(var(--button-deselected-neon-saturation))
+    brightness(var(--button-deselected-neon-vibrance))
+    hue-rotate(calc(var(--button-deselected-neon-hue-shift) * 1deg));
+  --button-deselected-border-filter:
+    saturate(var(--button-deselected-neon-saturation))
+    saturate(var(--button-deselected-border-vibrance))
+    saturate(var(--button-deselected-border-saturation))
+    brightness(var(--button-deselected-neon-vibrance))
+    brightness(var(--button-deselected-border-vibrance))
+    brightness(var(--button-deselected-border-brightness))
+    hue-rotate(calc((var(--button-deselected-neon-hue-shift) + var(--button-deselected-border-hue-shift)) * 1deg));
+  --button-deselected-fill-alpha: 1;
+  --button-deselected-fill-hue-shift: 0;
+  --button-deselected-fill-saturation: 1;
+  --button-deselected-border-alpha: 1;
+  --button-deselected-border-fill-alpha: 1;
+  --button-deselected-border-fill-diagonal-alpha: 1;
+  --button-deselected-border-fill-spot-alpha: 1;
+  --button-deselected-inner-glow-alpha: 1;
+  --button-deselected-inner-glow-hue-shift: 0;
+  --button-deselected-inner-glow-saturation: 1;
+  --button-deselected-outer-glow-alpha: 1;
+  --button-deselected-outer-glow-sharpness: 1;
+  --button-deselected-text-glow-alpha: 1;
+  --button-deselected-text-hue-shift: 0;
+  --button-deselected-text-saturation: 1;
+  --button-deselected-text-brightness: 1;
+  --button-deselected-text-highlight-alpha: 1;
+  --button-deselected-text-fill-alpha: 1;
+  --button-deselected-text-stroke-width: 0;
+  --button-deselected-text-stroke-alpha: 0;
+  --button-deselected-text-separation-alpha: 0;
+  --button-deselected-text-separation-blur: 2;
+  --button-deselected-text-crisp-alpha: 0.30;
+  --button-deselected-lift: 0;
+
+  --chip-disabled-text-glow-intensity: 1;
+  --chip-disabled-text-effects-enabled: 1;
+  --chip-disabled-border-effects-enabled: 1;
+  --chip-disabled-fill-effects-enabled: 1;
+  --chip-disabled-motion-effects-enabled: 1;
+  --chip-disabled-text-glow-alpha: 1;
+  --chip-disabled-text-glow-external: var(--chip-disabled-text-glow-alpha);
+  --chip-disabled-text-hue-shift: 0;
+  --chip-disabled-text-saturation: 1;
+  --chip-disabled-text-brightness: 1;
+  --chip-disabled-text-glow-blur: 1;
+  --chip-disabled-border-glow-intensity: 1;
+  --chip-disabled-border-multiplier: 1;
+  --chip-disabled-border-strength: calc(var(--chip-disabled-border-glow-intensity) * var(--chip-disabled-border-effects-enabled));
+  --chip-disabled-border-line-strength: calc(var(--chip-disabled-border-glow-intensity) * var(--chip-disabled-border-multiplier) * var(--chip-disabled-border-effects-enabled));
+  --chip-disabled-border-line-width: calc(1px + var(--chip-disabled-border-multiplier) * 0.18px);
+  --chip-disabled-border-outline-width: calc(1px + var(--chip-disabled-border-multiplier) * 0.06px);
+  --chip-disabled-border-glow-inner-blur: 1;
+  --chip-disabled-border-glow-outer-blur: 1;
+  --chip-disabled-border-spread: calc(0.95 + var(--chip-disabled-border-strength) * 0.08);
+  --chip-disabled-border-vibrance: 1;
+  --chip-disabled-border-saturation: 1;
+  --chip-disabled-border-brightness: 1;
+  --chip-disabled-border-hue-shift: 0;
+  --chip-disabled-neon-vibrance: 1;
+  --chip-disabled-neon-saturation: 1;
+  --chip-disabled-neon-hue-shift: 0;
+  --chip-disabled-neon-filter:
+    saturate(var(--chip-disabled-neon-saturation))
+    brightness(var(--chip-disabled-neon-vibrance))
+    hue-rotate(calc(var(--chip-disabled-neon-hue-shift) * 1deg));
+  --chip-disabled-border-filter:
+    saturate(var(--chip-disabled-neon-saturation))
+    saturate(var(--chip-disabled-border-vibrance))
+    saturate(var(--chip-disabled-border-saturation))
+    brightness(var(--chip-disabled-neon-vibrance))
+    brightness(var(--chip-disabled-border-vibrance))
+    brightness(var(--chip-disabled-border-brightness))
+    hue-rotate(calc((var(--chip-disabled-neon-hue-shift) + var(--chip-disabled-border-hue-shift)) * 1deg));
+  --chip-disabled-fill-alpha: 0.045;
+  --chip-disabled-fill-hue-shift: 0;
+  --chip-disabled-fill-saturation: 1;
+  --chip-disabled-border-alpha: 0.15;
+  --chip-disabled-border-fill-alpha: 1;
+  --chip-disabled-border-fill-diagonal-alpha: 1;
+  --chip-disabled-border-fill-spot-alpha: 1;
+  --chip-disabled-inner-glow-alpha: 0.05;
+  --chip-disabled-inner-glow-hue-shift: 0;
+  --chip-disabled-inner-glow-saturation: 1;
+  --chip-disabled-outer-glow-alpha: 0.07;
+  --chip-disabled-outer-glow-sharpness: 1;
+  --chip-disabled-text-fill-alpha: 0.46;
+  --chip-disabled-text-alpha: var(--chip-disabled-text-fill-alpha);
+  --chip-disabled-text-highlight-alpha: 1;
+  --chip-disabled-text-stroke-width: 0;
+  --chip-disabled-text-stroke-alpha: 0;
+  --chip-disabled-text-separation-alpha: 0;
+  --chip-disabled-text-separation-blur: 2;
+  --chip-disabled-text-crisp-alpha: 0.25;
+  --chip-disabled-lift: 0;
+
+  --chip-hover-text-glow-intensity: 1;
+  --chip-hover-text-effects-enabled: 1;
+  --chip-hover-border-effects-enabled: 1;
+  --chip-hover-fill-effects-enabled: 1;
+  --chip-hover-motion-effects-enabled: 1;
+  --chip-hover-text-glow-alpha: 1;
+  --chip-hover-text-glow-external: var(--chip-hover-text-glow-alpha);
+  --chip-hover-text-hue-shift: 0;
+  --chip-hover-text-saturation: 1;
+  --chip-hover-text-brightness: 1;
+  --chip-hover-text-glow-blur: 1;
+  --chip-hover-border-glow-intensity: 1;
+  --chip-hover-border-multiplier: 1;
+  --chip-hover-border-strength: calc(var(--chip-hover-border-glow-intensity) * var(--chip-hover-border-effects-enabled));
+  --chip-hover-border-line-strength: calc(var(--chip-hover-border-glow-intensity) * var(--chip-hover-border-multiplier) * var(--chip-hover-border-effects-enabled));
+  --chip-hover-border-line-width: calc(1px + var(--chip-hover-border-multiplier) * 0.18px);
+  --chip-hover-border-outline-width: calc(1px + var(--chip-hover-border-multiplier) * 0.06px);
+  --chip-hover-border-glow-inner-blur: 1;
+  --chip-hover-border-glow-outer-blur: 1;
+  --chip-hover-border-spread: calc(0.95 + var(--chip-hover-border-strength) * 0.08);
+  --chip-hover-border-vibrance: 1;
+  --chip-hover-border-saturation: 1;
+  --chip-hover-border-brightness: 1;
+  --chip-hover-border-hue-shift: 0;
+  --chip-hover-neon-vibrance: 1;
+  --chip-hover-neon-saturation: 1;
+  --chip-hover-neon-hue-shift: 0;
+  --chip-hover-neon-filter:
+    saturate(var(--chip-hover-neon-saturation))
+    brightness(var(--chip-hover-neon-vibrance))
+    hue-rotate(calc(var(--chip-hover-neon-hue-shift) * 1deg));
+  --chip-hover-border-filter:
+    saturate(var(--chip-hover-neon-saturation))
+    saturate(var(--chip-hover-border-vibrance))
+    saturate(var(--chip-hover-border-saturation))
+    brightness(var(--chip-hover-neon-vibrance))
+    brightness(var(--chip-hover-border-vibrance))
+    brightness(var(--chip-hover-border-brightness))
+    hue-rotate(calc((var(--chip-hover-neon-hue-shift) + var(--chip-hover-border-hue-shift)) * 1deg));
+  --chip-hover-fill-alpha: 0.18;
+  --chip-hover-fill-hue-shift: 0;
+  --chip-hover-fill-saturation: 1;
+  --chip-hover-border-alpha: 0.72;
+  --chip-hover-border-fill-alpha: 1;
+  --chip-hover-border-fill-diagonal-alpha: 1;
+  --chip-hover-border-fill-spot-alpha: 1;
+  --chip-hover-inner-glow-alpha: 0.20;
+  --chip-hover-inner-glow-hue-shift: 0;
+  --chip-hover-inner-glow-saturation: 1;
+  --chip-hover-outer-glow-alpha: 0.36;
+  --chip-hover-outer-glow-sharpness: 1;
+  --chip-hover-text-fill-alpha: 0.92;
+  --chip-hover-text-alpha: var(--chip-hover-text-fill-alpha);
+  --chip-hover-text-highlight-alpha: 1;
+  --chip-hover-text-stroke-width: 0;
+  --chip-hover-text-stroke-alpha: 0;
+  --chip-hover-text-separation-alpha: 0;
+  --chip-hover-text-separation-blur: 2;
+  --chip-hover-text-crisp-alpha: 0.45;
+  --chip-hover-lift: 1;
+
+  --chip-selected-text-glow-intensity: 1;
+  --chip-selected-text-effects-enabled: 1;
+  --chip-selected-border-effects-enabled: 1;
+  --chip-selected-fill-effects-enabled: 1;
+  --chip-selected-motion-effects-enabled: 1;
+  --chip-selected-text-glow-alpha: 1;
+  --chip-selected-text-glow-external: var(--chip-selected-text-glow-alpha);
+  --chip-selected-text-hue-shift: 0;
+  --chip-selected-text-saturation: 1;
+  --chip-selected-text-brightness: 1;
+  --chip-selected-text-glow-blur: 1;
+  --chip-selected-border-glow-intensity: 1;
+  --chip-selected-border-multiplier: 1;
+  --chip-selected-border-strength: calc(var(--chip-selected-border-glow-intensity) * var(--chip-selected-border-effects-enabled));
+  --chip-selected-border-line-strength: calc(var(--chip-selected-border-glow-intensity) * var(--chip-selected-border-multiplier) * var(--chip-selected-border-effects-enabled));
+  --chip-selected-border-line-width: calc(1px + var(--chip-selected-border-multiplier) * 0.18px);
+  --chip-selected-border-outline-width: calc(1px + var(--chip-selected-border-multiplier) * 0.06px);
+  --chip-selected-border-glow-inner-blur: 1;
+  --chip-selected-border-glow-outer-blur: 1;
+  --chip-selected-border-spread: calc(0.95 + var(--chip-selected-border-strength) * 0.08);
+  --chip-selected-border-vibrance: 1;
+  --chip-selected-border-saturation: 1;
+  --chip-selected-border-brightness: 1;
+  --chip-selected-border-hue-shift: 0;
+  --chip-selected-neon-vibrance: 1;
+  --chip-selected-neon-saturation: 1;
+  --chip-selected-neon-hue-shift: 0;
+  --chip-selected-neon-filter:
+    saturate(var(--chip-selected-neon-saturation))
+    brightness(var(--chip-selected-neon-vibrance))
+    hue-rotate(calc(var(--chip-selected-neon-hue-shift) * 1deg));
+  --chip-selected-border-filter:
+    saturate(var(--chip-selected-neon-saturation))
+    saturate(var(--chip-selected-border-vibrance))
+    saturate(var(--chip-selected-border-saturation))
+    brightness(var(--chip-selected-neon-vibrance))
+    brightness(var(--chip-selected-border-vibrance))
+    brightness(var(--chip-selected-border-brightness))
+    hue-rotate(calc((var(--chip-selected-neon-hue-shift) + var(--chip-selected-border-hue-shift)) * 1deg));
+  --chip-selected-fill-alpha: 0.16;
+  --chip-selected-fill-hue-shift: 0;
+  --chip-selected-fill-saturation: 1;
+  --chip-selected-border-alpha: 0.52;
+  --chip-selected-border-fill-alpha: 1;
+  --chip-selected-border-fill-diagonal-alpha: 1;
+  --chip-selected-border-fill-spot-alpha: 1;
+  --chip-selected-inner-glow-alpha: 0.14;
+  --chip-selected-inner-glow-hue-shift: 0;
+  --chip-selected-inner-glow-saturation: 1;
+  --chip-selected-outer-glow-alpha: 0.24;
+  --chip-selected-outer-glow-sharpness: 1;
+  --chip-selected-text-fill-alpha: 0.92;
+  --chip-selected-text-alpha: var(--chip-selected-text-fill-alpha);
+  --chip-selected-text-highlight-alpha: 1;
+  --chip-selected-text-stroke-width: 0;
+  --chip-selected-text-stroke-alpha: 0;
+  --chip-selected-text-separation-alpha: 0;
+  --chip-selected-text-separation-blur: 2;
+  --chip-selected-text-crisp-alpha: 0.45;
+  --chip-selected-lift: 0;
+
+  --chip-unselected-text-glow-intensity: 1;
+  --chip-unselected-text-effects-enabled: 1;
+  --chip-unselected-border-effects-enabled: 1;
+  --chip-unselected-fill-effects-enabled: 1;
+  --chip-unselected-motion-effects-enabled: 1;
+  --chip-unselected-text-glow-alpha: 1;
+  --chip-unselected-text-glow-external: var(--chip-unselected-text-glow-alpha);
+  --chip-unselected-text-hue-shift: 0;
+  --chip-unselected-text-saturation: 1;
+  --chip-unselected-text-brightness: 1;
+  --chip-unselected-text-glow-blur: 1;
+  --chip-unselected-border-glow-intensity: 1;
+  --chip-unselected-border-multiplier: 1;
+  --chip-unselected-border-strength: calc(var(--chip-unselected-border-glow-intensity) * var(--chip-unselected-border-effects-enabled));
+  --chip-unselected-border-line-strength: calc(var(--chip-unselected-border-glow-intensity) * var(--chip-unselected-border-multiplier) * var(--chip-unselected-border-effects-enabled));
+  --chip-unselected-border-line-width: calc(1px + var(--chip-unselected-border-multiplier) * 0.18px);
+  --chip-unselected-border-outline-width: calc(1px + var(--chip-unselected-border-multiplier) * 0.06px);
+  --chip-unselected-border-glow-inner-blur: 1;
+  --chip-unselected-border-glow-outer-blur: 1;
+  --chip-unselected-border-spread: calc(0.95 + var(--chip-unselected-border-strength) * 0.08);
+  --chip-unselected-border-vibrance: 1;
+  --chip-unselected-border-saturation: 1;
+  --chip-unselected-border-brightness: 1;
+  --chip-unselected-border-hue-shift: 0;
+  --chip-unselected-neon-vibrance: 1;
+  --chip-unselected-neon-saturation: 1;
+  --chip-unselected-neon-hue-shift: 0;
+  --chip-unselected-neon-filter:
+    saturate(var(--chip-unselected-neon-saturation))
+    brightness(var(--chip-unselected-neon-vibrance))
+    hue-rotate(calc(var(--chip-unselected-neon-hue-shift) * 1deg));
+  --chip-unselected-border-filter:
+    saturate(var(--chip-unselected-neon-saturation))
+    saturate(var(--chip-unselected-border-vibrance))
+    saturate(var(--chip-unselected-border-saturation))
+    brightness(var(--chip-unselected-neon-vibrance))
+    brightness(var(--chip-unselected-border-vibrance))
+    brightness(var(--chip-unselected-border-brightness))
+    hue-rotate(calc((var(--chip-unselected-neon-hue-shift) + var(--chip-unselected-border-hue-shift)) * 1deg));
+  --chip-unselected-fill-alpha: 0.08;
+  --chip-unselected-fill-hue-shift: 0;
+  --chip-unselected-fill-saturation: 1;
+  --chip-unselected-border-alpha: 0.26;
+  --chip-unselected-border-fill-alpha: 1;
+  --chip-unselected-border-fill-diagonal-alpha: 1;
+  --chip-unselected-border-fill-spot-alpha: 1;
+  --chip-unselected-inner-glow-alpha: 0.07;
+  --chip-unselected-inner-glow-hue-shift: 0;
+  --chip-unselected-inner-glow-saturation: 1;
+  --chip-unselected-outer-glow-alpha: 0.12;
+  --chip-unselected-outer-glow-sharpness: 1;
+  --chip-unselected-text-fill-alpha: 0.92;
+  --chip-unselected-text-alpha: var(--chip-unselected-text-fill-alpha);
+  --chip-unselected-text-highlight-alpha: 1;
+  --chip-unselected-text-stroke-width: 0;
+  --chip-unselected-text-stroke-alpha: 0;
+  --chip-unselected-text-separation-alpha: 0;
+  --chip-unselected-text-separation-blur: 2;
+  --chip-unselected-text-crisp-alpha: 0.35;
+  --chip-unselected-lift: 0;
+
+  --chip-ghost-text-glow-intensity: 1;
+  --chip-ghost-text-effects-enabled: 1;
+  --chip-ghost-border-effects-enabled: 1;
+  --chip-ghost-fill-effects-enabled: 1;
+  --chip-ghost-motion-effects-enabled: 1;
+  --chip-ghost-text-glow-alpha: 1;
+  --chip-ghost-text-glow-external: var(--chip-ghost-text-glow-alpha);
+  --chip-ghost-text-hue-shift: 0;
+  --chip-ghost-text-saturation: 1;
+  --chip-ghost-text-brightness: 1;
+  --chip-ghost-text-glow-blur: 1;
+  --chip-ghost-border-glow-intensity: 1;
+  --chip-ghost-border-multiplier: 1;
+  --chip-ghost-border-strength: calc(var(--chip-ghost-border-glow-intensity) * var(--chip-ghost-border-effects-enabled));
+  --chip-ghost-border-line-strength: calc(var(--chip-ghost-border-glow-intensity) * var(--chip-ghost-border-multiplier) * var(--chip-ghost-border-effects-enabled));
+  --chip-ghost-border-line-width: calc(1px + var(--chip-ghost-border-multiplier) * 0.18px);
+  --chip-ghost-border-outline-width: calc(1px + var(--chip-ghost-border-multiplier) * 0.06px);
+  --chip-ghost-border-glow-inner-blur: 1;
+  --chip-ghost-border-glow-outer-blur: 1;
+  --chip-ghost-border-spread: calc(0.95 + var(--chip-ghost-border-strength) * 0.08);
+  --chip-ghost-border-vibrance: 1;
+  --chip-ghost-border-saturation: 1;
+  --chip-ghost-border-brightness: 1;
+  --chip-ghost-border-hue-shift: 0;
+  --chip-ghost-neon-vibrance: 1;
+  --chip-ghost-neon-saturation: 1;
+  --chip-ghost-neon-hue-shift: 0;
+  --chip-ghost-neon-filter:
+    saturate(var(--chip-ghost-neon-saturation))
+    brightness(var(--chip-ghost-neon-vibrance))
+    hue-rotate(calc(var(--chip-ghost-neon-hue-shift) * 1deg));
+  --chip-ghost-border-filter:
+    saturate(var(--chip-ghost-neon-saturation))
+    saturate(var(--chip-ghost-border-vibrance))
+    saturate(var(--chip-ghost-border-saturation))
+    brightness(var(--chip-ghost-neon-vibrance))
+    brightness(var(--chip-ghost-border-vibrance))
+    brightness(var(--chip-ghost-border-brightness))
+    hue-rotate(calc((var(--chip-ghost-neon-hue-shift) + var(--chip-ghost-border-hue-shift)) * 1deg));
+  --chip-ghost-fill-alpha: 0.02;
+  --chip-ghost-fill-hue-shift: 0;
+  --chip-ghost-fill-saturation: 1;
+  --chip-ghost-border-alpha: 0.34;
+  --chip-ghost-border-fill-alpha: 1;
+  --chip-ghost-border-fill-diagonal-alpha: 1;
+  --chip-ghost-border-fill-spot-alpha: 1;
+  --chip-ghost-inner-glow-alpha: 0.03;
+  --chip-ghost-inner-glow-hue-shift: 0;
+  --chip-ghost-inner-glow-saturation: 1;
+  --chip-ghost-outer-glow-alpha: 0.16;
+  --chip-ghost-outer-glow-sharpness: 1;
+  --chip-ghost-text-fill-alpha: 0.92;
+  --chip-ghost-text-alpha: var(--chip-ghost-text-fill-alpha);
+  --chip-ghost-text-highlight-alpha: 1;
+  --chip-ghost-text-stroke-width: 0;
+  --chip-ghost-text-stroke-alpha: 0;
+  --chip-ghost-text-separation-alpha: 0;
+  --chip-ghost-text-separation-blur: 2;
+  --chip-ghost-text-crisp-alpha: 0.35;
+  --chip-ghost-lift: 0;
+
+  --checkbox-text-glow-intensity: 1;
+  --checkbox-text-effects-enabled: 1;
+  --checkbox-border-effects-enabled: 1;
+  --checkbox-fill-effects-enabled: 1;
+  --checkbox-motion-effects-enabled: 1;
+  --checkbox-mark-effects-enabled: 1;
+  --checkbox-text-glow-alpha: 1;
+  --checkbox-text-hue-shift: 0;
+  --checkbox-text-saturation: 1;
+  --checkbox-text-brightness: 1;
+  --checkbox-text-glow-blur: 1;
+  --checkbox-text-fill-alpha: 0.96;
+  --checkbox-border-glow-intensity: 1;
+  --checkbox-border-multiplier: 1;
+  --checkbox-border-strength: calc(var(--checkbox-border-glow-intensity) * var(--checkbox-border-effects-enabled));
+  --checkbox-border-line-strength: calc(var(--checkbox-border-glow-intensity) * var(--checkbox-border-multiplier) * var(--checkbox-border-effects-enabled));
+  --checkbox-border-line-width: calc(1px + var(--checkbox-border-multiplier) * 0.18px);
+  --checkbox-border-outline-width: calc(1px + var(--checkbox-border-multiplier) * 0.06px);
+  --checkbox-border-glow-inner-blur: 1;
+  --checkbox-border-glow-outer-blur: 1;
+  --checkbox-border-spread: calc(0.95 + var(--checkbox-border-strength) * 0.08);
+  --checkbox-border-vibrance: 1;
+  --checkbox-border-saturation: 1;
+  --checkbox-border-brightness: 1;
+  --checkbox-border-hue-shift: 0;
+  --checkbox-neon-vibrance: 1;
+  --checkbox-neon-saturation: 1;
+  --checkbox-neon-hue-shift: 0;
+  --checkbox-border-filter:
+    saturate(var(--checkbox-neon-saturation))
+    saturate(var(--checkbox-border-vibrance))
+    saturate(var(--checkbox-border-saturation))
+    brightness(var(--checkbox-neon-vibrance))
+    brightness(var(--checkbox-border-vibrance))
+    brightness(var(--checkbox-border-brightness))
+    hue-rotate(calc((var(--checkbox-neon-hue-shift) + var(--checkbox-border-hue-shift)) * 1deg));
+  --checkbox-fill-alpha: 1;
+  --checkbox-fill-hue-shift: 0;
+  --checkbox-fill-saturation: 1;
+  --checkbox-border-alpha: 1;
+  --checkbox-inner-glow-alpha: 1;
+  --checkbox-inner-glow-hue-shift: 0;
+  --checkbox-inner-glow-saturation: 1;
+  --checkbox-outer-glow-alpha: 1;
+  --checkbox-outer-glow-sharpness: 1;
+  --checkbox-mark-alpha: 1;
+  --checkbox-size: 22;
+  --checkbox-radius: 7;
+  --checkbox-lift: 0;
+
+  --toggle-text-glow-intensity: 1;
+  --toggle-text-effects-enabled: 1;
+  --toggle-border-effects-enabled: 1;
+  --toggle-fill-effects-enabled: 1;
+  --toggle-motion-effects-enabled: 1;
+  --toggle-active-effects-enabled: 1;
+  --toggle-knob-effects-enabled: 1;
+  --toggle-text-glow-alpha: 1;
+  --toggle-text-hue-shift: 0;
+  --toggle-text-saturation: 1;
+  --toggle-text-brightness: 1;
+  --toggle-text-glow-blur: 1;
+  --toggle-text-fill-alpha: 0.96;
+  --toggle-border-glow-intensity: 1;
+  --toggle-border-multiplier: 1;
+  --toggle-border-strength: calc(var(--toggle-border-glow-intensity) * var(--toggle-border-effects-enabled));
+  --toggle-border-line-strength: calc(var(--toggle-border-glow-intensity) * var(--toggle-border-multiplier) * var(--toggle-border-effects-enabled));
+  --toggle-border-line-width: calc(1px + var(--toggle-border-multiplier) * 0.18px);
+  --toggle-border-outline-width: calc(1px + var(--toggle-border-multiplier) * 0.06px);
+  --toggle-border-glow-inner-blur: 1;
+  --toggle-border-glow-outer-blur: 1;
+  --toggle-border-spread: calc(0.95 + var(--toggle-border-strength) * 0.08);
+  --toggle-border-vibrance: 1;
+  --toggle-border-saturation: 1;
+  --toggle-border-brightness: 1;
+  --toggle-border-hue-shift: 0;
+  --toggle-neon-vibrance: 1;
+  --toggle-neon-saturation: 1;
+  --toggle-neon-hue-shift: 0;
+  --toggle-border-filter:
+    saturate(var(--toggle-neon-saturation))
+    saturate(var(--toggle-border-vibrance))
+    saturate(var(--toggle-border-saturation))
+    brightness(var(--toggle-neon-vibrance))
+    brightness(var(--toggle-border-vibrance))
+    brightness(var(--toggle-border-brightness))
+    hue-rotate(calc((var(--toggle-neon-hue-shift) + var(--toggle-border-hue-shift)) * 1deg));
+  --toggle-fill-alpha: 1;
+  --toggle-fill-hue-shift: 0;
+  --toggle-fill-saturation: 1;
+  --toggle-border-alpha: 1;
+  --toggle-inner-glow-alpha: 1;
+  --toggle-inner-glow-hue-shift: 0;
+  --toggle-inner-glow-saturation: 1;
+  --toggle-outer-glow-alpha: 1;
+  --toggle-outer-glow-sharpness: 1;
+  --toggle-active-alpha: 1;
+  --toggle-knob-alpha: 1;
+  --toggle-width: 58;
+  --toggle-height: 32;
+  --toggle-knob-size: 22;
+  --toggle-lift: 0;
+
+  --border-soft: rgba(255, 255, 255, 0.13);
+  --border-bright: rgba(233, 213, 255, 0.72);
+
+  --radius-lg: 32px;
+  --radius-md: 16px;
+  --app-viewport-height: 100vh;
+  --app-safe-top: env(safe-area-inset-top, 0px);
+  --app-safe-right: env(safe-area-inset-right, 0px);
+  --app-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --app-safe-left: env(safe-area-inset-left, 0px);
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-viewport-height: 100dvh;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  background: var(--bg);
+  color-scheme: dark;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-x: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: var(--app-viewport-height);
+  overflow-x: clip;
+  overflow-y: visible;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:where(
+  button,
+  button *,
+  .controls,
+  .controls *,
+  .actions,
+  .actions *,
+  .chips-preview,
+  .chips-preview *,
+  .tab-btn,
+  .tab-btn *,
+  .config-btn,
+  .config-btn *
+) {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+button,
+input,
+textarea,
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  min-width: 0;
+  color: inherit;
+  border-radius: 0;
+}
+
+.experience {
+  width: min(100%, 1180px);
+  display: grid;
+  grid-template-columns: minmax(340px, 520px) minmax(420px, 560px);
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  min-width: 0;
+}
+
+.experience > * {
+  min-width: 0;
+}
+
+.controls {
+  width: 100%;
+  max-height: none;
+  overflow: visible;
+  padding: 18px;
+  border: 1px solid rgb(217 70 239 / calc(0.20 * var(--border-glow-intensity)));
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, rgba(217, 70, 239, 0.08), rgba(124, 58, 237, 0.06)),
+    rgba(6, 6, 17, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgb(232 121 249 / calc(0.16 * var(--border-glow-intensity))),
+    0 0 calc(18px * var(--border-glow-outer-blur)) rgb(168 85 247 / calc(0.14 * var(--border-glow-intensity)));
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.state-tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: 8px;
+}
+
+.tab-btn {
+  border: 1px solid rgb(217 70 239 / 0.22);
+  border-radius: 10px;
+  padding: 9px 12px;
+  min-width: 0;
+  max-width: 100%;
+  color: #a855f7;
+  background: rgba(6, 6, 17, 0.32);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.tab-btn.is-active {
+  border-color: rgb(217 70 239 / 0.72);
+  color: #e879f9;
+  background: linear-gradient(145deg, rgba(217, 70, 239, 0.16), rgba(124, 58, 237, 0.12));
+  box-shadow: 0 0 14px rgb(168 85 247 / 0.20);
+}
+
+.control-panel {
+  display: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+
+.control-panel.is-active {
+  display: grid;
+}
+
+.control-panel .control-panel {
+  grid-column: 1 / -1;
+}
+
+.control-group {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgb(217 70 239 / 0.16);
+  content-visibility: auto;
+  contain-intrinsic-size: 220px;
+}
+
+.control-group:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.control-group-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  color: hsl(calc(280 + var(--neon-hue-shift)) calc(74% * var(--neon-saturation)) min(96%, calc(84% * var(--neon-vibrance))));
+  font-size: 0.72rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  text-shadow: 0 0 1px hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) min(96%, calc(73% * var(--neon-vibrance))) / 0.22);
+  opacity: 0.82;
+}
+
+.control {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.control span {
+  min-width: 0;
+  max-width: 100%;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) min(88%, calc(70% * var(--neon-vibrance))));
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  text-shadow: 0 0 1px hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) min(92%, calc(73% * var(--neon-vibrance))) / 0.20);
+}
+
+.control input {
+  width: 100%;
+  accent-color: hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) 55%);
+  cursor: pointer;
+}
+
+.control input[type="range"] {
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.control input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border: 1px solid rgb(217 70 239 / 0.26);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgb(217 70 239 / 0.42), rgb(124 58 237 / 0.24)),
+    rgb(6 6 17 / 0.58);
+  box-shadow:
+    inset 0 0 7px rgb(0 0 0 / 0.28),
+    0 0 10px rgb(168 85 247 / 0.10);
+}
+
+.control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 1px solid rgb(255 255 255 / 0.58);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 24%, rgb(255 255 255 / 0.82), transparent 36%),
+    linear-gradient(145deg, rgb(232 121 249), rgb(124 58 237));
+  box-shadow:
+    0 0 0 1px rgb(217 70 239 / 0.22),
+    0 0 14px rgb(217 70 239 / 0.36);
+}
+
+.control input[type="range"]::-moz-range-track {
+  height: 6px;
+  border: 1px solid rgb(217 70 239 / 0.26);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgb(217 70 239 / 0.42), rgb(124 58 237 / 0.24)),
+    rgb(6 6 17 / 0.58);
+  box-shadow:
+    inset 0 0 7px rgb(0 0 0 / 0.28),
+    0 0 10px rgb(168 85 247 / 0.10);
+}
+
+.control input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgb(255 255 255 / 0.58);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 24%, rgb(255 255 255 / 0.82), transparent 36%),
+    linear-gradient(145deg, rgb(232 121 249), rgb(124 58 237));
+  box-shadow:
+    0 0 0 1px rgb(217 70 239 / 0.22),
+    0 0 14px rgb(217 70 239 / 0.36);
+}
+
+.control input[type="color"] {
+  height: 34px;
+  padding: 3px;
+  border: 1px solid rgb(217 70 239 / 0.34);
+  border-radius: 8px;
+  background: rgb(6 6 17 / 0.62);
+}
+
+.control input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.control input[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: 6px;
+}
+
+.control--toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid rgb(217 70 239 / 0.18);
+  border-radius: 10px;
+  background: rgb(6 6 17 / 0.26);
+}
+
+.control--toggle span {
+  flex: 1 1 auto;
+}
+
+.control--toggle input[type="checkbox"] {
+  position: relative;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 24px;
+  border: 1px solid rgb(217 70 239 / 0.34);
+  border-radius: 999px;
+  appearance: none;
+  -webkit-appearance: none;
+  background:
+    linear-gradient(145deg, rgb(168 85 247 / 0.12), rgb(6 6 17 / 0.64)),
+    rgb(6 6 17 / 0.72);
+  box-shadow:
+    inset 0 0 10px rgb(0 0 0 / 0.26),
+    0 0 14px rgb(168 85 247 / 0.10);
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.control--toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 34% 24%, rgb(255 255 255 / 0.72), transparent 34%),
+    linear-gradient(145deg, rgb(233 213 255), rgb(168 85 247));
+  box-shadow: 0 0 10px rgb(168 85 247 / 0.30);
+  transform: translate(0, -50%);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.control--toggle input[type="checkbox"]:checked {
+  border-color: rgb(232 121 249 / 0.72);
+  background:
+    linear-gradient(145deg, rgb(217 70 239 / 0.38), rgb(124 58 237 / 0.32)),
+    rgb(6 6 17 / 0.70);
+  box-shadow:
+    inset 0 0 12px rgb(217 70 239 / 0.16),
+    0 0 20px rgb(217 70 239 / 0.22);
+}
+
+.control--toggle input[type="checkbox"]:checked::before {
+  transform: translate(20px, -50%);
+  box-shadow:
+    0 0 12px rgb(217 70 239 / 0.46),
+    0 0 22px rgb(168 85 247 / 0.26);
+}
+
+.theme-control {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+}
+
+.theme-control select {
+  width: 100%;
+  max-width: 100%;
+  min-height: 40px;
+  border: 1px solid rgb(217 70 239 / 0.34);
+  border-radius: 10px;
+  padding: 9px 36px 9px 12px;
+  color: #e9d5ff;
+  background:
+    linear-gradient(45deg, transparent 50%, rgb(233 213 255 / 0.88) 50%) calc(100% - 19px) 50% / 6px 6px no-repeat,
+    linear-gradient(135deg, rgb(233 213 255 / 0.88) 50%, transparent 50%) calc(100% - 14px) 50% / 6px 6px no-repeat,
+    linear-gradient(145deg, rgba(217, 70, 239, 0.12), rgba(124, 58, 237, 0.08)),
+    rgb(6 6 17 / 0.72);
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-control select:focus {
+  border-color: rgb(217 70 239 / 0.72);
+  box-shadow: 0 0 18px rgb(168 85 247 / 0.22);
+}
+
+.config-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.config-btn {
+  border: 1px solid rgb(217 70 239 / calc(0.34 * var(--border-glow-intensity)));
+  border-radius: 10px;
+  padding: 9px 13px;
+  min-width: 0;
+  max-width: 100%;
+  color: hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) min(88%, calc(57% * var(--neon-vibrance) + 14%)));
+  background:
+    linear-gradient(145deg, rgba(217, 70, 239, 0.12), rgba(124, 58, 237, 0.10)),
+    rgba(6, 6, 17, 0.36);
+  box-shadow:
+    inset 0 1px 0 rgb(232 121 249 / calc(0.18 * var(--border-glow-intensity))),
+    0 0 calc(12px * var(--border-glow-outer-blur)) rgb(168 85 247 / calc(0.16 * var(--border-glow-intensity)));
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  text-rendering: optimizeLegibility;
+}
+
+.has-fine-pointer .config-btn:hover {
+  border-color: rgb(217 70 239 / calc(0.72 * var(--border-glow-intensity)));
+  color: hsl(calc(292 + var(--neon-hue-shift)) calc(84% * var(--neon-saturation)) min(94%, calc(68% * var(--neon-vibrance) + 12%)));
+  box-shadow:
+    inset 0 1px 0 rgb(232 121 249 / calc(0.28 * var(--border-glow-intensity))),
+    0 0 calc(18px * var(--border-glow-outer-blur)) rgb(217 70 239 / calc(0.30 * var(--border-glow-intensity)));
+  transform: translateY(-1px);
+}
+
+.config-btn[data-feedback-state="success"] {
+  border-color: rgb(34 197 94 / 0.76);
+  color: #86efac;
+  box-shadow:
+    inset 0 1px 0 rgb(187 247 208 / 0.28),
+    0 0 18px rgb(34 197 94 / 0.34);
+}
+
+.config-btn[data-feedback-state="error"] {
+  border-color: rgb(248 113 113 / 0.78);
+  color: #fca5a5;
+  box-shadow:
+    inset 0 1px 0 rgb(254 202 202 / 0.28),
+    0 0 18px rgb(248 113 113 / 0.34);
+}
+
+@media (max-width: 960px) {
+  .experience {
+    width: min(100%, 620px);
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 18px;
+  }
+
+  .controls {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .control-group {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .control-panel,
+  .control-group {
+    grid-template-columns: 1fr;
+  }
+
+  .config-actions {
+    justify-content: stretch;
+  }
+
+  .config-btn {
+    flex: 1;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .has-fine-pointer .config-btn:hover {
+    transform: none;
+  }
+}

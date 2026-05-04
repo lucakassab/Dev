@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orçamento de Tour Virtual — LuKassab</title>
+  <meta name="description" content="Monte uma estimativa para experiência 360°, VR, Meta Quest, tablet ou web/PWA com cálculo em tempo real." />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="LuKassab Home">
+      <span class="brand-mark">LK</span>
+      <span>LuKassab</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a class="is-active" href="orcamento.html">Orçamento</a>
+    </nav>
+  </header>
+
+  <main class="page-shell budget-page">
+    <section class="page-hero">
+      <p class="eyebrow">Orçamento 360° / VR</p>
+      <h1>Configure escopo, mídias e valor estimado.</h1>
+    </section>
+
+    <nav class="budget-variant-switch" aria-label="Alternar layout de orçamento">
+      <a class="is-active" href="orcamento.html">Atual</a>
+      <a href="orcamento-dashboard.html">Painel</a>
+      <a href="orcamento-etapas.html">Etapas</a>
+      <a href="etapas-guiadas.html">Guiado</a>
+      <a href="orcamento-assistido.html">Assistido</a>
+    </nav>
+
+    <section class="budget-layout" id="budget-builder">
+      <div class="budget-config">
+        <div class="budget-config-header">
+          <div class="section-heading compact-heading">
+            <h2>Solução base</h2>
+          </div>
+        </div>
+
+        <div class="budget-options" role="radiogroup" aria-label="Opções de orçamento">
+          <article class="budget-option is-selected" data-budget-card data-card-key="quest" role="radio" aria-checked="true" tabindex="0">
+            <span>Opção 1</span>
+            <strong>Aplicação para Meta Quest</strong>
+            <small>Experiência VR dedicada ao headset, com navegação simples ou pontos interativos na cena.</small>
+            <div class="mode-switch" role="group" aria-label="Modo de navegação para Meta Quest">
+              <button class="is-selected" type="button" data-mode-option data-option-code="1A" data-option-title="Meta Quest com navegação simples" data-option-price="2500" data-option-features="meta,buttons" aria-pressed="true">
+                Navegação simples
+              </button>
+              <button type="button" data-mode-option data-option-code="1B" data-option-title="Meta Quest com navegação complexa" data-option-price="5000" data-option-features="meta,hotspots" aria-pressed="false">
+                Navegação complexa
+              </button>
+            </div>
+            <em data-card-price>R$ 2.500</em>
+            <button class="details-toggle" type="button" data-details-toggle aria-expanded="false">Detalhes</button>
+            <div class="inline-details-panel" data-inline-details-panel hidden>
+              <div data-option-detail>
+                <strong>Modo selecionado</strong>
+                <p>Detalhes atualizados conforme a opção escolhida.</p>
+              </div>
+              <div>
+                <strong>Reimportação de mídias</strong>
+                <p>Inclui até 4 reimportações por imagem 360° ou áudio aprovado.</p>
+              </div>
+              <div>
+                <strong>Atualizações adicionais</strong>
+                <p>Após esse limite, novas trocas entram como ajuste de escopo.</p>
+              </div>
+              <div class="conditional-note" data-web-hosting-note hidden>
+                <strong>Hosting Web/PWA</strong>
+                <p>Domínio, hospedagem, custos recorrentes e publicação serão definidos à parte.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="budget-option" data-budget-card data-card-key="quest-tablet" role="radio" aria-checked="false" tabindex="0">
+            <span>Opção 2</span>
+            <strong>Meta Quest + Tablet</strong>
+            <small>Duas plataformas independentes, sem comunicação entre o headset e o tablet.</small>
+            <div class="mode-switch" role="group" aria-label="Modo de navegação para Meta Quest e Tablet">
+              <button class="is-selected" type="button" data-mode-option data-option-code="2A" data-option-title="Meta Quest + Tablet sem comunicação com navegação simples" data-option-price="5000" data-option-features="meta,tablet,buttons" aria-pressed="true">
+                Navegação simples
+              </button>
+              <button type="button" data-mode-option data-option-code="2B" data-option-title="Meta Quest + Tablet sem comunicação com navegação complexa" data-option-price="7500" data-option-features="meta,tablet,hotspots" aria-pressed="false">
+                Navegação complexa
+              </button>
+            </div>
+            <em data-card-price>R$ 5.000</em>
+            <button class="details-toggle" type="button" data-details-toggle aria-expanded="false">Detalhes</button>
+          </article>
+
+          <article class="budget-option" data-budget-card data-card-key="tcp" role="radio" aria-checked="false" tabindex="0">
+            <span>Opção 3</span>
+            <strong>Quest + Tablet via TCP</strong>
+            <small>Tablet como interface de controle remoto para trocar imagens e acionar recursos da experiência VR.</small>
+            <div class="mode-switch" role="group" aria-label="Modo de navegação para Meta Quest e Tablet via TCP">
+              <button class="is-selected" type="button" data-mode-option data-option-code="3A" data-option-title="Meta Quest + Tablet via TCP com navegação simples" data-option-price="10000" data-option-features="meta,tablet,tcp,buttons" aria-pressed="true">
+                Navegação simples
+              </button>
+              <button type="button" data-mode-option data-option-code="3B" data-option-title="Meta Quest + Tablet via TCP com navegação complexa" data-option-price="12500" data-option-features="meta,tablet,tcp,hotspots" aria-pressed="false">
+                Navegação complexa
+              </button>
+            </div>
+            <em data-card-price>R$ 10.000</em>
+            <button class="details-toggle" type="button" data-details-toggle aria-expanded="false">Detalhes</button>
+          </article>
+
+          <article class="budget-option" data-budget-card data-card-key="web" role="radio" aria-checked="false" tabindex="0">
+            <span>Opção 4</span>
+            <strong>Website / PWA multiplataforma</strong>
+            <small>Experiência Web/PWA para navegador, com opção enxuta para poucos recursos ou versão avançada com funcionalidades mais sofisticadas.</small>
+            <div class="mode-switch" role="group" aria-label="Modo de navegação para Website / PWA">
+              <button class="is-selected" type="button" data-mode-option data-option-code="4A" data-option-title="Website / PWA com navegação simples" data-option-price="15000" data-option-features="web,android,ios,windows,meta,browser,buttons" aria-pressed="true">
+                Navegação simples
+              </button>
+              <button type="button" data-mode-option data-option-code="4B" data-option-title="Website / PWA com navegação complexa" data-option-price="20000" data-option-features="web,android,ios,windows,meta,browser,hotspots,bluetooth,webrtc" aria-pressed="false">
+                Navegação complexa
+              </button>
+            </div>
+            <em data-card-price>R$ 15.000</em>
+            <button class="details-toggle" type="button" data-details-toggle aria-expanded="false">Detalhes</button>
+          </article>
+        </div>
+      </div>
+
+      <aside class="budget-sidebar" aria-label="Resumo do orçamento">
+        <div class="inline-quantity-panel" data-inline-quantity-panel>
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Mídias</p>
+            <h2>Defina imagens e áudios.</h2>
+          </div>
+
+          <div class="quantity-grid">
+            <div class="quantity-control">
+              <span>Imagens 360° – R$ 200 por mídia</span>
+              <div class="quantity-input-row">
+                <div class="site-spinbox">
+                  <button type="button" data-step-for="images" data-step="-1" aria-label="Diminuir imagens">-</button>
+                  <input id="images" type="text" inputmode="numeric" min="0" max="999" maxlength="3" value="10" data-budget-qty="images" readonly aria-readonly="true" />
+                  <button type="button" data-step-for="images" data-step="1" aria-label="Aumentar imagens">+</button>
+                </div>
+                <svg class="quantity-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <circle cx="8.5" cy="10" r="1.5"></circle>
+                  <path d="m21 15-5.2-5.2a2 2 0 0 0-2.8 0L5 17"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="quantity-control">
+              <span>Áudios – R$ 200 por áudio</span>
+              <div class="quantity-input-row">
+                <div class="site-spinbox">
+                  <button type="button" data-step-for="audios" data-step="-1" aria-label="Diminuir áudios">-</button>
+                  <input id="audios" type="text" inputmode="numeric" min="0" max="999" maxlength="3" value="3" data-budget-qty="audios" readonly aria-readonly="true" />
+                  <button type="button" data-step-for="audios" data-step="1" aria-label="Aumentar áudios">+</button>
+                </div>
+                <svg class="quantity-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+                  <path d="M18.5 5.5a9 9 0 0 1 0 13"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="budget-summary" aria-label="Resumo do orçamento">
+          <p class="eyebrow">Resumo</p>
+          <h2 data-summary-title>Meta Quest com navegação simples</h2>
+          <div class="chip-row summary-chips" data-summary-chips aria-label="Plataformas e características selecionadas"></div>
+          <div class="summary-list">
+            <div>
+              <span>Valor base</span>
+              <strong data-summary-base>R$ 2.500</strong>
+            </div>
+            <div>
+              <span>Imagens 360°</span>
+              <strong data-summary-images>R$ 2.000</strong>
+            </div>
+            <div>
+              <span>Áudios</span>
+              <strong data-summary-audios>R$ 600</strong>
+            </div>
+          </div>
+          <div class="summary-total">
+            <span>Valor estimado</span>
+            <strong data-summary-total>R$ 5.100</strong>
+          </div>
+          <label class="budget-email-field">
+            <span>E-mail para identificação</span>
+            <input type="email" inputmode="email" autocomplete="email" placeholder="cliente@email.com" data-budget-email />
+          </label>
+          <label class="budget-project-field">
+            <span>Detalhes do projeto</span>
+            <textarea rows="4" placeholder="Descreva objetivos, ambientes, referências, plataformas desejadas ou observações importantes." data-budget-project-details></textarea>
+          </label>
+          <button class="glass-button glass-button-primary full-button" type="button" data-copy-summary>Enviar orçamento</button>
+          <p class="copy-status" data-copy-status aria-live="polite"></p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="notes-panel">
+      <p class="eyebrow">Observações</p>
+      <p>Os valores não incluem produção, captação ou edição das imagens 360°, salvo se combinado previamente.</p>
+      <p>Imagens e áudios referem-se à implementação desses materiais dentro da aplicação.</p>
+      <p>Ajustes de escopo, novas funcionalidades ou alterações estruturais poderão ser orçados separadamente.</p>
+      <p>O prazo de desenvolvimento será definido após a aprovação da opção escolhida e da quantidade final de mídias.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LuKassab</span>
+    <span>3D · VR · Web · Unreal Engine</span>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

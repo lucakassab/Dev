@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orçamento Assistido Avançado — LuKassab</title>
+  <meta name="description" content="Monte um orçamento por perguntas inteligentes, com escolhas condicionais de tipo de app, plataformas, recursos e mídias." />
+  <link rel="stylesheet" href="site.css?v=invalid-state-timeline" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="LuKassab Home">
+      <span class="brand-mark">LK</span>
+      <span>LuKassab</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a class="is-active" href="orcamento.html">Orçamento</a>
+    </nav>
+  </header>
+
+  <main class="page-shell budget-page advanced-page">
+    <section class="page-hero">
+      <p class="eyebrow">Orçamento assistido avançado</p>
+      <h1>Monte o escopo por perguntas inteligentes.</h1>
+    </section>
+
+    <nav class="budget-variant-switch" aria-label="Alternar layout de orçamento">
+      <a href="orcamento.html">Atual</a>
+      <a href="orcamento-dashboard.html">Painel</a>
+      <a href="orcamento-etapas.html">Etapas</a>
+      <a href="etapas-guiadas.html">Guiado</a>
+      <a class="is-active" href="orcamento-assistido.html">Assistido</a>
+    </nav>
+
+    <section class="advanced-budget-layout" id="advanced-budget" aria-label="Questionário assistido de orçamento">
+      <div class="advanced-wizard">
+        <div class="advanced-progress-card" aria-label="Progresso do questionário">
+          <div>
+            <span data-advanced-step-label>Etapa 1 de 6</span>
+            <strong data-advanced-step-name>Projeto</strong>
+          </div>
+          <div class="advanced-progress-track" data-advanced-progress-track aria-label="Etapas do questionário">
+            <span data-advanced-progress-bar></span>
+          </div>
+          <div class="advanced-branch-map" data-advanced-branch-map aria-label="Resumo visual das etapas"></div>
+        </div>
+
+        <section class="advanced-question-card" data-advanced-question-card>
+          <p class="eyebrow" data-advanced-question-kicker>Projeto</p>
+          <h2 data-advanced-question-title>Qual é o nome do app/projeto?</h2>
+          <p data-advanced-question-description>Identifique o orçamento antes de configurar as escolhas técnicas.</p>
+          <div class="advanced-question-body" data-advanced-question-body></div>
+          <p class="advanced-validation" data-advanced-validation hidden></p>
+          <div class="advanced-actions">
+            <button class="glass-button" type="button" data-advanced-back>Voltar</button>
+            <button class="glass-button glass-button-primary" type="button" data-advanced-next>Avançar</button>
+          </div>
+        </section>
+      </div>
+
+      <aside class="advanced-summary" aria-label="Resumo do orçamento assistido">
+        <p class="eyebrow">Resumo em tempo real</p>
+        <h2 data-advanced-summary-project>Projeto sem nome</h2>
+        <p data-advanced-summary-app>Tipo de app ainda não escolhido.</p>
+
+        <div class="advanced-summary-section">
+          <span>Mídias e sons</span>
+          <strong data-advanced-summary-media>0 mídias · 0 sons</strong>
+        </div>
+
+        <div class="advanced-summary-section">
+          <span>Plataformas</span>
+          <div class="chip-row summary-chips" data-advanced-summary-platforms></div>
+        </div>
+
+        <div class="advanced-summary-section">
+          <span>Features</span>
+          <div class="chip-row summary-chips" data-advanced-summary-features></div>
+        </div>
+
+        <div class="advanced-summary-section">
+          <span>Alertas</span>
+          <ul class="advanced-alert-list" data-advanced-summary-alerts></ul>
+        </div>
+
+        <div class="guided-preview-list">
+          <div>
+            <span>Base estimada</span>
+            <strong data-advanced-summary-base>R$ 0</strong>
+          </div>
+          <div>
+            <span>Mídias e sons</span>
+            <strong data-advanced-summary-media-cost>R$ 0</strong>
+          </div>
+        </div>
+
+        <div class="guided-preview-total">
+          <span>Valor estimado</span>
+          <strong data-advanced-summary-total>R$ 0</strong>
+        </div>
+
+        <div class="guided-preview-note" data-advanced-summary-note>
+          A estimativa será ajustada conforme suas respostas.
+        </div>
+
+        <button class="glass-button glass-button-primary full-button" type="button" data-advanced-copy>Preparar resumo</button>
+        <p class="copy-status" data-advanced-status aria-live="polite"></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LuKassab</span>
+    <span>3D · VR · Web · Unreal Engine</span>
+  </footer>
+  <script src="site.js?v=invalid-state-timeline"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+:root {
+  --radio-text-effects-enabled: 1;
+  --radio-border-effects-enabled: 1;
+  --radio-fill-effects-enabled: 1;
+  --radio-mark-effects-enabled: 1;
+  --radio-motion-effects-enabled: 1;
+  --radio-text-glow-intensity: 0.6;
+  --radio-text-glow-alpha: 0.16;
+  --radio-text-glow-blur: 0.55;
+  --radio-text-hue-shift: 0;
+  --radio-text-saturation: 1;
+  --radio-text-brightness: 1.1;
+  --radio-text-fill-alpha: 1;
+  --radio-border-glow-intensity: 1.15;
+  --radio-border-multiplier: 1;
+  --radio-border-strength: calc(var(--radio-border-glow-intensity) * var(--radio-border-effects-enabled));
+  --radio-border-line-strength: calc(var(--radio-border-glow-intensity) * var(--radio-border-multiplier) * var(--radio-border-effects-enabled));
+  --radio-border-line-width: calc(1px + var(--radio-border-multiplier) * 0.20px);
+  --radio-border-vibrance: 1.1;
+  --radio-border-saturation: 1;
+  --radio-border-brightness: 1;
+  --radio-border-hue-shift: 0;
+  --radio-border-glow-inner-blur: 0.6;
+  --radio-border-glow-outer-blur: 0.45;
+  --radio-outer-glow-sharpness: 3.2;
+  --radio-inner-glow-alpha: 0.4;
+  --radio-inner-glow-hue-shift: 0;
+  --radio-inner-glow-saturation: 1;
+  --radio-outer-glow-alpha: 0.28;
+  --radio-border-saturation-final: calc(var(--radio-border-saturation) * var(--radio-border-vibrance));
+  --radio-border-brightness-final: calc(var(--radio-border-brightness) * var(--radio-border-vibrance));
+  --radio-fill-alpha: 0.72;
+  --radio-fill-hue-shift: 0;
+  --radio-fill-saturation: 1;
+  --radio-border-alpha: 1;
+  --radio-mark-alpha: 1;
+  --radio-mark-scale: 0.72;
+  --radio-neon-vibrance: 1;
+  --radio-neon-saturation: 1;
+  --radio-neon-hue-shift: 0;
+  --radio-size: 22;
+  --radio-lift: 0;
+}
+
+.radio-preview {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.radio-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  color: hsl(calc(292 + var(--radio-neon-hue-shift) + var(--radio-text-hue-shift)) calc(84% * var(--radio-neon-saturation) * var(--radio-text-saturation)) min(96%, calc(58% * var(--radio-neon-vibrance) * var(--radio-text-brightness) + 12%)) / var(--radio-text-fill-alpha));
+  cursor: pointer;
+  touch-action: manipulation;
+  transform: translateY(calc(-1px * var(--radio-lift) * var(--radio-motion-effects-enabled)));
+  -webkit-tap-highlight-color: transparent;
+}
+
+.radio-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-dot {
+  position: relative;
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: calc(var(--radio-size) * 1px);
+  height: calc(var(--radio-size) * 1px);
+  border: var(--radio-border-line-width) solid hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(61% * var(--radio-border-brightness-final))) / calc(0.46 * var(--radio-border-line-strength) * var(--radio-border-alpha)));
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 40%, hsl(calc(293 + var(--radio-fill-hue-shift)) calc(84% * var(--radio-fill-saturation)) 68% / calc(0.12 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled))), transparent 58%),
+    linear-gradient(145deg, hsl(calc(293 + var(--radio-fill-hue-shift)) calc(84% * var(--radio-fill-saturation)) 56% / calc(0.09 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled))), hsl(calc(258 + var(--radio-fill-hue-shift)) calc(83% * var(--radio-fill-saturation)) 20% / calc(0.18 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.48);
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--radio-border-hue-shift)) calc(86% * var(--radio-border-saturation-final)) min(100%, calc(73% * var(--radio-border-brightness-final))) / calc(0.28 * var(--radio-border-line-strength) * var(--radio-border-alpha))),
+    inset 0 0 calc(14px * var(--radio-border-glow-inner-blur)) hsl(calc(293 + var(--radio-neon-hue-shift) + var(--radio-inner-glow-hue-shift)) calc(84% * var(--radio-neon-saturation) * var(--radio-inner-glow-saturation)) min(100%, calc(61% * var(--radio-neon-vibrance) * var(--radio-border-brightness-final))) / calc(0.18 * var(--radio-border-strength) * var(--radio-inner-glow-alpha))),
+    0 0 0 calc(var(--radio-border-line-width) * 0.75) hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(61% * var(--radio-border-brightness-final))) / calc(0.20 * var(--radio-border-line-strength) * var(--radio-border-alpha))),
+    0 0 calc(22px * var(--radio-border-glow-outer-blur) / var(--radio-outer-glow-sharpness)) hsl(calc(262 + var(--radio-border-hue-shift)) calc(91% * var(--radio-border-saturation-final)) min(100%, calc(65% * var(--radio-border-brightness-final))) / calc(0.38 * var(--radio-border-strength) * var(--radio-outer-glow-alpha))),
+    0 0 calc(56px * var(--radio-border-glow-outer-blur) / var(--radio-outer-glow-sharpness)) hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(61% * var(--radio-border-brightness-final))) / calc(0.22 * var(--radio-border-strength) * var(--radio-outer-glow-alpha)));
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.radio-dot::before {
+  content: "";
+  width: calc(var(--radio-size) * var(--radio-mark-scale) * 1px);
+  height: calc(var(--radio-size) * var(--radio-mark-scale) * 1px);
+  border-radius: 999px;
+  opacity: 0;
+  transform: scale(0.55);
+  background:
+    radial-gradient(circle, hsl(calc(292 + var(--radio-neon-hue-shift)) calc(84% * var(--radio-neon-saturation)) min(100%, calc(82% * var(--radio-neon-vibrance))) / calc(0.98 * var(--radio-mark-alpha) * var(--radio-mark-effects-enabled))) 0 34%, hsl(calc(292 + var(--radio-neon-hue-shift)) calc(84% * var(--radio-neon-saturation)) min(100%, calc(58% * var(--radio-neon-vibrance))) / calc(0.42 * var(--radio-mark-alpha) * var(--radio-mark-effects-enabled))) 64%, transparent 72%);
+  filter: drop-shadow(0 0 calc(7px * var(--radio-text-glow-blur)) hsl(calc(292 + var(--radio-neon-hue-shift)) calc(84% * var(--radio-neon-saturation)) 70% / calc(0.42 * var(--radio-mark-alpha) * var(--radio-mark-effects-enabled))));
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+
+.radio-input:checked + .radio-dot {
+  border-color: hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(66% * var(--radio-border-brightness-final))) / calc(0.52 * var(--radio-border-line-strength) * var(--radio-border-alpha)));
+  background:
+    radial-gradient(circle at 50% 42%, hsl(calc(293 + var(--radio-fill-hue-shift)) calc(84% * var(--radio-fill-saturation)) 72% / calc(0.22 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled))), transparent 60%),
+    linear-gradient(145deg, hsl(calc(293 + var(--radio-fill-hue-shift)) calc(84% * var(--radio-fill-saturation)) 56% / calc(0.16 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled))), hsl(calc(258 + var(--radio-fill-hue-shift)) calc(83% * var(--radio-fill-saturation)) 28% / calc(0.24 * var(--radio-fill-alpha) * var(--radio-fill-effects-enabled)))),
+    rgb(6 6 17 / 0.52);
+}
+
+.radio-input:checked + .radio-dot::before {
+  opacity: calc(var(--radio-mark-alpha) * var(--radio-mark-effects-enabled));
+  transform: scale(1);
+}
+
+.radio-input:focus-visible + .radio-dot {
+  outline: 2px solid hsl(calc(292 + var(--radio-neon-hue-shift)) calc(84% * var(--radio-neon-saturation)) 70% / 0.82);
+  outline-offset: 3px;
+}
+
+.has-fine-pointer .radio-control:not(.is-disabled):hover .radio-dot,
+.radio-control:focus-within .radio-dot {
+  transform: scale(calc(1 + 0.03 * var(--radio-motion-effects-enabled)));
+  box-shadow:
+    inset 0 1px 0 hsl(calc(292 + var(--radio-border-hue-shift)) calc(86% * var(--radio-border-saturation-final)) min(100%, calc(78% * var(--radio-border-brightness-final))) / calc(0.34 * var(--radio-border-line-strength) * var(--radio-border-alpha))),
+    inset 0 0 calc(16px * var(--radio-border-glow-inner-blur)) hsl(calc(293 + var(--radio-neon-hue-shift) + var(--radio-inner-glow-hue-shift)) calc(84% * var(--radio-neon-saturation) * var(--radio-inner-glow-saturation)) min(100%, calc(61% * var(--radio-neon-vibrance) * var(--radio-border-brightness-final))) / calc(0.24 * var(--radio-border-strength) * var(--radio-inner-glow-alpha))),
+    0 0 0 var(--radio-border-line-width) hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(61% * var(--radio-border-brightness-final))) / calc(0.32 * var(--radio-border-line-strength) * var(--radio-border-alpha))),
+    0 0 calc(28px * var(--radio-border-glow-outer-blur) / var(--radio-outer-glow-sharpness)) hsl(calc(262 + var(--radio-border-hue-shift)) calc(91% * var(--radio-border-saturation-final)) min(100%, calc(67% * var(--radio-border-brightness-final))) / calc(0.48 * var(--radio-border-strength) * var(--radio-outer-glow-alpha))),
+    0 0 calc(72px * var(--radio-border-glow-outer-blur) / var(--radio-outer-glow-sharpness)) hsl(calc(293 + var(--radio-border-hue-shift)) calc(84% * var(--radio-border-saturation-final)) min(100%, calc(61% * var(--radio-border-brightness-final))) / calc(0.26 * var(--radio-border-strength) * var(--radio-outer-glow-alpha)));
+}
+
+.radio-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.82rem;
+  font-weight: 760;
+  line-height: 1.2;
+  text-shadow:
+    0 0 1px hsl(calc(292 + var(--radio-neon-hue-shift) + var(--radio-text-hue-shift)) calc(84% * var(--radio-neon-saturation) * var(--radio-text-saturation)) 73% / calc(0.60 * var(--radio-text-glow-intensity) * var(--radio-text-effects-enabled))),
+    0 0 calc(7px * var(--radio-text-glow-blur)) hsl(calc(293 + var(--radio-neon-hue-shift) + var(--radio-text-hue-shift)) calc(84% * var(--radio-neon-saturation) * var(--radio-text-saturation)) 56% / calc(0.28 * var(--radio-text-glow-alpha) * var(--radio-text-effects-enabled)));
+}
+
+.radio-control.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
