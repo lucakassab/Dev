@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teste seu Tour Virtual — LuKassab</title>
+  <meta name="description" content="Crie uma demo client-side de tour virtual 360 com cenas, hotspots e preview sem enviar imagens para servidor." />
+  <link rel="stylesheet" href="../site.css?v=tour-tester" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="LuKassab Home">
+      <span class="brand-mark">LK</span>
+      <span>LuKassab</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" data-site-nav>
+      <a href="../index.html">Home</a>
+      <a href="../portfolio.html">Portfólio</a>
+      <a href="../orcamento.html">Orçamento</a>
+      <a class="is-active" href="./">Teste Tour</a>
+    </nav>
+  </header>
+
+  <main class="page-shell tour-tester-page">
+    <section class="page-hero tour-tester-hero">
+      <p class="eyebrow">Teste seu tour virtual</p>
+      <h1>Monte um protótipo 360° no próprio navegador.</h1>
+      <p>
+        Envie panoramas ou renders 360°, crie cenas, posicione hotspots e teste a navegação
+        antes de transformar a ideia em um projeto completo.
+      </p>
+    </section>
+
+    <section class="tour-tester" id="tour-tester" aria-label="Demo interativa de tour virtual">
+      <aside class="tour-panel tour-sidebar" aria-label="Cenas do tour">
+        <div class="tour-upload-zone" data-tour-dropzone>
+          <input id="tour-image-input" type="file" accept="image/*" multiple hidden data-tour-image-input />
+          <span class="tour-upload-icon" aria-hidden="true">360</span>
+          <h2>Adicionar panoramas</h2>
+          <p>Arraste imagens aqui ou selecione arquivos. Limite de 6 imagens, 10 MB por imagem.</p>
+          <button class="glass-button glass-button-primary" type="button" data-tour-upload-trigger>Escolher imagens</button>
+          <small>As imagens ficam apenas neste navegador. Nada é enviado para servidor.</small>
+        </div>
+
+        <div class="tour-sidebar-heading">
+          <span>Cenas</span>
+          <strong data-tour-scene-count>0 / 6</strong>
+        </div>
+        <div class="tour-scene-list" data-tour-scene-list aria-live="polite"></div>
+      </aside>
+
+      <section class="tour-view-card" aria-label="Viewer do tour virtual">
+        <div class="tour-toolbar">
+          <div class="tour-mode-switch" role="group" aria-label="Modo do tour">
+            <button class="is-active" type="button" data-tour-mode="edit">Edição</button>
+            <button type="button" data-tour-mode="preview">Preview</button>
+          </div>
+          <div class="tour-toolbar-actions">
+            <input id="tour-json-input" type="file" accept="application/json,.json" hidden data-tour-json-input />
+            <button class="glass-button" type="button" data-tour-import>Importar JSON</button>
+            <button class="glass-button" type="button" data-tour-export>Exportar JSON</button>
+            <button class="glass-button" type="button" data-tour-fullscreen>Fullscreen</button>
+            <button class="glass-button tour-danger-button" type="button" data-tour-reset>Resetar tour</button>
+          </div>
+        </div>
+
+        <div class="tour-viewer-shell" data-tour-viewer-shell>
+          <div class="tour-viewer" data-tour-viewer></div>
+          <div class="tour-hotspot-layer" data-tour-hotspot-layer aria-label="Hotspots da cena"></div>
+          <div class="tour-empty-state" data-tour-empty-state>
+            <p class="eyebrow">Nenhuma cena carregada</p>
+            <h2>Envie até 6 panoramas 360° para começar.</h2>
+            <p>Depois, clique no viewer em modo edição para posicionar hotspots e conectar as cenas.</p>
+          </div>
+          <div class="tour-watermark" data-tour-watermark>Powered by Luca Virtual Tours</div>
+        </div>
+
+        <div class="tour-commercial-cta" data-tour-cta hidden>
+          <div>
+            <p class="eyebrow">Protótipo pronto para virar escopo</p>
+            <h2>Transforme este fluxo em um orçamento real.</h2>
+            <p>Com duas cenas e um hotspot já dá para visualizar a experiência e conversar sobre plataforma, interação e entrega.</p>
+          </div>
+          <a class="glass-button glass-button-primary" href="../orcamento.html">Montar orçamento</a>
+        </div>
+
+        <p class="tour-status" data-tour-status aria-live="polite"></p>
+      </section>
+
+      <aside class="tour-panel tour-inspector" aria-label="Detalhes da cena">
+        <div class="tour-inspector-empty" data-tour-inspector-empty>
+          <p class="eyebrow">Cena</p>
+          <h2>Selecione ou envie uma imagem.</h2>
+          <p>As opções da cena aparecem aqui quando houver um panorama ativo.</p>
+        </div>
+
+        <div class="tour-inspector-content" data-tour-inspector-content hidden>
+          <div class="tour-field">
+            <label for="tour-scene-name">Nome da cena</label>
+            <input id="tour-scene-name" type="text" data-tour-scene-name />
+          </div>
+
+          <div class="tour-field">
+            <label for="tour-scene-format">Formato da imagem</label>
+            <select id="tour-scene-format" data-tour-scene-format>
+              <option value="mono">Mono</option>
+              <option value="sideBySide">Side-by-side</option>
+              <option value="topDown">Top-down</option>
+            </select>
+          </div>
+
+          <button class="glass-button full-button" type="button" data-tour-set-initial>Definir como cena inicial</button>
+
+          <div class="tour-hotspot-summary">
+            <div class="tour-sidebar-heading">
+              <span>Hotspots</span>
+              <strong data-tour-hotspot-count>0</strong>
+            </div>
+            <div class="tour-hotspot-list" data-tour-hotspot-list></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <dialog class="tour-hotspot-dialog" data-tour-hotspot-dialog>
+    <form method="dialog" class="tour-hotspot-form" data-tour-hotspot-form>
+      <header>
+        <p class="eyebrow">Hotspot</p>
+        <h2 data-tour-dialog-title>Novo hotspot</h2>
+      </header>
+
+      <label class="tour-field">
+        <span>Label</span>
+        <input type="text" maxlength="48" placeholder="Ex.: Ir para varanda" data-hotspot-label required />
+      </label>
+
+      <label class="tour-field">
+        <span>Cena de destino</span>
+        <select data-hotspot-target required></select>
+      </label>
+
+      <label class="tour-field">
+        <span>Ícone</span>
+        <select data-hotspot-icon>
+          <option value="arrow">Seta</option>
+          <option value="info">Info</option>
+          <option value="dot">Ponto</option>
+          <option value="view">Vista</option>
+        </select>
+      </label>
+
+      <div class="tour-dialog-actions">
+        <button class="glass-button tour-danger-button" type="button" data-hotspot-delete hidden>Remover</button>
+        <span></span>
+        <button class="glass-button" type="button" data-hotspot-cancel>Cancelar</button>
+        <button class="glass-button glass-button-primary" type="submit">Salvar hotspot</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <span>LuKassab</span>
+    <span>3D · VR · Web · Unreal Engine</span>
+  </footer>
+
+  <script src="../site.js?v=tour-tester"></script>
+  <script type="module" src="../tour-tester.js?v=tour-tester"></script>
+</body>
+</html>

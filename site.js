@@ -2755,6 +2755,10 @@
 
     const renderCurrentQuestion = () => {
       const question = assistiveQuestions[state.step];
+      const isFinalStep = state.step === assistiveQuestions.length - 1;
+      builder.classList.toggle("is-final-step", isFinalStep);
+      builder.dataset.advancedStep = String(state.step + 1);
+      builder.dataset.advancedStepId = question.id;
       questionKicker.textContent = question.kicker;
       questionTitle.textContent = question.title;
       questionDescription.textContent = question.description;
@@ -2778,7 +2782,7 @@
       }
 
       backButton.disabled = state.step === 0;
-      nextButton.textContent = state.step === assistiveQuestions.length - 1 ? "Preparar resumo" : "Avançar";
+      nextButton.textContent = isFinalStep ? "Preparar resumo" : "Avançar";
       updateSummary();
     };
 

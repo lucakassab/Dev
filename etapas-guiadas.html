@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Etapas Guiadas — LuKassab</title>
-  <meta name="description" content="Configure um projeto de tour virtual por etapas, escolhendo navegação, plataformas, comunicação, mídias e opções extras com prévia em tempo real." />
+  <title>Etapas Guiadas â€” LuKassab</title>
+  <meta name="description" content="Configure um projeto de tour virtual por etapas, escolhendo navegaÃ§Ã£o, plataformas, comunicaÃ§Ã£o, mÃ­dias e opÃ§Ãµes extras com prÃ©via em tempo real." />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
@@ -19,15 +19,16 @@
     </button>
     <nav class="site-nav" data-site-nav>
       <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfólio</a>
-      <a class="is-active" href="orcamento.html">Orçamento</a>
+      <a href="portfolio.html">PortfÃ³lio</a>
+      <a class="is-active" href="orcamento.html">OrÃ§amento</a>
+      <a href="teste-seu-tour-virtual/">Teste Tour</a>
     </nav>
   </header>
 
   <main class="page-shell budget-page guided-page">
     <section class="page-hero">
       <p class="eyebrow">Layout experimental C</p>
-      <h1>Orçamento guiado para definir escopo sem confusão.</h1>
+      <h1>OrÃ§amento guiado para definir escopo sem confusÃ£o.</h1>
     </section>
 
     <nav class="budget-variant-switch" aria-label="Alternar layout de orcamento">
@@ -41,8 +42,8 @@
         <span>Nome e contato.</span>
       </div>
       <div>
-        <strong>2. Mídias</strong>
-        <span>Imagens e áudios.</span>
+        <strong>2. MÃ­dias</strong>
+        <span>Imagens e Ã¡udios.</span>
       </div>
       <div>
         <strong>3. Plataformas</strong>
@@ -50,43 +51,43 @@
       </div>
       <div>
         <strong>4. Recursos</strong>
-        <span>Navegação, PWA e conexão.</span>
+        <span>NavegaÃ§Ã£o, PWA e conexÃ£o.</span>
       </div>
       <div>
         <strong>5. Detalhes</strong>
-        <span>Observações finais.</span>
+        <span>ObservaÃ§Ãµes finais.</span>
       </div>
     </section>
 
     <section class="guided-budget-layout" id="guided-budget">
-      <form class="guided-form" aria-label="Formulário guiado de orçamento">
+      <form class="guided-form" aria-label="FormulÃ¡rio guiado de orÃ§amento">
         <section class="guided-step">
-          <button class="guided-help" type="button" data-help-tooltip="Informe um nome curto para identificar o orçamento e um e-mail para associar a configuração ao cliente.">?</button>
+          <button class="guided-help" type="button" data-help-tooltip="Informe um nome curto para identificar o orÃ§amento e um e-mail para associar a configuraÃ§Ã£o ao cliente.">?</button>
           <span class="guided-step-index">01</span>
           <div>
             <h2>Projeto</h2>
-            <p>Identifique o orçamento antes de configurar as escolhas técnicas.</p>
+            <p>Identifique o orÃ§amento antes de configurar as escolhas tÃ©cnicas.</p>
           </div>
           <label class="guided-field">
             <span>Nome do projeto</span>
             <input type="text" placeholder="Ex.: Tour Apartamento Decorado" data-guided-project-name />
           </label>
           <label class="guided-field">
-            <span>E-mail para identificação</span>
+            <span>E-mail para identificaÃ§Ã£o</span>
             <input type="email" inputmode="email" autocomplete="email" placeholder="cliente@email.com" data-guided-email />
           </label>
         </section>
 
         <section class="guided-step">
-          <button class="guided-help" type="button" data-help-tooltip="Informe quantas imagens 360° e áudios entram no projeto. Esses itens entram no cálculo por unidade e não dependem da plataforma escolhida.">?</button>
+          <button class="guided-help" type="button" data-help-tooltip="Informe quantas imagens 360Â° e Ã¡udios entram no projeto. Esses itens entram no cÃ¡lculo por unidade e nÃ£o dependem da plataforma escolhida.">?</button>
           <span class="guided-step-index">02</span>
           <div>
-            <h2>Número de mídias</h2>
-            <p>Defina primeiro o volume de imagens e áudios do projeto.</p>
+            <h2>NÃºmero de mÃ­dias</h2>
+            <p>Defina primeiro o volume de imagens e Ã¡udios do projeto.</p>
           </div>
           <div class="guided-media-grid">
             <div class="quantity-control">
-              <span>Imagens 360° – R$ 200 por mídia</span>
+              <span>Imagens 360Â° â€“ R$ 200 por mÃ­dia</span>
               <div class="quantity-input-row">
                 <div class="site-spinbox">
                   <button type="button" data-guided-step-for="images" data-step="-1" aria-label="Diminuir imagens">-</button>
@@ -96,21 +97,21 @@
               </div>
             </div>
             <div class="quantity-control">
-              <span>Áudios – R$ 200 por áudio</span>
+              <span>Ãudios â€“ R$ 200 por Ã¡udio</span>
               <div class="quantity-input-row">
                 <div class="site-spinbox">
-                  <button type="button" data-guided-step-for="audios" data-step="-1" aria-label="Diminuir áudios">-</button>
+                  <button type="button" data-guided-step-for="audios" data-step="-1" aria-label="Diminuir Ã¡udios">-</button>
                   <input type="text" inputmode="numeric" min="0" max="999" maxlength="3" value="3" data-guided-qty="audios" readonly aria-readonly="true" />
-                  <button type="button" data-guided-step-for="audios" data-step="1" aria-label="Aumentar áudios">+</button>
+                  <button type="button" data-guided-step-for="audios" data-step="1" aria-label="Aumentar Ã¡udios">+</button>
                 </div>
               </div>
             </div>
           </div>
-          <p class="guided-inline-note">As mídias entram no cálculo em tempo real: cada imagem 360° e cada áudio adiciona R$ 200 ao orçamento.</p>
+          <p class="guided-inline-note">As mÃ­dias entram no cÃ¡lculo em tempo real: cada imagem 360Â° e cada Ã¡udio adiciona R$ 200 ao orÃ§amento.</p>
         </section>
 
         <section class="guided-step" data-guided-platform-step>
-          <button class="guided-help" type="button" data-help-tooltip="Selecione apenas os destinos em que o projeto deve rodar. PWA, navegação e comunicação ficam no card de recursos.">?</button>
+          <button class="guided-help" type="button" data-help-tooltip="Selecione apenas os destinos em que o projeto deve rodar. PWA, navegaÃ§Ã£o e comunicaÃ§Ã£o ficam no card de recursos.">?</button>
           <span class="guided-step-index">03</span>
           <div>
             <h2>Plataformas de entrega</h2>
@@ -125,96 +126,96 @@
             <button class="guided-choice" type="button" data-guided-platform="windows" aria-pressed="false">Windows</button>
           </div>
           <p class="guided-warning" data-guided-platform-warning hidden>Selecione pelo menos uma plataforma para continuar.</p>
-          <p class="guided-inline-note">PWA deixou de ser plataforma. Caso seja necessário, marque esse recurso no próximo card.</p>
+          <p class="guided-inline-note">PWA deixou de ser plataforma. Caso seja necessÃ¡rio, marque esse recurso no prÃ³ximo card.</p>
         </section>
 
         <section class="guided-step">
-          <button class="guided-help" type="button" data-help-tooltip="Selecione os recursos que mudam a complexidade do projeto, como navegação, PWA, comunicação entre dispositivos, hotspots e painéis.">?</button>
+          <button class="guided-help" type="button" data-help-tooltip="Selecione os recursos que mudam a complexidade do projeto, como navegaÃ§Ã£o, PWA, comunicaÃ§Ã£o entre dispositivos, hotspots e painÃ©is.">?</button>
           <span class="guided-step-index">04</span>
           <div>
             <h2>Recursos</h2>
-            <p>Escolha comportamentos e capacidades adicionais da experiência.</p>
+            <p>Escolha comportamentos e capacidades adicionais da experiÃªncia.</p>
           </div>
           <div class="guided-resource-stack">
             <div class="guided-resource-group">
-              <span class="guided-control-label">Modo de navegação</span>
+              <span class="guided-control-label">Modo de navegaÃ§Ã£o</span>
               <label class="guided-nav-switch">
-                <span>Navegação simples</span>
-                <input type="checkbox" data-guided-nav-switch aria-label="Alternar para navegação complexa" />
+                <span>NavegaÃ§Ã£o simples</span>
+                <input type="checkbox" data-guided-nav-switch aria-label="Alternar para navegaÃ§Ã£o complexa" />
                 <i aria-hidden="true"></i>
-                <span>Navegação complexa</span>
+                <span>NavegaÃ§Ã£o complexa</span>
               </label>
-              <p class="guided-price-hint">Simples cobre o mínimo necessário por R$ 2.500. Complexa inclui hotspots ou interface mais sofisticada por R$ 5.000.</p>
+              <p class="guided-price-hint">Simples cobre o mÃ­nimo necessÃ¡rio por R$ 2.500. Complexa inclui hotspots ou interface mais sofisticada por R$ 5.000.</p>
             </div>
 
             <div class="guided-resource-group">
-              <span class="guided-control-label">Comunicação entre dispositivos</span>
-              <div class="guided-communication-grid" role="radiogroup" aria-label="Comunicação entre dispositivos">
+              <span class="guided-control-label">ComunicaÃ§Ã£o entre dispositivos</span>
+              <div class="guided-communication-grid" role="radiogroup" aria-label="ComunicaÃ§Ã£o entre dispositivos">
                 <button class="guided-radio is-selected" type="button" data-guided-communication="none" aria-pressed="true">
-                  <strong>Sem comunicação</strong>
+                  <strong>Sem comunicaÃ§Ã£o</strong>
                   <span>Plataformas independentes.</span>
                 </button>
                 <button class="guided-radio" type="button" data-guided-communication="tcp" aria-pressed="false">
-                  <strong>Comunicação TCP</strong>
-                  <span>Tablet controla recursos da experiência VR.</span>
+                  <strong>ComunicaÃ§Ã£o TCP</strong>
+                  <span>Tablet controla recursos da experiÃªncia VR.</span>
                 </button>
                 <button class="guided-radio" type="button" data-guided-communication="bluetooth" aria-pressed="false">
-                  <strong>Sincronização Bluetooth</strong>
-                  <span>Sincronização entre dispositivos compatíveis.</span>
+                  <strong>SincronizaÃ§Ã£o Bluetooth</strong>
+                  <span>SincronizaÃ§Ã£o entre dispositivos compatÃ­veis.</span>
                 </button>
                 <button class="guided-radio" type="button" data-guided-communication="webrtc" aria-pressed="false">
-                  <strong>Comunicação WebRTC</strong>
-                  <span>Comunicação web em tempo real.</span>
+                  <strong>ComunicaÃ§Ã£o WebRTC</strong>
+                  <span>ComunicaÃ§Ã£o web em tempo real.</span>
                 </button>
               </div>
-              <p class="guided-inline-note">TCP pressupõe Meta Quest + Tablet. Bluetooth e WebRTC direcionam a prévia para uma solução web.</p>
+              <p class="guided-inline-note">TCP pressupÃµe Meta Quest + Tablet. Bluetooth e WebRTC direcionam a prÃ©via para uma soluÃ§Ã£o web.</p>
             </div>
 
             <div class="guided-resource-group">
               <span class="guided-control-label">Recursos adicionais</span>
               <div class="guided-chip-grid guided-extra-grid" aria-label="Recursos adicionais do projeto">
-                <button class="guided-choice" type="button" data-guided-extra="pwa-install" aria-pressed="false">PWA instalável</button>
+                <button class="guided-choice" type="button" data-guided-extra="pwa-install" aria-pressed="false">PWA instalÃ¡vel</button>
                 <button class="guided-choice" type="button" data-guided-extra="hotspots" aria-pressed="false">Hotspots informativos</button>
                 <button class="guided-choice" type="button" data-guided-extra="control-panel" aria-pressed="false">Painel de controle</button>
-                <button class="guided-choice" type="button" data-guided-extra="lighting-states" aria-pressed="false">Estados de iluminação</button>
+                <button class="guided-choice" type="button" data-guided-extra="lighting-states" aria-pressed="false">Estados de iluminaÃ§Ã£o</button>
               </div>
             </div>
           </div>
         </section>
 
         <section class="guided-step">
-          <button class="guided-help" type="button" data-help-tooltip="Descreva objetivos, referências, ambientes e necessidades importantes para refinar o escopo comercial.">?</button>
+          <button class="guided-help" type="button" data-help-tooltip="Descreva objetivos, referÃªncias, ambientes e necessidades importantes para refinar o escopo comercial.">?</button>
           <span class="guided-step-index">05</span>
           <div>
             <h2>Detalhes do projeto</h2>
-            <p>Finalize com observações importantes para alinhar o escopo.</p>
+            <p>Finalize com observaÃ§Ãµes importantes para alinhar o escopo.</p>
           </div>
 
           <label class="guided-field">
             <span>Detalhes do projeto</span>
-            <textarea rows="4" placeholder="Descreva objetivos, ambientes, referências, plataformas desejadas ou observações importantes." data-guided-project-details></textarea>
+            <textarea rows="4" placeholder="Descreva objetivos, ambientes, referÃªncias, plataformas desejadas ou observaÃ§Ãµes importantes." data-guided-project-details></textarea>
           </label>
         </section>
       </form>
 
-      <aside class="guided-preview" aria-label="Prévia do orçamento">
-        <button class="guided-help" type="button" data-help-tooltip="Esta prévia atualiza automaticamente a opção estimada, os itens selecionados e o valor conforme as escolhas do formulário.">?</button>
-        <p class="eyebrow">Prévia em tempo real</p>
+      <aside class="guided-preview" aria-label="PrÃ©via do orÃ§amento">
+        <button class="guided-help" type="button" data-help-tooltip="Esta prÃ©via atualiza automaticamente a opÃ§Ã£o estimada, os itens selecionados e o valor conforme as escolhas do formulÃ¡rio.">?</button>
+        <p class="eyebrow">PrÃ©via em tempo real</p>
         <h2 data-guided-preview-title>Projeto sem nome</h2>
-        <p data-guided-preview-option>Meta Quest com navegação simples</p>
+        <p data-guided-preview-option>Meta Quest com navegaÃ§Ã£o simples</p>
         <div class="chip-row summary-chips" data-guided-preview-chips aria-label="Escolhas selecionadas"></div>
 
         <div class="guided-preview-list">
           <div>
-            <span>Solução base</span>
+            <span>SoluÃ§Ã£o base</span>
             <strong data-guided-base>R$ 2.500</strong>
           </div>
           <div>
-            <span>Imagens 360°</span>
+            <span>Imagens 360Â°</span>
             <strong data-guided-images>R$ 2.000</strong>
           </div>
           <div>
-            <span>Áudios</span>
+            <span>Ãudios</span>
             <strong data-guided-audios>R$ 600</strong>
           </div>
         </div>
@@ -225,10 +226,10 @@
         </div>
 
         <div class="guided-preview-note" data-guided-note>
-          A seleção atual usa a opção base mais próxima do orçamento tradicional.
+          A seleÃ§Ã£o atual usa a opÃ§Ã£o base mais prÃ³xima do orÃ§amento tradicional.
         </div>
 
-        <button class="glass-button glass-button-primary full-button" type="button" data-guided-send>Enviar orçamento</button>
+        <button class="glass-button glass-button-primary full-button" type="button" data-guided-send>Enviar orÃ§amento</button>
         <p class="copy-status" data-guided-status aria-live="polite"></p>
       </aside>
     </section>
@@ -236,7 +237,7 @@
 
   <footer class="site-footer">
     <span>LuKassab</span>
-    <span>3D · VR · Web · Unreal Engine</span>
+    <span>3D Â· VR Â· Web Â· Unreal Engine</span>
   </footer>
   <script src="site.js"></script>
 </body>
