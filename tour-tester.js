@@ -9,6 +9,12 @@ import * as THREE from "./vendor/three/three.module.min.js";
   const MAX_SCENES = 6;
   const MAX_IMAGE_SIZE_MB = 50;
   const MAX_IMAGE_SIZE = MAX_IMAGE_SIZE_MB * 1024 * 1024;
+  const DESKTOP_TEXTURE_EDGE = 4096;
+  const MOBILE_TEXTURE_EDGE = 3072;
+  const DESKTOP_TEXTURE_PIXELS = 4096 * 2048;
+  const MOBILE_TEXTURE_PIXELS = 3072 * 1536;
+  const DESKTOP_TEXTURE_CACHE_LIMIT = 3;
+  const MOBILE_TEXTURE_CACHE_LIMIT = 2;
   const DB_NAME = "lukassab-tour-tester-v1";
   const DB_VERSION = 1;
   const IMAGE_STORE = "images";
@@ -70,6 +76,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
     texture: null,
     textureToken: 0,
     preloadToken: 0,
+    textureUseCounter: 0,
     restoreComplete: false
   };
 
@@ -166,6 +173,9 @@ import * as THREE from "./vendor/three/three.module.min.js";
       if (scene.imageUrl) {
         URL.revokeObjectURL(scene.imageUrl);
       }
+      if (scene.thumbnailUrl) {
+        URL.revokeObjectURL(scene.thumbnailUrl);
+      }
     });
   };
 
@@ -230,7 +240,82 @@ import * as THREE from "./vendor/three/three.module.min.js";
     return { sx: 0, sy: 0, sw: image.width, sh: image.height };
   };
 
-  const getTextureCacheKey = (scene) => `${scene.imageKey || scene.imageName}:${scene.imageFormat}`;
+  const createThumbnailUrl = async (blob) => {
+    const url = URL.createObjectURL(blob);
+    try {
+      const image = await loadImage(url);
+      const canvas = document.createElement("canvas");
+      canvas.width = 192;
+      canvas.height = 108;
+      const ratio = Math.max(canvas.width / image.width, canvas.height / image.height);
+      const width = image.width * ratio;
+      const height = image.height * ratio;
+      const x = (canvas.width - width) / 2;
+      const y = (canvas.height - height) / 2;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(image, x, y, width, height);
+      const thumbnailBlob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.76));
+      return thumbnailBlob ? URL.createObjectURL(thumbnailBlob) : "";
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  };
+
+  const refreshSceneThumbnail = async (scene) => {
+    if (!scene?.imageBlob || scene.thumbnailUrl) {
+      return;
+    }
+    try {
+      scene.thumbnailUrl = await createThumbnailUrl(scene.imageBlob);
+      renderSceneList();
+    } catch {
+      scene.thumbnailUrl = "";
+    }
+  };
+
+  const refreshSceneThumbnails = () => {
+    state.scenes.forEach((scene) => {
+      refreshSceneThumbnail(scene);
+    });
+  };
+
+  const getTextureCacheKey = (scene) => `${scene.imageKey || scene.imageName}:${scene.imageFormat}:preview-v2`;
+
+  const getTextureBudget = () => {
+    const isMobile = window.matchMedia("(max-width: 760px)").matches;
+    const glEdge = viewer.renderer?.capabilities?.maxTextureSize || DESKTOP_TEXTURE_EDGE;
+    return {
+      edge: Math.min(glEdge, isMobile ? MOBILE_TEXTURE_EDGE : DESKTOP_TEXTURE_EDGE),
+      pixels: isMobile ? MOBILE_TEXTURE_PIXELS : DESKTOP_TEXTURE_PIXELS,
+      cacheLimit: isMobile ? MOBILE_TEXTURE_CACHE_LIMIT : DESKTOP_TEXTURE_CACHE_LIMIT
+    };
+  };
+
+  const getTextureOutputSize = (crop) => {
+    const budget = getTextureBudget();
+    const scale = Math.min(1, budget.edge / crop.sw, budget.edge / crop.sh, Math.sqrt(budget.pixels / (crop.sw * crop.sh)));
+    return {
+      width: Math.max(1, Math.round(crop.sw * scale)),
+      height: Math.max(1, Math.round(crop.sh * scale))
+    };
+  };
+
+  const markTextureUsed = (scene) => {
+    if (scene?.textureCache?.texture) {
+      state.textureUseCounter += 1;
+      scene.textureCache.lastUsed = state.textureUseCounter;
+    }
+  };
+
+  const getPreferredCacheSceneIds = () => {
+    const activeScene = getActiveScene();
+    const ids = new Set();
+    if (activeScene) {
+      ids.add(activeScene.id);
+      activeScene.hotspots.forEach((hotspot) => ids.add(hotspot.targetSceneId));
+    }
+    return ids;
+  };
 
   const disposeSceneTexture = (scene) => {
     if (!scene?.textureCache) {
@@ -238,6 +323,32 @@ import * as THREE from "./vendor/three/three.module.min.js";
     }
     scene.textureCache.texture?.dispose();
     scene.textureCache = null;
+  };
+
+  const pruneTextureCache = () => {
+    const { cacheLimit } = getTextureBudget();
+    const preferredIds = getPreferredCacheSceneIds();
+    const cachedScenes = state.scenes.filter((scene) => scene.textureCache?.texture);
+
+    if (cachedScenes.length <= cacheLimit) {
+      return;
+    }
+
+    cachedScenes
+      .sort((a, b) => {
+        const aPreferred = preferredIds.has(a.id) ? 1 : 0;
+        const bPreferred = preferredIds.has(b.id) ? 1 : 0;
+        if (aPreferred !== bPreferred) {
+          return aPreferred - bPreferred;
+        }
+        return (a.textureCache.lastUsed || 0) - (b.textureCache.lastUsed || 0);
+      })
+      .slice(0, cachedScenes.length - cacheLimit)
+      .forEach((scene) => {
+        if (scene.id !== state.activeSceneId) {
+          disposeSceneTexture(scene);
+        }
+      });
   };
 
   const disposeAllSceneTextures = () => {
@@ -253,9 +364,10 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
     const image = await loadImage(scene.imageUrl);
     const crop = getCropRect(image, scene.imageFormat);
+    const output = getTextureOutputSize(crop);
     const canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, crop.sw);
-    canvas.height = Math.max(1, crop.sh);
+    canvas.width = output.width;
+    canvas.height = output.height;
     const ctx = canvas.getContext("2d");
     ctx.drawImage(image, crop.sx, crop.sy, crop.sw, crop.sh, 0, 0, canvas.width, canvas.height);
 
@@ -265,6 +377,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
     texture.magFilter = THREE.LinearFilter;
     texture.wrapS = THREE.ClampToEdgeWrapping;
     texture.wrapT = THREE.ClampToEdgeWrapping;
+    texture.generateMipmaps = false;
     texture.needsUpdate = true;
     return texture;
   };
@@ -284,7 +397,9 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
     disposeSceneTexture(scene);
     const promise = buildTexture(scene).then((texture) => {
-      scene.textureCache = { cacheKey, texture, promise: null };
+      state.textureUseCounter += 1;
+      scene.textureCache = { cacheKey, texture, promise: null, lastUsed: state.textureUseCounter };
+      pruneTextureCache();
       return texture;
     }).catch((error) => {
       scene.textureCache = null;
@@ -296,7 +411,14 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
   const preloadSceneTextures = () => {
     const token = ++state.preloadToken;
-    const scenes = [...state.scenes];
+    const { cacheLimit } = getTextureBudget();
+    const activeScene = getActiveScene();
+    const targetIds = activeScene
+      ? Array.from(new Set(activeScene.hotspots.map((hotspot) => hotspot.targetSceneId))).slice(0, Math.max(0, cacheLimit - 1))
+      : [];
+    const scenes = targetIds
+      .map((id) => state.scenes.find((scene) => scene.id === id))
+      .filter(Boolean);
 
     const run = async () => {
       for (const scene of scenes) {
@@ -305,6 +427,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
         }
         try {
           await prepareSceneTexture(scene);
+          pruneTextureCache();
         } catch {
           // Individual preload failures are surfaced when the user selects the scene.
         }
@@ -493,9 +616,11 @@ import * as THREE from "./vendor/three/three.module.min.js";
         return;
       }
       state.texture = texture;
+      markTextureUsed(activeScene);
       viewer.material.map = texture;
       viewer.material.color.set(0xffffff);
       viewer.material.needsUpdate = true;
+      pruneTextureCache();
     } catch (error) {
       setStatus(error.message || "Não foi possível exibir a cena.", "error");
     }
@@ -549,9 +674,9 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
       const thumb = document.createElement("span");
       thumb.className = "tour-scene-thumb";
-      if (scene.imageUrl) {
+      if (scene.thumbnailUrl) {
         const image = document.createElement("img");
-        image.src = scene.imageUrl;
+        image.src = scene.thumbnailUrl;
         image.alt = "";
         image.loading = "lazy";
         thumb.appendChild(image);
@@ -651,6 +776,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
       viewer.pitch = 0;
     }
     render();
+    preloadSceneTextures();
   };
 
   const attachImageToScene = async (scene, file) => {
@@ -668,12 +794,16 @@ import * as THREE from "./vendor/three/three.module.min.js";
     if (scene.imageUrl) {
       URL.revokeObjectURL(scene.imageUrl);
     }
+    if (scene.thumbnailUrl) {
+      URL.revokeObjectURL(scene.thumbnailUrl);
+    }
     disposeSceneTexture(scene);
     scene.imageKey = key;
     scene.imageName = file.name;
     scene.imageSize = file.size;
     scene.imageUrl = URL.createObjectURL(file);
     scene.imageBlob = file;
+    scene.thumbnailUrl = await createThumbnailUrl(file);
     scene.missingImage = false;
   };
 
@@ -686,6 +816,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
       imageFormat: "mono",
       imageUrl: "",
       imageBlob: null,
+      thumbnailUrl: "",
       imageKey: imageKey(file.name, file.size),
       missingImage: false,
       textureCache: null,
@@ -816,6 +947,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
     closeHotspotDialog();
     render({ keepTexture: true });
+    preloadSceneTextures();
     setStatus("Hotspot salvo.", "success");
   };
 
@@ -853,6 +985,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
       imageKey: record?.key || key,
       imageUrl: record?.blob ? URL.createObjectURL(record.blob) : "",
       imageBlob: record?.blob || null,
+      thumbnailUrl: "",
       missingImage: !record?.blob,
       textureCache: null,
       hotspots: []
@@ -890,6 +1023,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
       state.initialSceneId = validIds.has(data.initialSceneId) ? data.initialSceneId : importedScenes[0]?.id || "";
       state.activeSceneId = state.initialSceneId;
       render();
+      refreshSceneThumbnails();
       preloadSceneTextures();
 
       const missingCount = importedScenes.filter((scene) => scene.missingImage).length;
@@ -949,6 +1083,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
       state.activeSceneId = state.initialSceneId || state.scenes[0]?.id || "";
       state.restoreComplete = true;
       render();
+      refreshSceneThumbnails();
       preloadSceneTextures();
     } catch {
       state.restoreComplete = true;
