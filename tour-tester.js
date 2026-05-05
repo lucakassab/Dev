@@ -7,7 +7,8 @@ import * as THREE from "./vendor/three/three.module.min.js";
   }
 
   const MAX_SCENES = 6;
-  const MAX_IMAGE_SIZE = 10 * 1024 * 1024;
+  const MAX_IMAGE_SIZE_MB = 50;
+  const MAX_IMAGE_SIZE = MAX_IMAGE_SIZE_MB * 1024 * 1024;
   const DB_NAME = "lukassab-tour-tester-v1";
   const DB_VERSION = 1;
   const IMAGE_STORE = "images";
@@ -639,7 +640,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
     for (const file of imageFiles) {
       if (file.size > MAX_IMAGE_SIZE) {
-        messages.push(`${file.name} excede 10 MB.`);
+        messages.push(`${file.name} excede ${MAX_IMAGE_SIZE_MB} MB.`);
         continue;
       }
 
